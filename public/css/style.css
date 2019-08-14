@@ -1,0 +1,38 @@
+
+/* Background. */
+body {
+    background-image: url("MEME");
+    background-size: 100% auto;
+}
+
+/* Navigation bar. */
+.navbar-default {
+    background-color: #22292f;
+}
+
+/* Panel header.  */
+.panel-default>.panel-heading {
+    background-color: #22292f;
+    color: #FFFFFF;
+}
+
+.panel {
+    margin-bottom: 22px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.panel-heading {
+    padding: 8px 12px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+/* Font size for page headings. */
+.page-heading {
+    font-size: 145%;
+    margin: 0 0;
+}
+

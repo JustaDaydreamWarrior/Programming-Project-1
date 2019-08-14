@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('title')
-{{$title}}
+	{{$title}}
 @endsection
 
 @section('content')
-        <h1>this is services page</h1>
+        <h1>this is the support page</h1>
         @if(count($services) > 0)
             <ul class="list-group">
                 @foreach($services as $service)

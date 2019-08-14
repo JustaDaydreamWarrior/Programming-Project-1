@@ -6,13 +6,8 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-
-    public function welcome(){
-        return view('pages/welcome');
-    }
-
     public function index(){
-        $title = 'Home';
+        $title = 'Index';
         return view('pages/index')->with('title', $title);
     }
 
