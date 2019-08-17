@@ -15,11 +15,6 @@ class PagesController extends Controller
         $title = 'About';
         return view('pages/about')->with('title', $title);
     }
-	
-	public function login(){
-        $title = 'Login';
-        return view('pages/login')->with('title', $title);
-    }
 
     public function services(){
         $data = array(

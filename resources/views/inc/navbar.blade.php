@@ -1,3 +1,6 @@
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('icon.png') }}">
+
 <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-6">
@@ -10,8 +13,9 @@
 
         <!-- Product title & Image -->
         <a class="navbar-brand" href="{{ asset('/') }}">
-            <span class="icon.jpg"></span> Handshake - Job Matchmaking
-        </a>
+            <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+                <img class="icon" src="icon_inverted.png" style ="width: 40px;height: 40px;">
+             </span> Handshake</a>
 
         <form class="form-inline my-2 my-lg-0 ml-auto">
             <button type="button" class="btn btn-outline-primary" style="margin:5px;">Login</button>
