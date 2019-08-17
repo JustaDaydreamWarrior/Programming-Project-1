@@ -8,7 +8,7 @@
         <nav class="navbar navbar-dark bg-dark">
                 <a class="navbar-brand" href="/">Handshake - Job Matchmaking</a>
                 <form class="form-inline my-2 my-lg-0 ml-auto">
-                  <button type="button" class="btn btn-outline-primary" style="margin:5px;">Login</button>
+                  <button type="button" class="btn btn-outline-primary" style="margin:5px;" href="/about">Login</button>
                   <button type="button" class="btn btn-outline-primary" style="margin-right:5px;">Register</button>
                 </form>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,6 +21,9 @@
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="/services">Services</a>
+                        </li>
+						<li class="nav-item">
+                        <a class="nav-link" href="/login">Login</a>
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="/services">Login</a>
