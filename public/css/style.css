@@ -7,20 +7,22 @@ body {
 
 /* Navigation bar. */
 .navbar-default {
-    background-color: #22292f;
+    background-color: #394047;
 }
+
 
 .panel {
     margin-bottom: 22px;
     background-color: #fff;
     border: 1px solid transparent;
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 4px rgba(32, 18, 47, 0.4);
 }
 
 .panel-heading {
-    background-color: #22292f;
-    color: #FFFFFF;
+    background-color: #394047;
+    color: #fff;
+    text-align: center;
     padding: 8px 12px;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
@@ -32,7 +34,7 @@ body {
 
 
 .divider {
-    background-color: #22292f;
+    background-color: #394047;
     color: #FFFFFF;
     padding: 3px  3px;
     text-align: center;

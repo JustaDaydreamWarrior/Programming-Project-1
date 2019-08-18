@@ -14,12 +14,12 @@
         <!-- Product title & Image -->
         <a class="navbar-brand" href="{{ asset('/') }}">
             <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
-                <img class="icon" src="icon_inverted.png" style ="width: 40px;height: 40px;">
+                <img class="icon" src="icon_inverted.png" style="width: 40px;height: 40px;">
              </span> Handshake</a>
 
         <form class="form-inline my-2 my-lg-0 ml-auto">
-            <button type="button" class="btn btn-outline-primary" style="margin:5px;">Login</button>
-            <button type="button" class="btn btn-outline-primary" style="margin-right:5px;">Register</button>
+            <button type="button" onclick="location.href='login'" class="btn btn-outline-primary" style="margin:5px;">Login</button>
+            <button type="button" onclick="location.href='register'" class="btn btn-outline-primary" style="margin-right:5px; ">Register</button>
         </form>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -33,7 +33,7 @@
                     <a class="nav-link" href="about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="services">Services</a>
+                    <a class="nav-link" href="support">Support</a>
                 </li>
             </ul>
         </div>
