@@ -47,7 +47,7 @@
 
                             <div class="col-md-3 col-sm-6 col-xs-2 col-lg-3 col-xl-3">
                                 <a href="#" class="thumbnail">
-                                    <img src="{{ asset('img/placeholder.png') }}" alt="Jeff"
+                                    <img src="{{ asset('img/feelssadfrog.jpeg') }}" alt="Jeff"
                                          style="height: 120px; width: 120px; display: block;">
                                 </a>
                                 <div class="caption"><h5>Zhengjie Jiang</h5>
