@@ -64,10 +64,9 @@
                         <p> Group54 was formed in Semester 2 of 2019 in order to complete a Programming Project at RMIT </p>
                         <p> This website is the result of the team's work</p>
                     </div>
-
-
-
-
+            </div>
+        </div>
+    </div>
 
 @endsection
 
