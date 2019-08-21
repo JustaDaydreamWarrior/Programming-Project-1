@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-        <h1>Support</h1>
+        <h1 class="mt-3 mb-3">Support</h1>
         @if(count($services) > 0)
             <ul class="list-group">
                 @foreach($services as $service)

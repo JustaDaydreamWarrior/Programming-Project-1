@@ -13,9 +13,14 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
+        
+        // $ php artisan make:migration add_xxx_column_to_bbb_table --table=bbb
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
+            $table->string('f_name');
+            $table->string('l_name');
+            $table->text('phone_number');
             $table->mediumText('body');
             $table->timestamps();
         });
