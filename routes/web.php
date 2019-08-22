@@ -26,3 +26,6 @@ Route::get('/support', 'PagesController@support');
 Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
