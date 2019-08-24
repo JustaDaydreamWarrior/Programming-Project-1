@@ -1,0 +1,48 @@
+
+/* Background. */
+body {
+    background-size: 10%;
+    background: url("background.jpg") no-repeat;
+}
+
+/* Navigation bar. */
+.navbar-default {
+    background-color: #394047;
+}
+
+
+.panel {
+    margin-bottom: 22px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(32, 18, 47, 0.4);
+}
+
+.panel-heading {
+    background-color: #394047;
+    color: #fff;
+    text-align: center;
+    padding: 8px 12px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.panel-body{
+    padding: 8px 8px;
+}
+
+
+
+.divider {
+    background-color: #394047;
+    color: #FFFFFF;
+    padding: 3px  3px;
+    text-align: center;
+}
+
+/* Font size for page headings. */
+.page-heading {
+    font-size: 145%;
+    margin: 0 0;
+}
+
