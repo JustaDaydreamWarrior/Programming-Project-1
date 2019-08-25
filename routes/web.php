@@ -15,7 +15,7 @@
 //     return view('welcome');
 // });
 
-Route::get('/welcome', 'PagesController@welcome');
+//Route::get('/welcome', 'PagesController@welcome');
 
 Route::get('/', 'PagesController@index');
 
@@ -26,6 +26,9 @@ Route::get('/support', 'PagesController@support');
 Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
+
+Route::resource('posts', 'PostsController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

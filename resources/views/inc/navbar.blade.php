@@ -14,7 +14,7 @@
         <!-- Product title & Image -->
         <a class="navbar-brand" href="{{ asset('/') }}">
             <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
-                <img class="icon" src="icon_inverted.png" style="width: 40px;height: 40px;">
+                <img class="icon" src="/icon_inverted.png" style="width: 40px;height: 40px;">
              </span> Handshake</a>
 
         <form class="form-inline my-2 my-lg-0 ml-auto">
@@ -30,10 +30,20 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="about">About</a>
+                    <!-- change 'project.team' to your virtualhost name -->
+
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="support">Support</a>
+                    <a class="nav-link" href="/support">Support</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/posts">Posts</a>
+                </li>
+            </ul>
+            <ul class='nav navbar-nav navbar-right'>
+                <li>
+                    <a href='/posts/create'>Create Post</a>
                 </li>
             </ul>
         </div>

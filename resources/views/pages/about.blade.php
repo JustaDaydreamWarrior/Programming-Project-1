@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <h1 align="center">About us</h1>
+    <h1 align="center" class="mt-3 mb-3">About us</h1>
 
     <br>
     <div class="container">
