@@ -31,18 +31,19 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <!-- change 'project.team' to your virtualhost name -->
-                    <a class="nav-link" href="http://project.team/about">About</a>
+
+                    <a class="nav-link" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://project.team/support">Support</a>
+                    <a class="nav-link" href="/support">Support</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://project.team/posts">Posts</a>
+                    <a class="nav-link" href="/posts">Posts</a>
                 </li>
             </ul>
             <ul class='nav navbar-nav navbar-right'>
                 <li>
-                    <a href='http://project.team/posts/create'>Create Post</a>
+                    <a href='/posts/create'>Create Post</a>
                 </li>
             </ul>
         </div>
