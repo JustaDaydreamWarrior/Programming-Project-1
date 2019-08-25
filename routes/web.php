@@ -27,6 +27,8 @@ Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
 
+Route::resource('jobPosts', 'JobPostsController');
+
 Route::resource('posts', 'PostsController');
 
 Auth::routes();

@@ -17,12 +17,8 @@ class PagesController extends Controller
     }
 
     public function support(){
-        $data = array(
-        'title' => 'Support',
-        'services' => ['A', 'B', 'C']
-        );
-
-        return view('pages/support')->with($data);
+        $title = 'Support';
+        return view('pages/support')->with('title', $title);
     }
 
     public function login(){

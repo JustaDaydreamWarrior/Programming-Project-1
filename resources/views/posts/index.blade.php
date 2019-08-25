@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="mt-3 mb-3">Posts</h1>
+    <h1 class="mt-3 mb-3">Support Tickets</h1>
     @if(count($posts) > 0)
         @foreach($posts as $post)
             <div class="card card-body bg-light p-3 mt-3 mb-3">
@@ -12,6 +12,6 @@
         @endforeach
         {{$posts->links()}}
     @else
-        <p>No Posts Found</p>
+        <p>No Tickets Found</p>
     @endif
 @endsection
