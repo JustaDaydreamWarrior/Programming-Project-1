@@ -16,8 +16,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('id')->unique();
-            $table->primary('id');
+            $table->bigIncrements('id');
             //User details
             $table->string('name');
             $table->string('email')->unique();
@@ -43,7 +42,9 @@ class CreateUsersTable extends Migration
             $table->boolean('javascript');
             $table->boolean('sql');
             $table->boolean('unix');
-            $table->boolean('windows');
+            $table->boolean('windows10');
+            $table->boolean('windows7');
+            $table->boolean('windowsOld');
             $table->boolean('windowsServer');
             $table->boolean('macOS');
             $table->boolean('linux');

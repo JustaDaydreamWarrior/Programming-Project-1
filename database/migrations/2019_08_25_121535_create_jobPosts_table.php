@@ -18,8 +18,7 @@ class CreateJobPostsTable extends Migration
 
         // $ php artisan make:migration add_xxx_column_to_bbb_table --table=bbb
         Schema::create('jobs', function (Blueprint $table) {
-            $table->uuid('id')->unique();
-            $table->primary('id');
+            $table->bigIncrements('id');
             //Job Information
             $table->string('title');
             $table->string('hours');
