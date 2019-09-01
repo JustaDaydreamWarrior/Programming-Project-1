@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('state');
             $table->string('city');
             $table->integer('experience');
-            //Education is represented by a number, 1 meaning a Certificate and so on..
+            //Education is represented by a number, higher being a better qualification.
             $table->integer('education');
 
             // User's skills

@@ -637,7 +637,7 @@
                                     <label for="ciscoSystems" class="label.mdl-checkbox">Cisco Networking</label>
 
                                     <div>
-                                        <input id="ciscoSystems-hidden" type="hidden" name="ciscoSystem"
+                                        <input id="ciscoSystems-hidden" type="hidden" name="ciscoSystems"
                                                value="0">
                                         <input id="ciscoSystems" type="checkbox" name="ciscoSystems"
                                                value="{{ old('ciscoSystems', 1) }}">
