@@ -43,6 +43,9 @@ class UserTableSeeder extends Seeder
             'ruby' => 0,
             'powershell' => 1,
             'rust' => 0,
+            'iOS' => 0,
+            'adobe' => 1,
+            'cloud' => 0,
         ]);
 
         DB::table('users')->insert([
@@ -77,6 +80,9 @@ class UserTableSeeder extends Seeder
             'ruby' => 0,
             'powershell' => 0,
             'rust' => 0,
+            'iOS' => 1,
+            'adobe' => 0,
+            'cloud' => 1,
         ]);
 
         DB::table('users')->insert([
@@ -110,7 +116,10 @@ class UserTableSeeder extends Seeder
             'microsoftOffice' => 1,
             'ruby' => 0,
             'powershell' => 1,
-            'rust' => 0,
+            'rust' => 1,
+            'iOS' => 0,
+            'adobe' => 1,
+            'cloud' => 1,
         ]);
 
         DB::table('users')->insert([
@@ -145,6 +154,9 @@ class UserTableSeeder extends Seeder
             'ruby' => 0,
             'powershell' => 1,
             'rust' => 0,
+            'iOS' => 0,
+            'adobe' => 1,
+            'cloud' => 1,
         ]);
 
     }

@@ -55,6 +55,9 @@ class CreateUsersTable extends Migration
             $table->boolean('ruby');
             $table->boolean('powershell');
             $table->boolean('rust');
+			$table->boolean('iOS');
+			$table->boolean('adobe');
+			$table->boolean('cloud');
         });
     }
 
