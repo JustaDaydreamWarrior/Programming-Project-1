@@ -23,6 +23,6 @@ class EmployerController extends Controller
      */
     public function index()
     {
-        return view('employer/employer_test');
+        return view('employer/employer_home');
     }
 }
