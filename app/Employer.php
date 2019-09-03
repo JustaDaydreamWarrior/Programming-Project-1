@@ -15,6 +15,9 @@ class Employer extends Authenticatable
      *
      * @var array
      */
+
+    protected $guard = 'employer';
+
     protected $fillable = [
         'company_name', 'email', 'password',
     ];
