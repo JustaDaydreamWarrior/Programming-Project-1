@@ -45,7 +45,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="/jobPosts">Job Listings</a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" href="/sendemail">Email</a>
                             </li>
