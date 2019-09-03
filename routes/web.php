@@ -27,6 +27,10 @@ Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
 
+Route::get('/sendemail', 'SendEmailController@index');
+
+Route::post('/sendemail/send', 'SendEmailController@send');
+
 Route::resource('jobPosts', 'JobPostsController');
 
 Route::resource('posts', 'PostsController');
