@@ -13,7 +13,7 @@ class EmployerController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:employer');
     }
 
     /**
@@ -23,6 +23,6 @@ class EmployerController extends Controller
      */
     public function index()
     {
-        return view('employer');
+        return view('employer/employer_test');
     }
 }
