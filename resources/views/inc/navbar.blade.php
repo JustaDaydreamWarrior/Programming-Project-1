@@ -40,15 +40,14 @@
                                 <a class="nav-link" href="/about">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/sendemail">Email</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="/support">Support</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/jobPosts">Job Listings</a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="/sendemail">Email</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- Authentication Links -->

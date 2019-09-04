@@ -47,13 +47,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
 Route::post('/search', function(){
-    $match = Input::get('match');
-    if($match != ' '){
-        $user = User::where('name', 'LIKE', '%' . $match . '%')
-                        ->orWhere('email', 'LIKE', '%' . $match . '%')
+    $q = Input::get('q');
+    if($q != ' '){
+        $user = User::where('name', 'LIKE', '%' . $q . '%')
+                        ->orWhere('email', 'LIKE', '%' . $q . '%')
                         ->get();
         if(count($user) > 0)
-            return view('welcome')->withDetails($user)->withQuery($match);
+            return view('welcome')->withDetails($user)->withQuery($q);
     }
-    return view('welcome')->withMessage("Could not find any users on the database. Try again!");
+    return view('welcome')->withMessage("No users were found in the database. Try again!");
 });

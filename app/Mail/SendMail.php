@@ -12,7 +12,7 @@ class SendMail extends Mailable
     use Queueable, SerializesModels;
     public $data;
     /**
-     *
+     * Create a new message instance.
      *
      * @return void
      */
@@ -21,10 +21,8 @@ class SendMail extends Mailable
         $this->data = $data;
     }
 
-
-
     /**
-     *
+     * Build the message.
      *
      * @return $this
      */
