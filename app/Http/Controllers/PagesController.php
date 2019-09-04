@@ -30,9 +30,4 @@ class PagesController extends Controller
         $title = 'Registration';
         return view('pages/register')->with('title', $title);
     }
-
-    public function employer_login(){
-        $title = 'Employer Login';
-        return view('pages/Auth/employer-login')->with('title', $title);
-    }
 }
