@@ -17,6 +17,8 @@
 
 //Route::get('/welcome', 'PagesController@welcome');
 
+use App\Http\Controllers\Auth\EmployerLoginController;
+
 Route::get('/', 'PagesController@index');
 
 Route::get('/about', 'PagesController@about');
@@ -35,4 +37,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/employer', 'EmployerController@index');
+// Employer routes
+Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
+Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('employer.login.submit');
+Route::get('/employer', 'EmployerController@index')->name('employer.dashboard');
