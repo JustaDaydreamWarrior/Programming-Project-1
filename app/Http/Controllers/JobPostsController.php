@@ -8,6 +8,17 @@ use App\JobPost;
 class JobPostsController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -79,6 +90,11 @@ class JobPostsController extends Controller
     public function edit($id)
     {
         $jobPosts = JobPost::find($id);
+
+        // check for correct user (preventing unauthorized editing and deleting)
+        if(auth()->user()->id !== $jobPosts->user_id) {
+            return redirect('/jobPosts')->with('error', 'Unauthorized Page');
+        }
         return view('jobPosts/edit')->with('jobPosts', $jobPosts);
     }
 

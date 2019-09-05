@@ -15,22 +15,28 @@
                 <div>
                     {!!$jobPosts->description!!}
                 </div>
-                <small>Written on {{$jobPosts->created_at}}</small>
+                <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->user->name}}</small>
                 <br>
                 <small>Updated on {{$jobPosts->updated_at}}</small>
                 <hr>
                 <div class="row">
                     <div class="col">
-                        <a href="/jobPosts/{{$jobPosts->id}}/edit" class="btn btn-outline-dark mt-3 mb-3">Edit</a>
+                        <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
                     </div>
-                    <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
-                    <div class="col mt-3 mb-3">
+                    @if(!Auth::guest())
+                        @if(Auth::user()->id == $jobPosts->user_id)
+                            <div class="col">
+                                <a href="/jobPosts/{{$jobPosts->id}}/edit" class="btn btn-outline-dark mt-3 mb-3">Edit</a>
+                            </div>
+                            <div class="col mt-3 mb-3">
 
-                        {!!Form::open(['action' => ['JobPostsController@destroy', $jobPosts->id], 'method' => 'POST'])!!}
-                        {{Form::hidden('_method', 'DELETE')}}
-                        {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                        {!!Form::close()!!}
-                    </div>
+                                {!!Form::open(['action' => ['JobPostsController@destroy', $jobPosts->id], 'method' => 'POST'])!!}
+                                {{Form::hidden('_method', 'DELETE')}}
+                                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
+                                {!!Form::close()!!}
+                            </div>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>
