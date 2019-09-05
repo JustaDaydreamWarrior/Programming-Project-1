@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateJobPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,26 +12,23 @@ class CreateUsersTable extends Migration
      * @return void
      */
 
-    //Table for Job Seekers
+    //Table for job listings
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            //User details
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
 
+        // $ php artisan make:migration add_xxx_column_to_bbb_table --table=bbb
+        Schema::create('jobs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            //Job Information
+            $table->string('title');
+            $table->string('hours');
+            $table->integer('estSalary');
+            $table->string('startDate');
             $table->string('state');
             $table->string('city');
-            $table->integer('experience');
-            //Education is represented by a number, higher being a better qualification.
-            $table->integer('education');
+            $table->mediumText('description');
 
-            // User's skills
+            // Skills that a job listing may have as a requirement/preference.
             $table->boolean('java');
             $table->boolean('c');
             $table->boolean('c#');
@@ -43,9 +40,7 @@ class CreateUsersTable extends Migration
             $table->boolean('javascript');
             $table->boolean('sql');
             $table->boolean('unix');
-            $table->boolean('windows10');
-            $table->boolean('windows7');
-            $table->boolean('windowsOld');
+            $table->boolean('windows');
             $table->boolean('windowsServer');
             $table->boolean('macOS');
             $table->boolean('linux');
@@ -55,9 +50,15 @@ class CreateUsersTable extends Migration
             $table->boolean('ruby');
             $table->boolean('powershell');
             $table->boolean('rust');
-			$table->boolean('iOS');
-			$table->boolean('adobe');
-			$table->boolean('cloud');
+            $table->timestamps();
+
+            //Minimum education or experience.
+            $table->integer('minedu');
+            $table->integer('minexp');
+
+            //Reference to employer table. An a single employer is attached to a job listing as a foreign key. To be completed once employer login/registration is done.
+//            $table->uuid('empID');
+//            $table->foreign('empID')->references('id')->on('employers')->onDelete('cascade');
         });
     }
 
@@ -68,6 +69,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('jobPosts');
     }
 }
