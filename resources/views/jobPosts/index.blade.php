@@ -10,7 +10,7 @@
                     @foreach($jobPosts as $jobPosts)
                         <div class="card card-body bg-light p-3 mt-3 mb-3">
                             <h3><a href="/jobPosts/{{$jobPosts->id}}">{{$jobPosts->title}}</a></h3>
-                            <small>Written on {{$jobPosts->created_at}}</small>
+                            <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->user->name}}</small>
                             <small>Updated on {{$jobPosts->updated_at}}</small>
                         </div>
                     @endforeach
