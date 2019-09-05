@@ -50,7 +50,7 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- Authentication Links -->
+                    <!-- Login & registeration Authentication Links -->
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
