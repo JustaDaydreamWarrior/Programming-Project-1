@@ -4,26 +4,25 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmployersTable extends Migration
+class CreateJobPostsTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    //Table for employers
     public function up()
     {
-        Schema::create('employers', function (Blueprint $table) {
+        
+        // $ php artisan make:migration add_xxx_column_to_bbb_table --table=bbb
+        Schema::create('jobPosts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            //Employer details
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('title');
+            $table->string('organisation');
+            $table->double('estSalary');
+            $table->string('email');
+            $table->mediumText('description');
             $table->timestamps();
-            $table->string('state');
-            $table->string('city');
         });
     }
 
@@ -34,6 +33,6 @@ class CreateEmployersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employers');
+        Schema::dropIfExists('jobPosts');
     }
 }

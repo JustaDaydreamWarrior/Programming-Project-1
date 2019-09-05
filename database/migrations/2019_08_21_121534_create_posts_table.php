@@ -11,8 +11,6 @@ class CreatePostsTable extends Migration
      *
      * @return void
      */
-
-    //Base table created by jeff. This will be edited in future to be the support ticketing system
     public function up()
     {
         
