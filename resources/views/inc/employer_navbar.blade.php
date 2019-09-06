@@ -10,7 +10,7 @@
     </div>
 
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
 
         <div class="container">
 
@@ -50,7 +50,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('employer.login') }}">{{ __('Login') }}</a>
                         </li>
-                        @if (Route::has('register'))
+                        @if (Route::has('employer.register'))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('employer.register') }}">{{ __('Register') }}</a>
                             </li>
@@ -59,7 +59,7 @@
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::employer()->company_name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
