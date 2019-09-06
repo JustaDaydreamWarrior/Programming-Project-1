@@ -9,9 +9,11 @@
                 @if(count($jobPosts) > 0)
                     @foreach($jobPosts as $jobPost)
                         <div class="card card-body bg-light p-3 mt-3 mb-3">
+                        
                             <h3><a href="/jobPosts/{{$jobPost->id}}">{{$jobPost->title}}</a></h3>
                             <small>Written on {{$jobPost->created_at}} by {{$jobPost->user->name}}</small>
                             <small>Updated on {{$jobPost->updated_at}}</small>
+
                         </div>
                     @endforeach
                     {{-- fixed pagination here. It was not showing because the following line of code was missing

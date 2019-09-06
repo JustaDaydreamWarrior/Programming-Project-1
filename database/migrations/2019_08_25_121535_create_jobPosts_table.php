@@ -17,11 +17,13 @@ class CreateJobPostsTable extends Migration
     {
 
         // $ php artisan make:migration add_xxx_column_to_bbb_table --table=bbb
+      
         Schema::create('jobposts', function (Blueprint $table) {
             $table->bigIncrements('id');
             //Job Information
             $table->string('title');
             $table->string('hours');
+
             $table->string('organisation');
             $table->integer('estSalary');
             $table->string('email');
@@ -31,6 +33,7 @@ class CreateJobPostsTable extends Migration
             $table->mediumText('description');
 
             // Skills that a job listing may have as a requirement/preference.
+
             // $table->boolean('java');
             // $table->boolean('c');
             // $table->boolean('c#');
@@ -71,6 +74,7 @@ class CreateJobPostsTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('jobposts');
     }
 }

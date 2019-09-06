@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\User;
+use Illuminate\Support\Facades\Input;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -39,6 +40,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Auth::routes();
+Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/search', function(){
+    $q = Input::get('q');
+    if($q != ' '){
+        $user = User::where('name', 'LIKE', '%' . $q . '%')
+                        ->orWhere('email', 'LIKE', '%' . $q . '%')
+                        ->get();
+        if(count($user) > 0)
+            return view('welcome')->withDetails($user)->withQuery($q);
+    }
+    return view('welcome')->withMessage("No users were found in the database. Try again!");
+});
+
+
