@@ -35,6 +35,7 @@ class CreateEmployerTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('employers');
     }
 }
