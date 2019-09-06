@@ -19,8 +19,9 @@ class Employer extends Authenticatable
     protected $guard = 'employer';
 
     protected $fillable = [
-        'company_name', 'email', 'password',
+        'company_name', 'email', 'password', 'contact_phone', 'contact_email', 'city', 'state'
     ];
+
 
     /**
      * The attributes that should be hidden for arrays.
