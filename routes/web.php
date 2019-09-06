@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\User;
+use Illuminate\Support\Facades\Input;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -28,6 +29,10 @@ Route::get('/support', 'PagesController@support');
 Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
+
+Route::get('/sendemail', 'SendEmailController@index');
+
+Route::post('/sendemail/send', 'SendEmailController@send');
 
 Route::resource('jobPosts', 'JobPostsController');
 
@@ -47,3 +52,18 @@ Route::post('/employer/register', 'EmployerRegisterController@create')->name('em
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
 
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
+Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
+
+Route::post('/search', function(){
+    $q = Input::get('q');
+    if($q != ' '){
+        $user = User::where('name', 'LIKE', '%' . $q . '%')
+                        ->orWhere('email', 'LIKE', '%' . $q . '%')
+                        ->get();
+        if(count($user) > 0)
+            return view('welcome')->withDetails($user)->withQuery($q);
+    }
+    return view('welcome')->withMessage("No users were found in the database. Try again!");
+});
+
+

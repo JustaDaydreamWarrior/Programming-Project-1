@@ -5,26 +5,13 @@
 @endsection
 
 @section('content')
-
-    <form action="/search" method="POST" role="search">
-        {{ csrf_field() }}
-        <div class="input-group">
-            <input type="text" class="form-control" name="q"
-                   placeholder="Search for name or email"> <span class="input-group-btn">
-            <button type="submit" class="btn btn-default">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </span>
-        </div>
-        <br>
-        <br>
-        <br>
-    </form>
+    <br>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-md-offset-10">
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong>Welcome</strong></div>
+
                     <div class="panel-body" align="center">
                         <img src="{{ asset('img/transparent_icon.png') }}" alt="icon"
                              style="height: 120px; width: 120px; display: block;">
