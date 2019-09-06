@@ -40,10 +40,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
 Route::post('/search', function(){
@@ -57,3 +53,5 @@ Route::post('/search', function(){
     }
     return view('welcome')->withMessage("No users were found in the database. Try again!");
 });
+
+
