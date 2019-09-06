@@ -41,9 +41,20 @@ return [
             'provider' => 'users',
         ],
 
+        'employer' => [
+            'driver' => 'session',
+            'provider' => 'employers',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
+            'hash' => false,
+        ],
+
+        'employer-api' => [
+            'driver' => 'token',
+            'provider' => 'employers',
             'hash' => false,
         ],
     ],
@@ -69,6 +80,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'employers' => [
+            'driver' => 'eloquent',
+            'model' => App\Employer::class,
         ],
 
         // 'users' => [
@@ -97,6 +112,12 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+        ],
+
+        'employers' => [
+            'provider' => 'employers',
+            'table' => 'password_resets',
+            'expire' => 20,
         ],
     ],
 
