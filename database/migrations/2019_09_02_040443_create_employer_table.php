@@ -19,6 +19,10 @@ class CreateEmployerTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('contact_phone')->nullable();
+            $table->string('contact_email')->nullable();
+            $table->string('city');
+            $table->string('state');
             $table->rememberToken();
             $table->timestamps();
         });
