@@ -19,6 +19,13 @@ body {
     padding: 20px;
 }
 
+.card-header {
+    font-size: 75%;
+    padding: 6px;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
 .panel {
     margin-bottom: 22px;
     background-color: #fff;
@@ -30,6 +37,7 @@ body {
 .panel-heading {
     background-color: #394047;
     color: #fff;
+    font-size:110%;
     text-align: center;
     padding: 8px 12px;
     border-top-right-radius: 3px;
