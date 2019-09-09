@@ -30,4 +30,9 @@ class PagesController extends Controller
         $title = 'Registration';
         return view('pages/register')->with('title', $title);
     }
+
+    public function employers(){
+        $title = 'Employers Homepage';
+        return view('employer/employer_home')->with('title', $title);
+    }
 }

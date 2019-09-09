@@ -5,21 +5,22 @@
 @endsection
 
 @section('content')
-    <div class="container">
-                    
-        <form class="form-inline mr-auto" action="/search" method="POST" role="search">
-            {{ csrf_field() }}
-            <div class="input-group md-form form-sm form-1 pl-0 ml-3 w-75">
-                    <input class="form-control my-0 py-1 " type="text" placeholder="Search for name or email" aria-label="Search">
-                    <div class="input-group-prepend">
-                        <button type="submit">
-                            <i class="fas fa-search text-black" aria-hidden="true"></i>
-                        </button>
-                    </div>
-            </div>
-        </form>
-  
 
+    <form action="/search" method="POST" role="search">
+        {{ csrf_field() }}
+        <div class="input-group">
+            <input type="text" class="form-control" name="q"
+                   placeholder="Search for name or email"> <span class="input-group-btn">
+            <button type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </span>
+        </div>
+        <br>
+        <br>
+        <br>
+    </form>
+    <div class="container">
         <div class="row">
             <div class="col-md-12 col-md-offset-10">
                 <div class="panel panel-default">
