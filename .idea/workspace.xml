@@ -120,15 +120,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers" />
-      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\TestProject\resources\views\posts" />
       <recent name="C:\xampp\htdocs\TestProject\app" />
       <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
       <recent name="C:\xampp\htdocs\TestProject\database\migrations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers" />
+      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
     </key>
   </component>
   <component name="RunDashboard">
