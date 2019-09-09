@@ -64,6 +64,7 @@
                             </div>
                         </div>
 
+ feature/search
                             <!--Email-->
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Contact E-Mail Address') }}</label>
@@ -79,6 +80,8 @@
                                 </div>
                             </div>
 
+=======
+ develop
                         <!--Submit-->
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
