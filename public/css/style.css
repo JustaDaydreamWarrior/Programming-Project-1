@@ -47,6 +47,11 @@ body {
     padding: 8px 8px;
 }
 
+.searchBar {
+    padding: 20px 200px;
+}
+
+
 .divider {
     background-color: #394047;
     color: #FFFFFF;
