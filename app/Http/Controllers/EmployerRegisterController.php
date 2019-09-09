@@ -30,12 +30,9 @@ class EmployerRegisterController extends Controller
         $employer = Employer::create([
             'company_name' => $request['company_name'],
             'email' => $request['email'],
-feature/search
             'password' => Hash::make($request['password']),
-            'contact_email' => $request['contact_email']
-=======
+            'contact_email' => $request['contact_email'],
             'password' => Hash::make($request['password'])
-develop
         ]);
         return redirect()->intended(route('employer.login'));
     }
