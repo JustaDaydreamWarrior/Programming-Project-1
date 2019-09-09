@@ -4,27 +4,26 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmployerTable extends Migration
+class CreateEmployersTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+    //Table for employers
     public function up()
     {
         Schema::create('employers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('company_name');
+            //Employer details
+            $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('contact_phone')->nullable();
-            $table->string('contact_email')->nullable();
-            $table->string('city');
-            $table->string('state');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('state');
+            $table->string('city');
         });
     }
 
@@ -35,10 +34,6 @@ class CreateEmployerTable extends Migration
      */
     public function down()
     {
- feature/search
-=======
-
- develop
         Schema::dropIfExists('employers');
     }
 }

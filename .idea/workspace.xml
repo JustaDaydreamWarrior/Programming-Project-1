@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="" />
+    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/employer-register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/employer-register.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +16,14 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/employer_reg" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -109,15 +120,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers" />
-      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\TestProject\resources\views\posts" />
       <recent name="C:\xampp\htdocs\TestProject\app" />
       <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
       <recent name="C:\xampp\htdocs\TestProject\database\migrations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers" />
+      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -138,6 +149,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.2019_08_21_121535_create_jobPosts_table.php" />
+        <item itemvalue="PHP Script.2019_08_21_121535_create_jobPosts_table.php" />
+        <item itemvalue="PHP Script.2019_08_21_121535_create_jobPosts_table.php" />
         <item itemvalue="PHP Script.2019_08_21_121535_create_jobPosts_table.php" />
       </list>
     </recent_temporary>
@@ -163,9 +177,28 @@
       <workItem from="1567233714109" duration="3233000" />
       <workItem from="1567400692418" duration="11965000" />
     </task>
+    <task id="LOCAL-00001" summary="fixed EmpReg controller">
+      <created>1568014352831</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1568014352831</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fixed EmpReg controller">
+      <created>1568014503704</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1568014503704</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed EmpReg controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed EmpReg controller" />
   </component>
 </project>
