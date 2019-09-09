@@ -8,7 +8,7 @@
 
         <p> Here are the matches that contain <b> {{ $query }} </b> :</p>
 
-        <h2>User details</h2>
+        <h2>Employer details</h2>
         <table class="table table-striped">
             <thead>
             <tr>
