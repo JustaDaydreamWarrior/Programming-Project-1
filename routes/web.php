@@ -51,7 +51,8 @@ Route::post('/employer/register', 'EmployerRegisterController@create')->name('em
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
 
-Route::get('/employer', 'EmployerController@index')->name('employer.home');
+Route::get('/employer', 'PagesController@employers')->name('employer.home');
+
 Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
 Route::post('/search', function(){

@@ -13,7 +13,7 @@ class EmployerController extends Controller
      */
     public function __construct()
     {
-       //
+        $this->middleware('auth:employer');
     }
 
     /**
@@ -22,14 +22,13 @@ class EmployerController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
-    public function index()
-    {
-        return view('employer/employer_home');
-    }
+//    public function index()
+//    {
+//
+//    }
 
     public function dashboard()
     {
-        $this->middleware('auth:employer');
         return view('employer/employer_dashboard');
     }
 
