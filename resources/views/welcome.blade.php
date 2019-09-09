@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 
 <div class="container">
     @if(isset($details))
@@ -23,5 +27,5 @@
         </table>
     @endif
 </div>
-@extends('layouts.app')
+@endsection
 
