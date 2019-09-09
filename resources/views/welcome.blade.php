@@ -8,15 +8,15 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
+                <th>Company Name</th>
+                <th>Contact Email</th>
             </tr>
             </thead>
             <tbody>
             @foreach($details as $user)
                 <tr>
-                    <td>{{$user->name}}</td>
-                    <td>{{$user->email}}</td>
+                    <td>{{$user->company_name}}</td>
+                    <td>{{$user->contact_email}}</td>
                 </tr>
             @endforeach
             </tbody>

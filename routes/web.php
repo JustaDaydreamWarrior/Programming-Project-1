@@ -11,6 +11,7 @@
 |
 */
 use App\User;
+use App\Employer;
 use Illuminate\Support\Facades\Input;
 // Route::get('/', function () {
 //     return view('welcome');
@@ -58,11 +59,11 @@ Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 Route::post('/search', function(){
     $q = Input::get('q');
     if($q != ' '){
-        $user = User::where('name', 'LIKE', '%' . $q . '%')
-                        ->orWhere('email', 'LIKE', '%' . $q . '%')
+        $employer = Employer::where('company_name', 'LIKE', '%' . $q . '%')
+                        ->orWhere('contact_email', 'LIKE', '%' . $q . '%')
                         ->get();
-        if(count($user) > 0)
-            return view('welcome')->withDetails($user)->withQuery($q);
+        if(count($employer) > 0)
+            return view('welcome')->withDetails($employer)->withQuery($q);
     }
     return view('welcome')->withMessage("No users were found in the database. Try again!");
 });
