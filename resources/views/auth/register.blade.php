@@ -675,8 +675,8 @@
 
                             <hr>
 
-                            <div class="form-group row mb-0">
-                                    <button type="submit" class="btn btn-primary">
+                            <div class="form-group">
+                                    <button type="submit" class="btn btn-primary" style="align: center">
                                         {{ __('Register') }}
                                     </button>
                                 </div>

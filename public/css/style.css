@@ -51,6 +51,14 @@ body {
     padding: 20px 200px;
 }
 
+.jobPanel{
+    padding: 20px 100px;
+    margin: 40px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(32, 18, 47, 0.4);
+}
 
 .divider {
     background-color: #394047;
