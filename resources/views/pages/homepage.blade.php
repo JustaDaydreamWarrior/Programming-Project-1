@@ -10,7 +10,7 @@
         {{ csrf_field() }}
         <div class="input-group">
             <input type="text" class="form-control" name="q"
-                   placeholder="Search for name or email"> <span class="input-group-btn">
+                   placeholder="Search for an employer"> <span class="input-group-btn">
             <button type="submit" class="btn btn-default">
                 <span class="glyphicon glyphicon-search"></span>
             </button>
