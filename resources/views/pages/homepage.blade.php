@@ -6,6 +6,7 @@
 
 @section('content')
 
+
     <form action="/search" method="POST" role="search">
         {{ csrf_field() }}
         <div class="input-group">

@@ -19,6 +19,13 @@ body {
     padding: 20px;
 }
 
+.card-header {
+    font-size: 75%;
+    padding: 6px;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+
 .panel {
     margin-bottom: 22px;
     background-color: #fff;
@@ -30,6 +37,7 @@ body {
 .panel-heading {
     background-color: #394047;
     color: #fff;
+    font-size:110%;
     text-align: center;
     padding: 8px 12px;
     border-top-right-radius: 3px;
@@ -37,6 +45,19 @@ body {
 }
 .panel-body{
     padding: 8px 8px;
+}
+
+.searchBar {
+    padding: 20px 200px;
+}
+
+.jobPanel{
+    padding: 20px 100px;
+    margin: 40px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(32, 18, 47, 0.4);
 }
 
 .divider {

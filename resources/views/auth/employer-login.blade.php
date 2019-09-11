@@ -4,8 +4,12 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <h1 align="center" class="mt-3 mb-3">Login</h1>
                 <div class="card">
-                    <div class="card-header">Employer Login</div>
+                    <div class="panel-heading"><strong>Employer Login</strong></div>
+                    <div class="card-header">
+                        <a href="{{ route('login') }}">{{ __('Login as a Job Seeker') }}</a>
+                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('employer.login.submit') }}">
                             @csrf

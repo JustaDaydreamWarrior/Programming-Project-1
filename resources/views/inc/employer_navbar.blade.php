@@ -10,7 +10,7 @@
     </div>
 
 
-    <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-dark bg-secondary  shadow-sm">
 
         <div class="container">
 
@@ -18,7 +18,7 @@
             <a class="navbar-brand" href="{{ asset('/') }}">
             <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
                 <img class="icon" src="/icon_inverted.png" style="width: 40px;height: 40px;">
-             </span> Handshake</a>
+             </span> Handshake Employers</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"

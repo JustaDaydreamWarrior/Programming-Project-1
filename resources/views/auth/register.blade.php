@@ -4,14 +4,18 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                <h1 align="center" class="mt-3 mb-3">Register</h1>
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
-
+                    <div class="panel-heading"><strong>Job Seeker Registration</strong></div>
+                    <div class="card-header">
+                        <a href="{{ route('employer.register') }}">{{ __('Register as an Employer') }}</a>
+                    </div>
                     <div>
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
+
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{('Name')}}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text"
@@ -28,7 +32,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{('E-Mail Address')}}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -50,7 +54,7 @@
                                 <div class="col-md-6">
                                     <select id="state" name="state" class="form-control" value="{{ old('state') }}"
                                             required>
-                                        <option disabled selected value>Please select an option</option>
+                                        <option disabled selected value>Select State</option>
                                         <option value="NSW">New South Wales</option>
                                         <option value="ACT">Australian Capital Territory</option>
                                         <option value="VIC">Victoria</option>
@@ -87,7 +91,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{('Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -104,7 +108,7 @@
 
                             <div class="form-group row">
                                 <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{('Confirm Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control"
@@ -124,7 +128,7 @@
                                 <div class="col-md-6">
                                     <select id="education" name="education" class="form-control"
                                             value="{{ old('education') }}" required>
-                                        <option disabled selected value>Please select your highest level of education
+                                        <option disabled selected value>Select Education
                                         </option>
                                         <option value="0">Cert I</option>
                                         <option value="1">Cert II</option>
@@ -671,13 +675,11 @@
 
                             <hr>
 
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                            <div class="form-group">
+                                    <button type="submit" class="btn btn-primary" style="align: center">
                                         {{ __('Register') }}
                                     </button>
                                 </div>
-                            </div>
                         </form>
                     </div>
                 </div>

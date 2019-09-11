@@ -14,6 +14,8 @@
                 <div class="panel-heading"><strong>Group54 Team</strong></div>
 
                 <div class="row" style="padding: 12px;">
+
+
                     <div class="col-md-12 col-xs-2">
                         <div class="divider"></div>
                         <!-- Gallery of Group 54 members -->
