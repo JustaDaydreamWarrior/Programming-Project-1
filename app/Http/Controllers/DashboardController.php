@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
 use App\User;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -28,14 +28,14 @@ class HomeController extends Controller
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view('/home')->with('jobPosts', $user->jobPosts);
+        return view('pages/dashboard')->with('jobPosts', $user->jobPosts);
     }
-    
+
     public function mail()
 {
    $name = 'Anthony';
    Mail::to('group54capstone@outlook.com')->send(new SendMailable($name));
-   
+
    return 'Email was sent';
 }
 

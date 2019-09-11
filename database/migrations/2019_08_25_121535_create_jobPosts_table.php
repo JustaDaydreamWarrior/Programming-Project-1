@@ -17,7 +17,7 @@ class CreateJobPostsTable extends Migration
     {
 
         // $ php artisan make:migration add_xxx_column_to_bbb_table --table=bbb
-      
+
         Schema::create('jobposts', function (Blueprint $table) {
             $table->bigIncrements('id');
             //Job Information
@@ -34,27 +34,27 @@ class CreateJobPostsTable extends Migration
 
             // Skills that a job listing may have as a requirement/preference.
 
-            // $table->boolean('java');
-            // $table->boolean('c');
-            // $table->boolean('c#');
-            // $table->boolean('c++');
-            // $table->boolean('php');
-            // $table->boolean('html');
-            // $table->boolean('css');
-            // $table->boolean('python');
-            // $table->boolean('javascript');
-            // $table->boolean('sql');
-            // $table->boolean('unix');
-            // $table->boolean('windows');
-            // $table->boolean('windowsServer');
-            // $table->boolean('macOS');
-            // $table->boolean('linux');
-            // $table->boolean('bash');
-            // $table->boolean('ciscoSystems');
-            // $table->boolean('microsoftOffice');
-            // $table->boolean('ruby');
-            // $table->boolean('powershell');
-            // $table->boolean('rust');
+             $table->boolean('java');
+             $table->boolean('c');
+             $table->boolean('c#');
+             $table->boolean('c++');
+             $table->boolean('php');
+             $table->boolean('html');
+             $table->boolean('css');
+             $table->boolean('python');
+             $table->boolean('javascript');
+             $table->boolean('sql');
+             $table->boolean('unix');
+             $table->boolean('windows');
+             $table->boolean('windowsServer');
+             $table->boolean('macOS');
+             $table->boolean('linux');
+             $table->boolean('bash');
+             $table->boolean('ciscoSystems');
+             $table->boolean('microsoftOffice');
+             $table->boolean('ruby');
+             $table->boolean('powershell');
+             $table->boolean('rust');
             $table->timestamps();
 
             // //Minimum education or experience.

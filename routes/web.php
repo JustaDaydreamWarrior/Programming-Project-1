@@ -13,14 +13,11 @@
 use App\User;
 use App\Employer;
 use Illuminate\Support\Facades\Input;
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-//Route::get('/welcome', 'PagesController@welcome');
 
 use App\Http\Controllers\Auth\EmployerLoginController;
 
+
+// Controller Routes
 Route::get('/', 'PagesController@index');
 
 Route::get('/about', 'PagesController@about');
@@ -31,19 +28,17 @@ Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
 
-Route::get('/sendemail', 'SendEmailController@index');
+Route::get('/email', 'EmailController@index');
 
-Route::post('/sendemail/send', 'SendEmailController@send');
+Route::post('/email/send', 'EmailController@send');
 
 Route::resource('jobPosts', 'JobPostsController');
 
 Route::resource('posts', 'PostsController');
 
-Auth::routes();
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-// Employer routes
+// Employer Controller Routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
 Route::get('/employer/register', 'EmployerRegisterController@showRegisterForm')->name('employer.register');
 
@@ -56,6 +51,12 @@ Route::get('/employer', 'PagesController@employers')->name('employer.home');
 
 Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
+// Authentication Routes
+Auth::routes();
+
+
+//Search Bar in job listings
+
 Route::post('/search', function(){
     $q = Input::get('q');
     if($q != ' '){
@@ -63,9 +64,10 @@ Route::post('/search', function(){
                         ->orWhere('contact_email', 'LIKE', '%' . $q . '%')
                         ->get();
         if(count($employer) > 0)
-            return view('welcome')->withDetails($employer)->withQuery($q);
+            return view('pages/searchresult')->withDetails($employer)->withQuery($q);
     }
-    return view('welcome')->withMessage("No users were found in the database. Try again!");
+
+    return view('pages/searchresult')->withMessage("No users were found in the database. Try again!");
 });
 
 

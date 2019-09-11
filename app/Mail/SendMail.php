@@ -28,8 +28,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->from('noreply@noreply.com')->subject('A new email from client')->view('dynamic_email_template')->with('data', $this->data);
+        return $this->from('noreply@noreply.com')->subject('A new email from client')->view('email/dynamic_email_template')->with('data', $this->data);
     }
 }
 
-?>

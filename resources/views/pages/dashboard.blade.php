@@ -14,8 +14,8 @@
                             </div>
                         @endif
 
-                        <p style ="text-align: center">Welcome to your personal dashboard  {{ Auth::user()->name }}!<br>
-                        Let's get started!</p>
+                        <p style="text-align: center">Welcome to your personal dashboard {{ Auth::user()->name }}!<br>
+                            Let's get started!</p>
 
                     </div>
                 </div>
@@ -44,13 +44,19 @@
                                     <th></th>
                                     <th></th>
                                 </tr>
+
+                                {{-- Buttons for removing and editing user's listings --}}
                                 @foreach($jobPosts as $jobPost)
                                     <tr>
                                         <th>{{$jobPost->title}}</th>
-                                        <th><a href="/jobPosts/{{$jobPost->id}}/edit" class="btn btn-primary">Edit</a>
+                                        <th><a href="/jobPosts/{{$jobPost->id}}/edit"
+                                               class="btn btn-primary">Edit</a>
                                         </th>
-                                        <th><a href="/jobPosts/{{$jobPost->id}}/delete"
-                                               class="btn btn-danger">Delete</a></th>
+                                        <th>
+                                        {!!Form::open(['action' => ['JobPostsController@destroy', $jobPost->id], 'method' => 'POST'])!!}
+                                        {{Form::hidden('_method', 'DELETE')}}
+                                        {{Form::submit('Delete', ['class' => 'btn btn-danger '])}}
+                                        {!!Form::close()!!}
                                     </tr>
                                 @endforeach
                             </table>
