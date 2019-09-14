@@ -43,6 +43,6 @@ class LoginController extends Controller
     {
         Auth::guard('web')->logout();
 
-        return $this->loggedOut($request) ?: redirect('/');
+        return redirect('/');
     }
 }
