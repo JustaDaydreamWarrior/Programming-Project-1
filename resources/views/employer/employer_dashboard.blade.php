@@ -1,4 +1,4 @@
-@extends('layouts.employer_app')
+@extends('layouts.app')
 
 @section('content')
 
@@ -16,6 +16,9 @@
                         </div>
                     @endif
 
+                    @component('components.who')
+
+                        @endcomponent
 
                 </div>
             </div>

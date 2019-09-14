@@ -25,7 +25,7 @@
 
    {{--</head>--}}
    {{--<body>--}}
-       @include('inc/employer_navbar')
+       @include('inc/navbar')
            {{--<div class="container">--}}
            @include('inc/messages')
            {{--@yield('content')--}}

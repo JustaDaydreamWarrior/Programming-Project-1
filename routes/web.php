@@ -46,9 +46,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Employer routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
 Route::get('/employer/register', 'EmployerRegisterController@showRegisterForm')->name('employer.register');
+Route::get('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
 
 Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('employer.login.submit');
-Route::post('/employer/register', 'EmployerRegisterController@create')->name('employer.register.submit');
+Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
 
