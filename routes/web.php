@@ -52,7 +52,6 @@ Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('empl
 Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
-
 Route::get('/employer', 'PagesController@employers')->name('employer.home');
 
 Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
