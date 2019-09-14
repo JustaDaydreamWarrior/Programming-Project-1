@@ -1,6 +1,8 @@
 <!-- Icons -->
 <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('icon.png') }}">
 
+
+
 <div class="pos-f-t">
     <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-6">
@@ -51,15 +53,9 @@
                         </ul>
                     </div>
                     <!-- Login & registeration Authentication Links -->
-                    @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endguest
 
+                    <!-- Check if on an employer page -->
+                    @if (Route::is('employer.*'))
                         @if(Auth::guard('employer')->check())
                             <li class="nav-item dropdown">
                                 <a id="adminDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -75,7 +71,26 @@
                                     </form>
                                 </div>
                             </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('employer.login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('employer.register') }}">{{ __('Register') }}</a>
+                            </li>
                         @endif
+
+                        <!-- Default login -->
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+
+
                 </ul>
             </div>
         </div>
