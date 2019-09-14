@@ -54,19 +54,23 @@
                     </div>
                     <!-- Login & registeration Authentication Links -->
 
-                    <!-- Check if on an employer page -->
+                    <!-- Check if accessing an employer route -->
                     @if (Route::is('employer.*'))
+
+                        <!-- Check if an employer is logged in -->
                         @if(Auth::guard('employer')->check())
                             <li class="nav-item dropdown">
-                                <a id="adminDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::guard('employer')->user()->company_name }} (ADMIN) <span class="caret"></span>
+                                <a id="employerDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::guard('employer')->user()->company_name }}<span class="caret"></span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
-                                    <a href="{{route('employer.home')}}" class="dropdown-item">Dashboard</a>
-                                    <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#admin-logout-form').submit();">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="employerDropdown">
+                                    <a href="{{route('employer.dashboard')}}" class="dropdown-item">Dashboard</a>
+                                    <!-- add more menu items here -->
+
+                                    <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#employer-logout-form').submit();">
                                         Logout
                                     </a>
-                                    <form id="admin-logout-form" action="{{ route('employer.logout') }}" method="POST" style="display: none;">
+                                    <form id="employer-logout-form" action="{{ route('employer.logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
@@ -80,14 +84,33 @@
                             </li>
                         @endif
 
-                        <!-- Default login -->
+                    <!-- Not on an employer page -->
                     @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
+                        <!-- Check if a jobseeker is logged in -->
+                        @if(Auth::guard('web')->check())
+                            <li class="nav-item dropdown">
+                                <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::guard('web')->user()->name }}<span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                    <!-- <a href="#" class="dropdown-item">Item name</a> -->
+                                    <!-- add more menu items here -->
+                                    <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#user-logout-form').submit();">
+                                        Logout
+                                    </a>
+                                    <form id="user-logout-form" action="{{ route('userLogout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
                     @endif
 
 

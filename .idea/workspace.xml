@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/components/who.blade.php" afterDir="false" />
+    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="fixed employer logout route">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/EmployerLoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/EmployerLoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployerController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employer/employer_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employer/employer_dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employer/employer_home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employer/employer_home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inc/employer_navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/employer_navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/inc/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/employer_app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/employer_app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -196,7 +188,7 @@
       <workItem from="1568099419930" duration="7000" />
       <workItem from="1568207469641" duration="2658000" />
       <workItem from="1568460312492" duration="66000" />
-      <workItem from="1568460415887" duration="2114000" />
+      <workItem from="1568460415887" duration="7800000" />
     </task>
     <task id="LOCAL-00001" summary="fixed EmpReg controller">
       <created>1568014352831</created>
@@ -212,7 +204,49 @@
       <option name="project" value="LOCAL" />
       <updated>1568014503704</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update logout function (web only)">
+      <created>1568463057998</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1568463057998</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update logout function (employer only)">
+      <created>1568463091849</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1568463091849</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update routes">
+      <created>1568463213909</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1568463213909</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added conditional route check">
+      <created>1568465456468</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1568465456468</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed employer logout route">
+      <created>1568466779829</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1568466779829</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed user logout route">
+      <created>1568468589220</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1568468589220</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +267,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed EmpReg controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed EmpReg controller" />
+    <MESSAGE value="update logout function (web only)" />
+    <MESSAGE value="update logout function (employer only)" />
+    <MESSAGE value="update routes" />
+    <MESSAGE value="added conditional route check" />
+    <MESSAGE value="fixed employer logout route" />
+    <MESSAGE value="fixed user logout route" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed user logout route" />
   </component>
 </project>
