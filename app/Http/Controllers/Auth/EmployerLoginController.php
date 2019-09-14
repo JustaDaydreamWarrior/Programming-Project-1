@@ -34,11 +34,11 @@ class EmployerLoginController extends Controller
 
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         Auth::guard('employer')->logout();
 
-        return $this->loggedOut($request) ?: redirect('/');
+        return redirect()->route('employer.home');
     }
 
 }
