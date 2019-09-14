@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMail;
 
-class SendEmailController extends Controller
+class EmailController extends Controller
 {
     function index()
     {
-     return view('send_email');
+     return view('email/email');
     }
 
     function send(Request $request)
@@ -31,5 +31,3 @@ class SendEmailController extends Controller
 
     }
 }
-
-?>

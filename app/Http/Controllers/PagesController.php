@@ -18,7 +18,7 @@ class PagesController extends Controller
 
     public function support(){
         $title = 'Support';
-        return view('pages/support')->with('title', $title);
+        return view('/email')->with('title', $title);
     }
 
     public function login(){

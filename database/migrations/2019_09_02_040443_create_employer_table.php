@@ -35,10 +35,6 @@ class CreateEmployerTable extends Migration
      */
     public function down()
     {
- feature/search
-=======
-
- develop
         Schema::dropIfExists('employers');
     }
 }

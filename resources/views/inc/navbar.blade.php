@@ -34,22 +34,21 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                    <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/about">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/support">Support</a>
+                                <a class="nav-link" href="/email">Support</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/jobPosts">Job Listings</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/sendemail">Email</a>
-                            </li>
                         </ul>
-                    </div>
+
                     <!-- Login & registeration Authentication Links -->
                     @guest
                         <li class="nav-item">
@@ -72,7 +71,7 @@
                                     Create Post
                                 </a>
 
-                                <a class="dropdown-item" href='home'>
+                                <a class="dropdown-item" href='/dashboard'>
                                     Dash Board
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
