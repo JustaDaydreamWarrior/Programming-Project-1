@@ -50,14 +50,14 @@ Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->nam
 Route::get('/employer/register', 'EmployerRegisterController@showRegisterForm')->name('employer.register');
 
 Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('employer.login.submit');
-Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
+Route::post('/employer/register', 'EmployerRegisterController@create')->name('employer.register.submit');
 Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
 
-Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
+//Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
 Route::post('/search', function(){
     $q = Input::get('q');
