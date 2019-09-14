@@ -32,12 +32,12 @@ class DashboardController extends Controller
     }
 
     public function mail()
-{
-   $name = 'Anthony';
-   Mail::to('group54capstone@outlook.com')->send(new SendMailable($name));
+    {
+        $name = 'Anthony';
+        Mail::to('group54capstone@outlook.com')->send(new SendMailable($name));
 
-   return 'Email was sent';
-}
+        return 'Email was sent';
+    }
 
 }
 

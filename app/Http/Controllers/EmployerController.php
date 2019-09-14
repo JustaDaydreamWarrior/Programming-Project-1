@@ -33,5 +33,4 @@ class EmployerController extends Controller
     }
 
 
-
 }

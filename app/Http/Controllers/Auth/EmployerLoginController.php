@@ -13,15 +13,17 @@ class EmployerLoginController extends Controller
         $this->middleware('guest:employer');
     }
 
-    public function showLoginForm(){
+    public function showLoginForm()
+    {
         return view('auth.employer-login');
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         //validate form data
         $this->validate($request, [
-           'email' => 'required|email',
-           'password' => 'required|min:6'
+            'email' => 'required|email',
+            'password' => 'required|min:6'
         ]);
 
         // Attempt to log user in

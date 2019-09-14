@@ -140,6 +140,7 @@
                                         <option value="7">Bachelor Honors degree</option>
                                         <option value="8">Masters degree</option>
                                         <option value="9">PhD / Doctoral degree</option>
+                                        <option value="10">Not Applicable</option>
                                     </select>
 
                                     @if ($errors->has('education'))
@@ -207,34 +208,34 @@
                                 </div>
 
                                 <!-- C# -->
-                                <div class="{{ $errors->has('c#') ? ' has-error' : '' }}">
-                                    <label for="c#" class="label.mdl-checkbox">C#</label>
+                                <div class="{{ $errors->has('csharp') ? ' has-error' : '' }}">
+                                    <label for="csharp" class="label.mdl-checkbox">C#</label>
 
                                     <div>
-                                        <input id="c#-hidden" type="hidden" class="" name="c#" value="0">
-                                        <input id="c#" type="checkbox" class="" name="c#"
+                                        <input id="csharp-hidden" type="hidden" class="" name="csharp" value="0">
+                                        <input id="csharp" type="checkbox" class="" name="csharp"
                                                value="{{ old('c#', 1) }}">
 
-                                        @if ($errors->has('c#'))
+                                        @if ($errors->has('csharp'))
                                             <span class="help-block">
-                                        <strong>{{ $errors->first('c#') }}</strong>
+                                        <strong>{{ $errors->first('csharp') }}</strong>
                                     </span>
                                         @endif
                                     </div>
                                 </div>
 
                                 <!-- C++ -->
-                                <div class="{{ $errors->has('c++') ? ' has-error' : '' }}">
-                                    <label for="c++" class="label.mdl-checkbox">C++</label>
+                                <div class="{{ $errors->has('cplus') ? ' has-error' : '' }}">
+                                    <label for="cplus" class="label.mdl-checkbox">C++</label>
 
                                     <div>
-                                        <input id="c++-hidden" type="hidden" class="" name="c++" value="0">
-                                        <input id="c++" type="checkbox" class="" name="c++"
-                                               value="{{ old('c++', 1) }}">
+                                        <input id="cplus-hidden" type="hidden" class="" name="cplus" value="0">
+                                        <input id="cplus" type="checkbox" class="" name="cplus"
+                                               value="{{ old('cplus', 1) }}">
 
-                                        @if ($errors->has('c++'))
+                                        @if ($errors->has('cplus'))
                                             <span class="help-block">
-                                        <strong>{{ $errors->first('c++') }}</strong>
+                                        <strong>{{ $errors->first('cplus') }}</strong>
                                     </span>
                                         @endif
                                     </div>

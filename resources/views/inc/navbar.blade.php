@@ -34,20 +34,20 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/about">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/email">Support</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/jobPosts">Job Listings</a>
-                            </li>
-                        </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/email">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/jobPosts">Job Listings</a>
+                        </li>
+                    </ul>
 
                     <!-- Login & registeration Authentication Links -->
                     @guest
@@ -68,7 +68,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href='/jobPosts/create'>
-                                    Create Post
+                                    Create Job Listing
                                 </a>
 
                                 <a class="dropdown-item" href='/dashboard'>

@@ -1,9 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Employer;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
 class EmployerRegisterController extends Controller
     /*
     |--------------------------------------------------------------------------
@@ -17,14 +20,19 @@ class EmployerRegisterController extends Controller
     */
 {
     use RegistersUsers;
+
     public function __construct()
     {
         $this->middleware('guest:employer');
     }
-    protected function showRegisterForm(){
+
+    protected function showRegisterForm()
+    {
         return view('auth.employer-register');
     }
-    protected function create(Request $request){
+
+    protected function create(Request $request)
+    {
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required|min:6'

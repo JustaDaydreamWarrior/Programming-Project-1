@@ -34,8 +34,8 @@ class CreateUsersTable extends Migration
             // User's skills
             $table->boolean('java');
             $table->boolean('c');
-            $table->boolean('c#');
-            $table->boolean('c++');
+            $table->boolean('csharp');
+            $table->boolean('cplus');
             $table->boolean('php');
             $table->boolean('html');
             $table->boolean('css');

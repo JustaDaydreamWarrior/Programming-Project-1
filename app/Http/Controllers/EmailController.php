@@ -10,24 +10,24 @@ class EmailController extends Controller
 {
     function index()
     {
-     return view('email/email');
+        return view('email/email');
     }
 
     function send(Request $request)
     {
-     $this->validate($request, [
-      'name'     =>  'required',
-      'email'  =>  'required|email',
-      'message' =>  'required'
-     ]);
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
 
         $data = array(
-            'name'      =>  $request->name,
-            'message'   =>   $request->message
+            'name' => $request->name,
+            'message' => $request->message
         );
 
-     Mail::to('capstonegroup54@gmail.com')->send(new SendMail($data));
-     return back()->with('success', 'Email sent successfully! You will receive a response in 24 hours');
+        Mail::to('capstonegroup54@gmail.com')->send(new SendMail($data));
+        return back()->with('success', 'Email sent successfully! You will receive a response in 24 hours');
 
     }
 }
