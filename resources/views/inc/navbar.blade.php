@@ -51,7 +51,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- Login & registeration Authentication Links -->
+                        <!-- Login & registration Authentication Links -->
 
                         <!-- Check if an employer is logged in -->
                         @if(Auth::guard('employer')->check())
@@ -131,7 +131,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- Login & registeration Authentication Links -->
+                        <!-- Login & registration Authentication Links -->
 
                         <!-- Check if an employer is logged in -->
                         @if(Auth::guard('web')->check())
