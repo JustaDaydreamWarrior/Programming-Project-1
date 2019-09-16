@@ -1,4 +1,4 @@
-@extends('layouts.employer_app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -15,6 +15,10 @@
                     @endif
 
                     this is the employer homepage
+
+                        @component('components.who')
+
+                        @endcomponent
                 </div>
             </div>
         </div>
