@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class EmployerLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:employer');
+        $this->middleware('guest:employer', ['except' => ['logout']]);
     }
 
     public function showLoginForm()
@@ -34,6 +34,13 @@ class EmployerLoginController extends Controller
         //if unsuccessful, then redirect back to the login with the form data
         return redirect()->back()->withInput($request->only('email', 'remember'));
 
+    }
+
+    public function logout()
+    {
+        Auth::guard('employer')->logout();
+
+        return redirect()->route('employer.home');
     }
 
 }

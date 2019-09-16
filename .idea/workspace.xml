@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="">
+    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="moved employer.home to EmployerController">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/employer-register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/employer-register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inc/employer_navbar.blade.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,6 +117,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -127,6 +128,8 @@
       <recent name="C:\xampp\htdocs\TestProject\database\migrations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\handshake\app\Http\Controllers" />
+      <recent name="C:\xampp\htdocs\handshake\app\Http\Controllers\Auth" />
       <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
     </key>
@@ -143,7 +146,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="PHP Script.2019_08_21_121535_create_jobPosts_table.php">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
     <configuration name="2019_08_21_121535_create_jobPosts_table.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/database/migrations/2019_08_21_121535_create_jobPosts_table.php">
       <method v="2" />
     </configuration>
@@ -176,6 +183,13 @@
       <workItem from="1567233016325" duration="630000" />
       <workItem from="1567233714109" duration="3233000" />
       <workItem from="1567400692418" duration="11965000" />
+      <workItem from="1568075477085" duration="7682000" />
+      <workItem from="1568099419930" duration="7000" />
+      <workItem from="1568207469641" duration="2658000" />
+      <workItem from="1568460312492" duration="66000" />
+      <workItem from="1568460415887" duration="9535000" />
+      <workItem from="1568612298829" duration="350000" />
+      <workItem from="1568612784571" duration="249000" />
     </task>
     <task id="LOCAL-00001" summary="fixed EmpReg controller">
       <created>1568014352831</created>
@@ -191,14 +205,99 @@
       <option name="project" value="LOCAL" />
       <updated>1568014503704</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update logout function (web only)">
+      <created>1568463057998</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1568463057998</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update logout function (employer only)">
+      <created>1568463091849</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1568463091849</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update routes">
+      <created>1568463213909</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1568463213909</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added conditional route check">
+      <created>1568465456468</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1568465456468</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fixed employer logout route">
+      <created>1568466779829</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1568466779829</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fixed user logout route">
+      <created>1568468589220</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1568468589220</updated>
+    </task>
+    <task id="LOCAL-00009" summary="added conditional user (jobseeker) check">
+      <created>1568468695905</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1568468695905</updated>
+    </task>
+    <task id="LOCAL-00010" summary="moved employer.home to EmployerController">
+      <created>1568468752060</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1568468752060</updated>
+    </task>
+    <task id="LOCAL-00011" summary="removed employer blade template">
+      <created>1568612993684</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1568612993684</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixed EmpReg controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed EmpReg controller" />
+    <MESSAGE value="update logout function (web only)" />
+    <MESSAGE value="update logout function (employer only)" />
+    <MESSAGE value="update routes" />
+    <MESSAGE value="added conditional route check" />
+    <MESSAGE value="fixed employer logout route" />
+    <MESSAGE value="fixed user logout route" />
+    <MESSAGE value="added conditional user (jobseeker) check" />
+    <MESSAGE value="moved employer.home to EmployerController" />
+    <MESSAGE value="removed employer blade template" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed employer blade template" />
   </component>
 </project>

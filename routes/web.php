@@ -37,7 +37,6 @@ Route::resource('posts', 'PostsController');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-
 //POST routes
 Route::post('/email/send', 'EmailController@send');
 
@@ -45,18 +44,23 @@ Route::post('/jobPosts', 'JobPostsController@store')->name('jobPosts-create');
 
 Route::post('/jobPosts/update', 'JobPostsController@updateJob')->name('updateJob');
 
-// Employer Controller Routes
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/logout', 'Auth\LoginController@userLogout')->name('userLogout');
+
+// Employer routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
 Route::get('/employer/register', 'EmployerRegisterController@showRegisterForm')->name('employer.register');
 
 Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('employer.login.submit');
 Route::post('/employer/register', 'EmployerRegisterController@create')->name('employer.register.submit');
+Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
+Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
-Route::get('/employer', 'PagesController@employers')->name('employer.home');
 
-Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
+//Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
 // Authentication Routes
 Auth::routes();
