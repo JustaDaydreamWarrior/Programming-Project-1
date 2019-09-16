@@ -4,58 +4,54 @@
 
 
 <div class="pos-f-t">
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-6">
-            <h5 class="text-white h4">Collapsed content</h5>
-            <span class="text-muted">Toggleable via the navbar brand.</span>
+    @if (Route::is('employer.*'))
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-6">
+                <h5 class="text-white h4">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
         </div>
-    </div>
 
+        <!-- Check if accessing an employer route -->
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
+        <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm"> -->
+            <div class="container">
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+                <!-- Product title & Image -->
+                <a class="navbar-brand" href="{{ asset('/') }}">
+                <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+                    <img class="icon" src="/icon_inverted.png" style="width: 40px;height: 40px;">
+                 </span> Handshake</a>
 
-        <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <!-- Product title & Image -->
-            <a class="navbar-brand" href="{{ asset('/') }}">
-            <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
-                <img class="icon" src="/icon_inverted.png" style="width: 40px;height: 40px;">
-             </span> Handshake</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                    </ul>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/about">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/support">Support</a>
+                                </li>
 
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/about">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/support">Support</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/jobPosts">Job Listings</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/sendemail">Email</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Login & registeration Authentication Links -->
-
-                    <!-- Check if accessing an employer route -->
-                    @if (Route::is('employer.*'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/sendemail">Email</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Login & registeration Authentication Links -->
 
                         <!-- Check if an employer is logged in -->
                         @if(Auth::guard('employer')->check())
@@ -66,7 +62,6 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="employerDropdown">
                                     <a href="{{route('employer.dashboard')}}" class="dropdown-item">Dashboard</a>
                                     <!-- add more menu items here -->
-
                                     <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#employer-logout-form').submit();">
                                         Logout
                                     </a>
@@ -84,21 +79,73 @@
                             </li>
                         @endif
 
-                    <!-- Not on an employer page -->
-                    @else
-                        <!-- Check if a jobseeker is logged in -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    @else
+        <!-- Not on an employer page -->
+        <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-dark p-6">
+                <h5 class="text-white h4">Collapsed content</h5>
+                <span class="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+            <div class="container">
+
+                <!-- Product title & Image -->
+                <a class="navbar-brand" href="{{ asset('/') }}">
+                <span style="padding-right:3px; padding-top: 3px; display:inline-block;">
+                    <img class="icon" src="/icon_inverted.png" style="width: 40px;height: 40px;">
+                 </span> Handshake</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/about">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/support">Support</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/jobPosts">Job Listings</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/sendemail">Email</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Login & registeration Authentication Links -->
+
+                        <!-- Check if an employer is logged in -->
                         @if(Auth::guard('web')->check())
                             <li class="nav-item dropdown">
-                                <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="employerDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::guard('web')->user()->name }}<span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <!-- <a href="#" class="dropdown-item">Item name</a> -->
+                                    <a href="{{route('dashboard')}}" class="dropdown-item">Dashboard</a>
                                     <!-- add more menu items here -->
                                     <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#user-logout-form').submit();">
                                         Logout
                                     </a>
-                                    <form id="user-logout-form" action="{{ route('userLogout') }}" method="POST" style="display: none;">
+                                    <form id="user-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
@@ -111,13 +158,11 @@
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
-                    @endif
 
-
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-
+        </nav>
+    @endif
 </div>
 
