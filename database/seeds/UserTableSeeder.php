@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model;
 
 class UserTableSeeder extends Seeder
 {
@@ -22,8 +23,8 @@ class UserTableSeeder extends Seeder
             'education' => 1,
             'java' => 1,
             'c' => 0,
-            'c#' => 0,
-            'c++' => 1,
+            'csharp' => 0,
+            'cplus' => 1,
             'php' => 1,
             'html' => 1,
             'css' => 1,
@@ -59,8 +60,8 @@ class UserTableSeeder extends Seeder
             'education' => 1,
             'java' => 1,
             'c' => 0,
-            'c#' => 0,
-            'c++' => 0,
+            'csharp'=> 0,
+            'cplus' => 0,
             'php' => 1,
             'html' => 1,
             'css' => 1,
@@ -96,8 +97,8 @@ class UserTableSeeder extends Seeder
             'education' => 2,
             'java' => 1,
             'c' => 0,
-            'c#' => 0,
-            'c++' => 1,
+            'csharp'=> 0,
+            'cplus' => 1,
             'php' => 1,
             'html' => 1,
             'css' => 1,
@@ -133,8 +134,8 @@ class UserTableSeeder extends Seeder
             'education' => 3,
             'java' => 0,
             'c' => 0,
-            'c#' => 0,
-            'c++' => 0,
+            'csharp' => 0,
+            'cplus' => 0,
             'php' => 1,
             'html' => 1,
             'css' => 1,

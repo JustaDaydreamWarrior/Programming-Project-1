@@ -22,44 +22,47 @@ class CreateJobPostsTable extends Migration
             $table->bigIncrements('id');
             //Job Information
             $table->string('title');
-            $table->string('hours');
-
             $table->string('organisation');
             $table->integer('estSalary');
             $table->string('email');
-            $table->string('startDate');
             $table->string('state');
             $table->string('city');
-            $table->mediumText('description');
+
+            //Required Education and Experience
+            $table->integer('minEdu');
+            $table->integer('minExp');
 
             // Skills that a job listing may have as a requirement/preference.
+            $table->boolean('java');
+            $table->boolean('c');
+            $table->boolean('csharp');
+            $table->boolean('cplus');
+            $table->boolean('php');
+            $table->boolean('html');
+            $table->boolean('css');
+            $table->boolean('python');
+            $table->boolean('javascript');
+            $table->boolean('sql');
+            $table->boolean('unix');
+            $table->boolean('windows10');
+            $table->boolean('windows7');
+            $table->boolean('windowsOld');
+            $table->boolean('windowsServer');
+            $table->boolean('macOS');
+            $table->boolean('linux');
+            $table->boolean('bash');
+            $table->boolean('ciscoSystems');
+            $table->boolean('microsoftOffice');
+            $table->boolean('ruby');
+            $table->boolean('powershell');
+            $table->boolean('rust');
+            $table->boolean('iOS');
+            $table->boolean('adobe');
+            $table->boolean('cloud');
 
-             $table->boolean('java');
-             $table->boolean('c');
-             $table->boolean('c#');
-             $table->boolean('c++');
-             $table->boolean('php');
-             $table->boolean('html');
-             $table->boolean('css');
-             $table->boolean('python');
-             $table->boolean('javascript');
-             $table->boolean('sql');
-             $table->boolean('unix');
-             $table->boolean('windows');
-             $table->boolean('windowsServer');
-             $table->boolean('macOS');
-             $table->boolean('linux');
-             $table->boolean('bash');
-             $table->boolean('ciscoSystems');
-             $table->boolean('microsoftOffice');
-             $table->boolean('ruby');
-             $table->boolean('powershell');
-             $table->boolean('rust');
+            $table->mediumText('description');
+
             $table->timestamps();
-
-            // //Minimum education or experience.
-            // $table->integer('minedu');
-            // $table->integer('minexp');
 
             //Reference to employer table. An a single employer is attached to a job listing as a foreign key. To be completed once employer login/registration is done.
 //            $table->uuid('empID');
@@ -74,7 +77,6 @@ class CreateJobPostsTable extends Migration
      */
     public function down()
     {
-
         Schema::dropIfExists('jobposts');
     }
 }

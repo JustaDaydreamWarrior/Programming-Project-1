@@ -30,13 +30,19 @@ Route::get('/register', 'PagesController@register');
 
 Route::get('/email', 'EmailController@index');
 
-Route::post('/email/send', 'EmailController@send');
 
 Route::resource('jobPosts', 'JobPostsController');
 
 Route::resource('posts', 'PostsController');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+//POST routes
+Route::post('/email/send', 'EmailController@send');
+
+Route::post('/jobPosts', 'JobPostsController@store')->name('jobPosts-create');
+
+Route::post('/jobPosts/update', 'JobPostsController@updateJob')->name('updateJob');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

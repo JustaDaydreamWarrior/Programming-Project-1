@@ -71,7 +71,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function jobposts(){
+    public function jobposts()
+    {
         return $this->hasMany('App\JobPost');
     }
 }

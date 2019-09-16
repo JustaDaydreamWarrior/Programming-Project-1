@@ -43,7 +43,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'state' => 'required|string|in:NSW,ACT,VIC,QLD,SA,WA,NT,TAS',
             'city' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
             'experience' => 'required|integer|min:0|max:100',
-            'education' => 'required|integer|min:0|max:9',
+            'education' => 'required|integer|min:0|max:10',
             'java' => 'required|boolean',
             'c' => 'required|boolean',
             'c#' => 'required|boolean',
@@ -87,7 +87,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param array $data
      * @return \App\User
      */
     protected function create(array $data)
@@ -102,8 +102,8 @@ class RegisterController extends Controller
             'education' => $data['education'],
             'java' => $data['java'],
             'c' => $data['c'],
-            'c#' => $data['c#'],
-            'c++' => $data['c++'],
+            'csharp' => $data['csharp'],
+            'cplus' => $data['cplus'],
             'php' => $data['php'],
             'html' => $data['html'],
             'css' => $data['css'],
