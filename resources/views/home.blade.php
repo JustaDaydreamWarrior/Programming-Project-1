@@ -5,19 +5,22 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">All Created Public Profiles</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    @foreach($users as $user)
+                        {{ $user->id }}
+                        <a href="{{route('profile.show', $user->name) }}">{{ $user->name }}</a>
+                        <br>
+                    @endforeach
 
-                    You are logged in!
+                    <?php echo $users->render(); ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+
+

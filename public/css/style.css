@@ -39,8 +39,6 @@ body {
     padding: 8px 8px;
 }
 
-
-
 .divider {
     background-color: #394047;
     color: #FFFFFF;
@@ -53,4 +51,28 @@ body {
     font-size: 145%;
     margin: 0 0;
 }
+.checkbox-container {
+    text-align: center;
+    column-count: 3;
+    padding:10px ;
+}
 
+div.checkbox-container {
+    display: block;
+    margin: auto;
+}
+
+
+.mdl-checkbox {
+    resize: none;
+    display:block;
+}
+
+.mdl-checkbox, .choose-message-caption {
+    resize: none;
+    margin:25px;
+}
+
+label.mdl-checkbox {
+    display:inline-block;
+}

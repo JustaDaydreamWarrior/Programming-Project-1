@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 align="center" class="mt-3 mb-3">Create a Job Listing</h1>
 
+    <h1 align="center" class="mt-3 mb-3">Create a Job Listing</h1>
     <div class="container">
         <div class="col-md-12 col-md-offset-10">
             <div class="panel panel-default" align="center">
@@ -39,6 +39,8 @@
                     {{form::label('job description', 'Job description')}}
                     {{form::textarea('description', '', ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'description'])}}
                 </div>
+                <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
+                
                 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
                 {!! Form::close() !!}
             </div>
