@@ -61,7 +61,12 @@ Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
 //Admin routes
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
+Route::get('/admin', 'AdminController@index');
 
 //Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 

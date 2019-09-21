@@ -10,7 +10,7 @@ class AdminLoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:employer', ['except' => ['logout']]);
+        $this->middleware('guest:admin', ['except' => ['logout']]);
     }
 
     public function showLoginForm()
@@ -28,21 +28,21 @@ class AdminLoginController extends Controller
         ]);
 
         // Attempt to log user in
-        if (Auth::guard('employer')->attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
+        if (Auth::guard('admin')->attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
             //if successful, the redirect to intended page
-            return redirect()->intended(route('employer.dashboard'));
+            return redirect()->intended(route('admin.dashboard'));
         };
         //if unsuccessful, then redirect back to the login with the form data
         return redirect()->back()->withInput($request->only('username', 'remember'));
 
     }
 
-    //ToDo update for admin auth
+
     public function logout()
     {
-        Auth::guard('employer')->logout();
+        Auth::guard('admin')->logout();
 
-        return redirect()->route('employer.home');
+        return redirect()->route('admin.login');
     }
 
 }
