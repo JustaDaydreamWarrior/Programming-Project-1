@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="moved employer.home to EmployerController">
+      <change afterPath="$PROJECT_DIR$/app/Admin.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inc/employer_navbar.blade.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,15 +113,20 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1Pm6yvkvui6SyGMLT6Pn19fVyIX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\handshake\app" />
       <recent name="C:\xampp\htdocs\TestProject\resources\views\posts" />
       <recent name="C:\xampp\htdocs\TestProject\app" />
       <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
@@ -190,6 +195,8 @@
       <workItem from="1568460415887" duration="9535000" />
       <workItem from="1568612298829" duration="350000" />
       <workItem from="1568612784571" duration="249000" />
+      <workItem from="1569029953442" duration="2170000" />
+      <workItem from="1569040064537" duration="1200000" />
     </task>
     <task id="LOCAL-00001" summary="fixed EmpReg controller">
       <created>1568014352831</created>
@@ -288,6 +295,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="fixed EmpReg controller" />
     <MESSAGE value="update logout function (web only)" />
     <MESSAGE value="update logout function (employer only)" />
