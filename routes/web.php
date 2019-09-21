@@ -59,6 +59,9 @@ Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('em
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
+//Admin routes
+Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
 //Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
