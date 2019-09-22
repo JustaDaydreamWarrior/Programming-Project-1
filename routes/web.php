@@ -66,7 +66,7 @@ Route::post('/admin/logout', 'Auth\AdminLoginController@logout')->name('admin.lo
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 
 Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin', 'AdminController@index')->name('admin.home');
 
 //Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
