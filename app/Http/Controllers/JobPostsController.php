@@ -45,6 +45,7 @@ class JobPostsController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
@@ -241,6 +242,15 @@ class JobPostsController extends Controller
 
         return redirect('/jobPosts')->with('success', 'Listing updated!');
     }
+
+    /* Show matches page. */
+    public function matchingJobs(){
+        return view('pages/matches');
+    }
+
+
+
+
 
     /**
      * Remove the specified resource from storage.

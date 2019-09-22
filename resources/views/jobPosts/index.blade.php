@@ -24,7 +24,7 @@
                     </form>
                 </div>
 
-                {{--Panel to display list of available jobs--}}
+                {{--Panel to display list of available jobPosts--}}
                 <div class="jobPanel">
                     @if(count($jobPosts) > 0)
                         @foreach($jobPosts as $jobPost)
