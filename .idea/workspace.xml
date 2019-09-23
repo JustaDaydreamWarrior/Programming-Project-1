@@ -121,25 +121,18 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\TestProject\resources\views\posts" />
+      <recent name="C:\xampp\htdocs\TestProject\app" />
+      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
+      <recent name="C:\xampp\htdocs\TestProject\database\migrations" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\laravelapps\laravelwindows\resources\views" />
       <recent name="C:\xampp\htdocs\laravelapps\laravelwindows\resources\views\public" />
       <recent name="C:\xampp\htdocs\handshake\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\handshake\app\Http\Controllers\Auth" />
       <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\laravelapps\laravelwindows\resources\views" />
-      <recent name="C:\xampp\htdocs\laravelapps\laravelwindows\resources\views\user" />
-      <recent name="C:\xampp\htdocs\laravelapps\laravelwindows\app\Http\Controllers" />
-      <recent name="C:\xampp\htdocs\TestProject\resources\views\posts" />
-      <recent name="C:\xampp\htdocs\TestProject\app" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\TestProject\resources\views\posts" />
-      <recent name="C:\xampp\htdocs\TestProject\app" />
-      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
-      <recent name="C:\xampp\htdocs\TestProject\database\migrations" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -198,12 +191,9 @@
       <workItem from="1568460415887" duration="9535000" />
       <workItem from="1568612298829" duration="350000" />
       <workItem from="1568612784571" duration="249000" />
-
       <workItem from="1569239341281" duration="32000" />
       <workItem from="1569239429751" duration="3594000" />
-
       <workItem from="1569224039267" duration="569000" />
-
     </task>
     <task id="LOCAL-00001" summary="fixed EmpReg controller">
       <created>1568014352831</created>
