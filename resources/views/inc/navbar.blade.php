@@ -4,7 +4,6 @@
 
 
 <div class="pos-f-t">
-    <!-- Check if accessing an employer route -->
     @if (Route::is('employer.*'))
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-6">
@@ -12,8 +11,10 @@
                 <span class="text-muted">Toggleable via the navbar brand.</span>
             </div>
         </div>
+
+        <!-- Check if accessing an employer route -->
         <nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;">
-            <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm"> -->
+        <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm"> -->
             <div class="container">
 
                 <!-- Product title & Image -->
@@ -42,7 +43,11 @@
                                     <a class="nav-link" href="/about">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/email">Support</a>
+                                    <a class="nav-link" href="/support">Support</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/sendemail">Email</a>
                                 </li>
                             </ul>
                         </div>
@@ -79,7 +84,7 @@
             </div>
         </nav>
     @else
-    <!-- Not on an employer page -->
+        <!-- Not on an employer page -->
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-6">
                 <h5 class="text-white h4">Collapsed content</h5>
@@ -116,10 +121,13 @@
                                     <a class="nav-link" href="/about">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/email">Support</a>
+                                    <a class="nav-link" href="/support">Support</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/jobPosts">Job Listings</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/sendemail">Email</a>
                                 </li>
                             </ul>
                         </div>
@@ -127,12 +135,6 @@
 
                         <!-- Check if a Job seeker is logged in -->
                         @if(Auth::guard('web')->check())
-                            <ul class="navbar-nav ml-auto">
-                                <ul class="navbar-nav">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="/matches">Matches</a>
-                                    </li>
-                                </ul>
                             <li class="nav-item dropdown">
                                 <a id="employerDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::guard('web')->user()->name }}<span class="caret"></span>
@@ -162,3 +164,4 @@
         </nav>
     @endif
 </div>
+
