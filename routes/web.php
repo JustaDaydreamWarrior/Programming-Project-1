@@ -62,6 +62,18 @@ Route::get('/employer', 'PagesController@employers')->name('employer.home');
 
 Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
+//Edit Public Profile Routes
+
+Route::get('/user{id}', 'UserController@profile')->name('user.profile');
+
+Route::get('edit/user/', 'UserController@edit')->name('user.edit');
+
+Route::post('edit/user/', 'UserController@update')->name('user.update');
+
+
+
+
+
 // Authentication Routes
 Auth::routes();
 
