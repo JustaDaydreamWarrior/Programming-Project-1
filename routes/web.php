@@ -62,11 +62,11 @@ Route::get('/employer', 'EmployerController@index')->name('employer.home');
 //Edit Public Profile Routes
 Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
-Route::get('/user{id}', 'UserController@profile')->name('user.profile');
+Route::get('/publicprofile{id}', 'PublicProfileEditController@profile')->name('user.profile');
 
-Route::get('edit/user/', 'UserController@edit')->name('user.edit');
+Route::get('edit/publicprofile/', 'PublicProfileEditController@edit')->name('user.edit');
 
-Route::post('edit/user/', 'UserController@update')->name('user.update');
+Route::post('edit/publicprofile/', 'PublicProfileEditController@update')->name('user.update');
 
 
 
