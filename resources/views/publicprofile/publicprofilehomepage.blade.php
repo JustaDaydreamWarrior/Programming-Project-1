@@ -9,7 +9,7 @@
                 <div class="card-body">
                     @foreach($users as $user)
                         {{ $user->id }}
-                        <a href="{{ route('profile.show', $user->name) }}"> {{ $user->name }} </a>
+                        <a href="{{ route('public_profile.show', $user->name) }}"> {{ $user->name }} </a>
                         <br>
 
 

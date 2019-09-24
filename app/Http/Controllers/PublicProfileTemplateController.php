@@ -6,7 +6,7 @@ use App\User;
 use App\Employer;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class PublicProfileTemplateController extends Controller
 {
     public function show($name){
         $user = User::whereName($name)->first();
@@ -14,7 +14,7 @@ class ProfileController extends Controller
         if($user) {
             //User exists
 
-            return view('profile')->withUser($user);
+            return view('/publicprofile/public_profile_template')->withUser($user);
         } else {
             //Returns false, user doesn't exist
 

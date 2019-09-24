@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 
-class HomeController extends Controller
+class PublicProfileHomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,7 +25,7 @@ class HomeController extends Controller
     {
         $users = User::paginate(2);
 
-        return view('home', compact('users'));
+        return view('/publicprofile/publicprofilehomepage', compact('users'));
 
     }
 }
