@@ -1,21 +1,20 @@
-<!-- Icons -->
-<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('icon.png') }}">
+<!-- Check route being used -->
 
-<div class="pos-f-t">
-    <!-- Check route being used -->
+<!-- Check if accessing an employer route -->
+@if (Route::is('employer.*'))
 
-    @if (Route::is('employer.*'))
-        <!-- Load employer navbar -->
-        @component('components.navbar_employer')
+    <!-- Load employer navbar -->
+    @component('components.navbar_employer')
 
-        @endcomponent
-    @else
-        <!-- Not on an employer page -->
-        <!-- Load jobseaker navbar -->
-        @component('components.navbar_jobseeker')
+    @endcomponent
 
-        @endcomponent
+    <!-- Not on an employer page -->
+@else
 
-    @endif
-</div>
+    <!-- Load jobseaker navbar -->
+    @component('components.navbar_jobseeker')
+
+    @endcomponent
+
+@endif
 

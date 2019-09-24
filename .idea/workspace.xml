@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="moved employer.home to EmployerController">
+    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="refactored navbar">
+      <change afterPath="$PROJECT_DIR$/public/icon_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icon_light.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/inc/employer_navbar.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icon_inverted.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/transparent_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar_employer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar_employer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar_jobseeker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar_jobseeker.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inc/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,6 +121,9 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1Pm6yvkvui6SyGMLT6Pn19fVyIX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
@@ -302,6 +313,7 @@
     <MESSAGE value="added conditional user (jobseeker) check" />
     <MESSAGE value="moved employer.home to EmployerController" />
     <MESSAGE value="removed employer blade template" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed employer blade template" />
+    <MESSAGE value="refactored navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored navbar" />
   </component>
 </project>

@@ -20,7 +20,7 @@ use App\Http\Controllers\Auth\EmployerLoginController;
 // Controller Routes
 Route::get('/', 'PagesController@index');
 
-Route::get('/about', 'PagesController@about');
+Route::get('/about', 'PagesController@about')->name('about');
 
 Route::get('/support', 'PagesController@support');
 
@@ -28,7 +28,7 @@ Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
 
-Route::get('/email', 'EmailController@index');
+Route::get('/email', 'EmailController@index')->name('support');
 
 Route::get('/matches', 'JobPostsController@matchingJobs')->name('matches');
 
