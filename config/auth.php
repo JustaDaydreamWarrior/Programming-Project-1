@@ -62,6 +62,12 @@ return [
             'provider' => 'employers',
             'hash' => false,
         ],
+
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+            'hash' => false,
+        ]
     ],
 
     /*
@@ -95,7 +101,7 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
-        ],
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -127,6 +133,12 @@ return [
 
         'employers' => [
             'provider' => 'employers',
+            'table' => 'password_resets',
+            'expire' => 20,
+        ],
+
+        'admins' => [
+            'provider' => 'admins',
             'table' => 'password_resets',
             'expire' => 20,
         ],
