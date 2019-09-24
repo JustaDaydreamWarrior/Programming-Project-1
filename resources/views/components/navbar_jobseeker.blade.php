@@ -41,7 +41,7 @@
                                 <a class="nav-link" href="{{ route('support') }}">Support</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">Public Profiles</a>
+                                <a class="nav-link" href="{{ route('publicprofile') }}">Public Profiles</a>
                             </li>
 
                             <li class="nav-item">
