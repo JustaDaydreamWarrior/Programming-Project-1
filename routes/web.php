@@ -49,18 +49,18 @@ Route::post('/jobPosts/update', 'JobPostsController@updateJob')->name('updateJob
 
 // Employer Specific Routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
-Route::get('/employer/register', 'EmployerRegisterController@showRegisterForm')->name('employer.register');
-
 Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('employer.login.submit');
+
+Route::get('/employer/register', 'Auth\EmployerRegisterController@showRegisterForm')->name('employer.register');
 Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
+
 Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
-Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
-
 //Edit Public Profile Routes
+Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
 Route::get('/user{id}', 'UserController@profile')->name('user.profile');
 
