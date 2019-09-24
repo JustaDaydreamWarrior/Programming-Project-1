@@ -41,12 +41,10 @@
                                 <a class="nav-link" href="{{ route('support') }}">Support</a>
                             </li>
                             <li class="nav-item">
-
                                 <a class="nav-link" href="{{ route('publicprofile') }}">Public Profiles</a>
                             </li>
 
                             <li class="nav-item">
-
                                 <a class="nav-link" href="{{ route('jobPosts-create') }}">Job Listings</a>
                             </li>
                             <li class="nav-item">
