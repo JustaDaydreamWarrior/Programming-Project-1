@@ -18,7 +18,6 @@ class AdminLoginController extends Controller
         return view('auth.admin-login');
     }
 
-    //ToDo update for admin auth
     public function login(Request $request)
     {
         //validate form data
@@ -36,7 +35,6 @@ class AdminLoginController extends Controller
         return redirect()->back()->withInput($request->only('username', 'remember'));
 
     }
-
 
     public function logout()
     {
