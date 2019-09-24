@@ -60,6 +60,11 @@ Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employe
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
 //Edit Public Profile Routes
+
+Route::get('/publicprofile', 'PublicProfileHomeController@index')->name('publicprofile');
+
+Route::get('/profile/{name}', 'PublicProfileTemplateController@show')->name('public_profile.show');
+
 Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
 
 Route::get('/publicprofile{id}', 'PublicProfileEditController@profile')->name('user.profile');
