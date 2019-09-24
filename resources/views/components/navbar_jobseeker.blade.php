@@ -52,12 +52,9 @@
 
                     <!-- Check if a Job seeker is logged in -->
                     @if(Auth::guard('web')->check())
-                        <ul class="navbar-nav ml-auto">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('matches') }}">Matches</a>
-                                </li>
-                            </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('matches') }}">Matches</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::guard('web')->user()->name }}<span class="caret"></span>
