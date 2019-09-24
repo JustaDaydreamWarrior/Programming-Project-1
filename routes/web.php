@@ -20,7 +20,7 @@ use App\Http\Controllers\Auth\EmployerLoginController;
 // Controller Routes
 Route::get('/', 'PagesController@index');
 
-Route::get('/about', 'PagesController@about');
+Route::get('/about', 'PagesController@about')->name('about');
 
 Route::get('/support', 'PagesController@support');
 
@@ -28,7 +28,9 @@ Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
 
-Route::get('/email', 'EmailController@index');
+Route::get('/email', 'EmailController@index')->name('support');
+
+Route::get('/matches', 'JobPostsController@matchingJobs')->name('matches');
 
 
 Route::resource('jobPosts', 'JobPostsController');
@@ -37,6 +39,7 @@ Route::resource('posts', 'PostsController');
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
+
 //POST routes
 Route::post('/email/send', 'EmailController@send');
 
@@ -44,22 +47,19 @@ Route::post('/jobPosts', 'JobPostsController@store')->name('jobPosts-create');
 
 Route::post('/jobPosts/update', 'JobPostsController@updateJob')->name('updateJob');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::post('/logout', 'Auth\LoginController@userLogout')->name('userLogout');
-
-// Employer routes
+// Employer Specific Routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
-Route::get('/employer/register', 'EmployerRegisterController@showRegisterForm')->name('employer.register');
-
 Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('employer.login.submit');
-Route::post('/employer/register', 'EmployerRegisterController@create')->name('employer.register.submit');
+
+Route::get('/employer/register', 'Auth\EmployerRegisterController@showRegisterForm')->name('employer.register');
+Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
+
 Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
-//Admin routes
+// Admin routes
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
@@ -68,7 +68,18 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 Route::get('/admin', 'AdminController@index')->name('admin.home');
 
-//Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
+// Edit Public Profile Routes
+Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
+
+Route::get('/user{id}', 'UserController@profile')->name('user.profile');
+
+Route::get('edit/user/', 'UserController@edit')->name('user.edit');
+
+Route::post('edit/user/', 'UserController@update')->name('user.update');
+
+
+
+
 
 // Authentication Routes
 Auth::routes();
@@ -89,4 +100,16 @@ Route::post('/search', function(){
     return view('pages/searchresult')->withMessage("No users were found in the database. Try again!");
 });
 
+// API Routes
 
+// Return currently authenticated user.
+Route::get('/api/user', 'APIController@getUser')->name('getUser');
+
+// Return job by ID.
+Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost');
+
+/* Return jobs by state. */
+Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByState')->name('getJobPostsByState');
+
+/* Return all jobs. */
+Route::get('/api/jobPosts/', 'APIController@getAllJobPosts')->name('getAllJobPosts');

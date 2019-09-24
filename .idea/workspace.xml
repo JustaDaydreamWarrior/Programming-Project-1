@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/admin-login.blade.php" afterDir="false" />
+    <list default="true" id="ca833edf-bf12-4bf6-9baa-47b343076657" name="Default Changelist" comment="refactored navbar">
+      <change afterPath="$PROJECT_DIR$/public/icon_dark.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/icon_light.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/icon_inverted.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/transparent_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar_employer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar_employer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/navbar_jobseeker.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/navbar_jobseeker.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/inc/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/inc/navbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -120,17 +127,18 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\laravelapps\laravelwindows\resources\views" />
+      <recent name="C:\xampp\htdocs\laravelapps\laravelwindows\resources\views\public" />
       <recent name="C:\xampp\htdocs\handshake\app\Http\Controllers" />
       <recent name="C:\xampp\htdocs\handshake\app\Http\Controllers\Auth" />
       <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers" />
-      <recent name="C:\xampp\htdocs\TestProject\app\Http\Controllers\Auth" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\handshake\app\Http\Controllers\Auth" />
@@ -196,11 +204,9 @@
       <workItem from="1568460415887" duration="9535000" />
       <workItem from="1568612298829" duration="350000" />
       <workItem from="1568612784571" duration="249000" />
-      <workItem from="1569029953442" duration="2170000" />
-      <workItem from="1569040064537" duration="1494000" />
-      <workItem from="1569057156936" duration="2374000" />
-      <workItem from="1569060050727" duration="632000" />
-      <workItem from="1569061005687" duration="785000" />
+      <workItem from="1569239341281" duration="32000" />
+      <workItem from="1569239429751" duration="3594000" />
+      <workItem from="1569224039267" duration="569000" />
     </task>
     <task id="LOCAL-00001" summary="fixed EmpReg controller">
       <created>1568014352831</created>
@@ -317,7 +323,7 @@
     <MESSAGE value="added conditional user (jobseeker) check" />
     <MESSAGE value="moved employer.home to EmployerController" />
     <MESSAGE value="removed employer blade template" />
-    <MESSAGE value="added Admin model" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Admin model" />
+    <MESSAGE value="refactored navbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored navbar" />
   </component>
 </project>
