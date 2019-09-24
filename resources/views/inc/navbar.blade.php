@@ -59,6 +59,10 @@
                                 <a id="employerDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::guard('employer')->user()->company_name }}<span class="caret"></span>
                                 </a>
+
+                                <a class="dropdown-item" href='/edit/user'>
+                                    Edit Profile
+                                </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="employerDropdown">
                                     <a href="{{route('employer.dashboard')}}" class="dropdown-item">Dashboard</a>
                                     <!-- add more menu items here -->
@@ -141,6 +145,10 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                     <a href="{{route('dashboard')}}" class="dropdown-item">Dashboard</a>
+
+                                    <a class="dropdown-item" href='/edit/user'>
+                                        Edit Profile
+                                    </a>
                                     <!-- add more menu items here -->
                                     <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#user-logout-form').submit();">
                                         Logout
