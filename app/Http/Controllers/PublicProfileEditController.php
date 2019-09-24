@@ -6,14 +6,14 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class PublicProfileEditController extends Controller
 {
     public function edit(){
         if (Auth::user()) {
             $user = User::find(Auth::user()->id);
 
             if ($user) {
-                return view('user.edit')->withUser($user);
+                return view('publicprofileedit/user.edit')->withUser($user);
             } else {
                 return redirect()->back();
             }

@@ -20,7 +20,7 @@ use App\Http\Controllers\Auth\EmployerLoginController;
 // Controller Routes
 Route::get('/', 'PagesController@index');
 
-Route::get('/about', 'PagesController@about');
+Route::get('/about', 'PagesController@about')->name('about');
 
 Route::get('/support', 'PagesController@support');
 
@@ -28,7 +28,7 @@ Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
 
-Route::get('/email', 'EmailController@index');
+Route::get('/email', 'EmailController@index')->name('support');
 
 Route::get('/matches', 'JobPostsController@matchingJobs')->name('matches');
 
@@ -49,26 +49,23 @@ Route::post('/jobPosts/update', 'JobPostsController@updateJob')->name('updateJob
 
 // Employer Specific Routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
-
-Route::get('/employer/register', 'Auth\EmployerRegisterController@showRegisterForm')->name('employer.register');
-
 Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('employer.login.submit');
 
+Route::get('/employer/register', 'Auth\EmployerRegisterController@showRegisterForm')->name('employer.register');
 Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
 
+Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
+
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
-
-Route::get('/employer', 'PagesController@employers')->name('employer.home');
-
-Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
+Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
 //Edit Public Profile Routes
 
-Route::get('/user{id}', 'UserController@profile')->name('user.profile');
+Route::get('/publicprofile{id}', 'PublicProfileEditController@profile')->name('user.profile');
 
-Route::get('edit/user/', 'UserController@edit')->name('user.edit');
+Route::get('edit/publicprofile/', 'PublicProfileEditController@edit')->name('user.edit');
 
-Route::post('edit/user/', 'UserController@update')->name('user.update');
+Route::post('edit/publicprofile/', 'PublicProfileEditController@update')->name('user.update');
 
 
 
