@@ -61,13 +61,8 @@ return [
             'driver' => 'token',
             'provider' => 'employers',
             'hash' => false,
-        ],
-
-        'admin-api' => [
-            'driver' => 'token',
-            'provider' => 'admins',
-            'hash' => false,
         ]
+
     ],
 
     /*
