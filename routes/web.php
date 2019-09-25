@@ -70,14 +70,27 @@ Route::get('/admin', 'AdminController@index')->name('admin.home');
 
 // Edit Public Profile Routes
 Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
+//Edit Public Profile Routes
+Route::get('/publicprofile', 'PublicProfileHomeController@index')->name('publicprofile');
 
-Route::get('/user{id}', 'UserController@profile')->name('user.profile');
+Route::get('/profile/{name}', 'PublicProfileTemplateController@show')->name('public_profile.show');
 
-Route::get('edit/user/', 'UserController@edit')->name('user.edit');
+Route::get('/publicprofile{id}', 'PublicProfileEditController@profile')->name('user.profile');
 
-Route::post('edit/user/', 'UserController@update')->name('user.update');
+Route::get('edit/publicprofile/', 'PublicProfileEditController@edit')->name('user.edit');
 
+Route::post('edit/publicprofile/', 'PublicProfileEditController@update')->name('user.update');
 
+//Edit Public Profile Routes
+Route::get('/employerprofile', 'EmployerProfileController@employerindex')->name('employerprofile');
+
+Route::get('/employer/{company_name}', 'EmployerProfileController@employershow')->name('employer_profile.show');
+
+//Route::get('/employerprofile{id}', 'PublicProfileEditController@profile')->name('user.profile');
+
+//Route::get('edit/publicprofile/', 'PublicProfileEditController@edit')->name('user.edit');
+//
+//Route::post('edit/publicprofile/', 'PublicProfileEditController@update')->name('user.update');
 
 
 
