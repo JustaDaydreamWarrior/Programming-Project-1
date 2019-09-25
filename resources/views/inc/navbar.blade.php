@@ -8,9 +8,15 @@
 
     @endcomponent
 
-    <!-- Not on an employer page -->
-@else
+<!-- Check if accessing an admin route -->
+@elseif(Route::is('admin.*'))
+    <!-- Load admin navbar -->
+    @component('components.navbar_admin')
 
+    @endcomponent
+
+@else
+    <!-- Not on an employer page -->
     <!-- Load jobseaker navbar -->
     @component('components.navbar_jobseeker')
 
