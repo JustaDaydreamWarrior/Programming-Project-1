@@ -54,6 +54,7 @@ Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('empl
 Route::get('/employer/register', 'Auth\EmployerRegisterController@showRegisterForm')->name('employer.register');
 Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
 
+Route::get('/employer/logout', function (){abort(403);}) ;
 Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
@@ -66,6 +67,7 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 Route::get('/admin/register', 'Auth\AdminRegisterController@showRegisterForm')->name('admin.register');
 Route::post('/admin/register', 'Auth\AdminRegisterController@create')->name('admin.register.submit');
 
+Route::get('/admin/logout', function (){abort(403);}) ;
 Route::post('/admin/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
 Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
