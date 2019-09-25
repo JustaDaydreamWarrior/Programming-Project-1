@@ -7,8 +7,9 @@
                 <h1>My Profile Page</h1>
                 <br>
                 <br>
-                <h1>First Name</h1>
+                <h1>Name</h1>
                 <p>{{$user->company_name}}</p>
+                <p>{{$user->name}}</p>
                 <br>
                 <div>
                     <h1>User ID</h1>
@@ -22,11 +23,6 @@
                     <br>
                 </div>
                 <br>
-                <div>
-                    <h1>City</h1>
-{{--                    {!!$user->city!!}--}}
-                    <br>
-                </div>
             </div>
         </div>
     </div>

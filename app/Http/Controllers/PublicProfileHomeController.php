@@ -1,11 +1,8 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Employer;
 use Illuminate\Http\Request;
 use App\User;
-
 class PublicProfileHomeController extends Controller
 {
     /**
@@ -16,7 +13,6 @@ class PublicProfileHomeController extends Controller
     public function __construct()
     {
     }
-
     /**
      * Show the application dashboard.
      *
@@ -25,16 +21,11 @@ class PublicProfileHomeController extends Controller
     public function index()
     {
         $users = User::paginate(2);
-
         return view('/publicprofile/publicprofilehomepage', compact('users'));
-
     }
-
     public function employerindex()
     {
         $employers = Employer::paginate(2);
-
-        return view('/employerprofile/employerprofilehomepage', compact('employers'));
-
+        return view('/publicprofile/employerprofilehomepage', compact('employers'));
     }
 }
