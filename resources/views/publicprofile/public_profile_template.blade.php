@@ -8,7 +8,7 @@
                 <br>
                 <br>
                 <h1>First Name</h1>
-                <p>{{$user->name}}</p>
+                <p>{{$user->company_name}}</p>
                 <br>
                 <div>
                     <h1>User ID</h1>
@@ -24,7 +24,7 @@
                 <br>
                 <div>
                     <h1>City</h1>
-                    {!!$user->city!!}
+{{--                    {!!$user->city!!}--}}
                     <br>
                 </div>
             </div>

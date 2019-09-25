@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Employer;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -26,6 +27,14 @@ class PublicProfileHomeController extends Controller
         $users = User::paginate(2);
 
         return view('/publicprofile/publicprofilehomepage', compact('users'));
+
+    }
+
+    public function employerindex()
+    {
+        $employers = Employer::paginate(2);
+
+        return view('/publicprofile/employerprofilehomepage', compact('employers'));
 
     }
 }
