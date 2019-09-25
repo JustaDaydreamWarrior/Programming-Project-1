@@ -15,54 +15,63 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Auth\EmployerLoginController;
 // Controller Routes
 Route::get('/', 'PagesController@index');
+
 Route::get('/about', 'PagesController@about')->name('about');
+
 Route::get('/support', 'PagesController@support');
+
 Route::get('/login', 'PagesController@login');
+
 Route::get('/register', 'PagesController@register');
+
 Route::get('/email', 'EmailController@index')->name('support');
+
 Route::get('/matches', 'JobPostsController@matchingJobs')->name('matches');
+
 Route::resource('jobPosts', 'JobPostsController');
+
 Route::resource('posts', 'PostsController');
+
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
 //POST routes
 Route::post('/email/send', 'EmailController@send');
+
 Route::post('/jobPosts', 'JobPostsController@store')->name('jobPosts-create');
+
 Route::post('/jobPosts/update', 'JobPostsController@updateJob')->name('updateJob');
+
 // Employer Specific Routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
+
 Route::post('/employer/login', 'Auth\EmployerLoginController@login')->name('employer.login.submit');
+
 Route::get('/employer/register', 'Auth\EmployerRegisterController@showRegisterForm')->name('employer.register');
+
 Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
+
 Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
+
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
+
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
-
-// Admin routes
-Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-Route::post('/admin/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
-
-Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-
-Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
-Route::get('/admin', 'AdminController@index')->name('admin.home');
-
-// Edit Public Profile Routes
-Route::get('/profile/{name}', 'ProfileController@show')->name('profile.show');
-
-//Edit Public Profile Routes
+//Public Profile Routes
 Route::get('/publicprofile', 'PublicProfileHomeController@index')->name('publicprofile');
+
 Route::get('/profile/{name}', 'PublicProfileTemplateController@show')->name('public_profile.show');
+
 Route::get('/publicprofile{id}', 'PublicProfileEditController@profile')->name('user.profile');
+
 Route::get('edit/publicprofile/', 'PublicProfileEditController@edit')->name('user.edit');
+
 Route::post('edit/publicprofile/', 'PublicProfileEditController@update')->name('user.update');
-//Edit Public Profile Routes
+
+//Employer Profile Routes
 Route::get('/employerprofile', 'PublicProfileHomeController@employerindex')->name('employer_profile');
+
 Route::get('/employer/{company_name}', 'PublicProfileTemplateController@employershow')->name('employer_profile.show');
-//Route::get('/employerprofile{id}', 'PublicProfileEditController@profile')->name('user.profile');
-//Route::get('edit/publicprofile/', 'PublicProfileEditController@edit')->name('user.edit');
-//
-//Route::post('edit/publicprofile/', 'PublicProfileEditController@update')->name('user.update');
+
 // Authentication Routes
 Auth::routes();
 //Search Bar in job listings
