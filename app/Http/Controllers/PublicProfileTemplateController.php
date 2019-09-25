@@ -21,4 +21,18 @@ class PublicProfileTemplateController extends Controller
             dd($user);
         }
     }
+
+    public function employershow($company_name){
+        $user = Employer::where('company_name', $company_name)->first();
+
+        if($user) {
+            //User exists
+
+            return view('/publicprofile/public_profile_template')->with('user', $user);
+        } else {
+            //Returns false, user doesn't exist
+
+            dd($user);
+        }
+    }
 }
