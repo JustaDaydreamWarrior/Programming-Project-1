@@ -37,16 +37,16 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('about') }}">About</a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('support') }}">Support</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('publicprofile') }}">Public Profiles</a>
-
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('employerprofile') }}">Employer Profiles</a>
 
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('employer_profile') }}">Employer Profiles</a>
                             </li>
 
                             <li class="nav-item">
@@ -61,28 +61,28 @@
 
                     <!-- Check if a Job seeker is logged in -->
                     @if(Auth::guard('web')->check())
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('matches') }}">Matches</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::guard('web')->user()->name }}<span class="caret"></span>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('matches') }}">Matches</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::guard('web')->user()->name }}<span class="caret"></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                <a href="{{route('dashboard')}}" class="dropdown-item">Dashboard</a>
+                                <!-- add menu items below this line -->
+                                <a class="dropdown-item" href='{{ route('user.edit') }}'>
+                                    Edit Profile
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                                    <a href="{{route('dashboard')}}" class="dropdown-item">Dashboard</a>
-                                    <!-- add menu items below this line -->
-                                    <a class="dropdown-item" href='{{ route('user.edit') }}'>
-                                        Edit Profile
-                                    </a>
 
-                                    <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#user-logout-form').submit();">
-                                        Logout
-                                    </a>
-                                    <form id="user-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#user-logout-form').submit();">
+                                    Logout
+                                </a>
+                                <form id="user-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                     @else
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -96,4 +96,3 @@
         </div>
     </nav>
 </div>
-
