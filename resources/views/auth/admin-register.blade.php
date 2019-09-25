@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-             <h1 align="center" class="mt-3 mb-3">Register</h1>
+             <h1 align="center" class="mt-3 mb-3"></h1>
                 <div class="card">
                     <div class="card-header">{{ __('Add a new Administrator') }}</div>
 
@@ -33,7 +33,7 @@
                                 <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username:') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="username" type="email" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="email">
+                                    <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
 
                                     @error('username')
                                     <span class="invalid-feedback" role="alert">
