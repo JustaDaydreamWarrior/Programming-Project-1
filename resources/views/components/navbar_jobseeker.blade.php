@@ -46,7 +46,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('publicprofile') }}">Employer Profiles</a>
+                                <a class="nav-link" href="{{ route('employer_profile') }}">Employer Profiles</a>
                             </li>
 
                             <li class="nav-item">
