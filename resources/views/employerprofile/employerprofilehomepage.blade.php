@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">All Created Public Profiles</div>
+                <div class="card-header">All Created Employer Profiles</div>
                 <div class="card-body">
                     @foreach($employers as $user)
                         {{ $user->id }}

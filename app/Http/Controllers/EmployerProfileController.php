@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Employer;
 use Illuminate\Http\Request;
-use App\User;
 
-class PublicProfileHomeController extends Controller
+class EmployerProfileController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,13 +21,7 @@ class PublicProfileHomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        $users = User::paginate(2);
 
-        return view('/publicprofile/publicprofilehomepage', compact('users'));
-
-    }
 
     public function employerindex()
     {

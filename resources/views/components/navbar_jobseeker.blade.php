@@ -43,6 +43,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('publicprofile') }}">Public Profiles</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('employerprofile') }}">Employer Profiles</a>
+                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('jobPosts-create') }}">Job Listings</a>
