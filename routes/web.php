@@ -71,7 +71,7 @@ Route::get('edit/publicprofile/', 'PublicProfileEditController@edit')->name('use
 Route::post('edit/publicprofile/', 'PublicProfileEditController@update')->name('user.update');
 
 //Edit Public Profile Routes
-Route::get('/employerprofile', 'PublicProfileHomeController@employerindex')->name('publicprofile');
+Route::get('/employerprofile', 'PublicProfileHomeController@employerindex')->name('employer.profile');
 
 Route::get('/employer/{company_name}', 'PublicProfileTemplateController@employershow')->name('employer_profile.show');
 
