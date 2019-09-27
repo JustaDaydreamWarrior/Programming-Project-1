@@ -72,20 +72,20 @@ Route::get('/admin', 'AdminController@index')->name('admin.home');
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
 //Public Profile Routes
-Route::get('/publicprofile', 'PublicProfileHomeController@index')->name('publicprofile');
+Route::get('/publicprofiles', 'PublicAndEmployerProfileHomeController@index')->name('profiles');
 
-Route::get('/profile/{name}', 'PublicProfileTemplateController@show')->name('public_profile.show');
+Route::get('/profile/{name}', 'PublicAndEmployerProfileTemplateController@show')->name('public_profile.show');
 
-Route::get('/publicprofile{id}', 'PublicProfileEditController@profile')->name('user.profile');
+Route::get('/profiles{id}', 'PublicProfileEditController@profile')->name('user.profile');
 
-Route::get('edit/publicprofile/', 'PublicProfileEditController@edit')->name('user.edit');
+Route::get('edit/profiles/', 'PublicProfileEditController@edit')->name('user.edit');
 
-Route::post('edit/publicprofile/', 'PublicProfileEditController@update')->name('user.update');
+Route::post('edit/profiles/', 'PublicProfileEditController@update')->name('user.update');
 
 //Employer Profile Routes
-Route::get('/employerprofile', 'PublicProfileHomeController@employerindex')->name('employer_profile');
+Route::get('/employerprofiles', 'PublicAndEmployerProfileHomeController@employerindex')->name('employer_profile');
 
-Route::get('/employer/{company_name}', 'PublicProfileTemplateController@employershow')->name('employer_profile.show');
+Route::get('/employer/{company_name}', 'PublicAndEmployerProfileTemplateController@employershow')->name('employer_profile.show');
 
 // Authentication Routes
 Auth::routes();
