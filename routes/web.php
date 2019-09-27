@@ -87,6 +87,10 @@ Route::get('/employerprofiles', 'PublicAndEmployerProfileHomeController@employer
 
 Route::get('/employer/{company_name}', 'PublicAndEmployerProfileTemplateController@employershow')->name('employer_profile.show');
 
+Route::get('edit/employerprofiles/', 'EmployerProfileEditController@edit')->name('user.edit');
+
+Route::post('edit/employerprofiles/', 'EmployerProfileEditController@update')->name('user.update');
+
 // Authentication Routes
 Auth::routes();
 //Search Bar in job listings

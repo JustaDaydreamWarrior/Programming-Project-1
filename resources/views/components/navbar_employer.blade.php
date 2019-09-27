@@ -54,6 +54,8 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="employerDropdown">
                                 <a href="{{route('employer.dashboard')}}" class="dropdown-item">Dashboard</a>
+                                <a href="{{route('user.edit')}}" class="dropdown-item">Edit Employer profile</a>
+
                                 <!-- add menu items below this line -->
                                 <!-- <a class="dropdown-item" href='route('employer.edit')'>
                                     Edit Profile
