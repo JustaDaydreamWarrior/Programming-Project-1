@@ -40,6 +40,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('support') }}">Support</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('publicprofile') }}">Public Profiles</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('employer_profile') }}">Employer Profiles</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('jobPosts.index') }}">Job Listings</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- Login & registration Authentication Links -->

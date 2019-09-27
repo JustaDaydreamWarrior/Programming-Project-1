@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Employer;
 
 class EmployerController extends Controller
 {
@@ -29,7 +30,12 @@ class EmployerController extends Controller
 
     public function dashboard()
     {
-        return view('employer/employer_dashboard');
+    
+        $user_id = auth()->user()->id;
+        $user = Employer::find($user_id);
+        return view('employer.employer_dashboard')->with('jobPosts', $user->jobPosts);
+    
+        // return view('employer/employer_dashboard');
     }
 
 

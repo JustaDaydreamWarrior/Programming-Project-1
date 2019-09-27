@@ -30,6 +30,7 @@ class DashboardController extends Controller
         $user = User::find($user_id);
         return view('pages/dashboard')->with('jobPosts', $user->jobPosts);
     }
+    
 
     public function mail()
     {
