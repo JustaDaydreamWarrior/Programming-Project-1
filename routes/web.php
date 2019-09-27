@@ -14,7 +14,7 @@ use App\Employer;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Auth\EmployerLoginController;
 // Controller Routes
-Route::get('/', 'PagesController@index');
+Route::get('/', 'PagesController@index')->name('home');
 
 Route::get('/about', 'PagesController@about')->name('about');
 
@@ -50,9 +50,24 @@ Route::get('/employer/register', 'Auth\EmployerRegisterController@showRegisterFo
 
 Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
 
+Route::get('/employer/logout', function (){abort(403);}) ;
 Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
+Route::get('/employer', 'EmployerController@index')->name('employer.home');
+
+// Admin routes
+Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+Route::get('/admin/register', 'Auth\AdminRegisterController@showRegisterForm')->name('admin.register');
+Route::post('/admin/register', 'Auth\AdminRegisterController@create')->name('admin.register.submit');
+
+Route::get('/admin/logout', function (){abort(403);}) ;
+Route::post('/admin/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+
+Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
+Route::get('/admin', 'AdminController@index')->name('admin.home');
 
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 

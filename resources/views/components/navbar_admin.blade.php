@@ -54,6 +54,9 @@
                                 <!-- <a class="dropdown-item" href='route('employer.edit')'>
                                     Edit Profile
                                 </a>-->
+                                <a class="dropdown-item" href='{{route('admin.register')}}'>
+                                    Create new Administrator
+                                </a>
                                 <a class="dropdown-item" href="#"
                                    onclick="event.preventDefault();document.querySelector('#admin-logout-form').submit();">
                                     Logout
