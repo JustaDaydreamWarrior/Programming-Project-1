@@ -4,7 +4,38 @@
 
     <h1 align="center" class="mt-3 mb-3">Job Matches</h1>
 
+
     <div class="container">
+
+        <div id="filters" class="panel panel-default">
+            <div class="panel-heading">Filter Results</div>
+            <div class="panel-body">
+                <div class="form-group" align="center">
+                    <label for="state">State/Territory</label>
+
+                    <div class="col-md-6" >
+                        <select id="state" class="form-control">
+                            <option value="vic" @if (Auth::user()->state === "VIC") selected @endif >Victoria</option>
+                            <option value="nsw" @if (Auth::user()->state === "NSW") selected @endif >New South Wales</option>
+                            <option value="sa" @if (Auth::user()->state === "SA") selected @endif >South Australia</option>
+                            <option value="qld" @if (Auth::user()->state === "QLD") selected @endif >Queensland</option>
+                            <option value="wa" @if (Auth::user()->state === "WA") selected @endif >Western Australia</option>
+                            <option value="tas" @if (Auth::user()->state === "TAS") selected @endif >Tasmania</option>
+                            <option value="act" @if (Auth::user()->state === "ACT") selected @endif >Australian Capital Territory</option>
+                            <option value="nt" @if (Auth::user()->state === "NT") selected @endif >Northern Territory</option>
+                        </select>
+
+                        <br>
+                    </div>
+
+                    <label for="salary">Salary</label>
+                    <div class="col-md-6">
+                        <input id="salary" type="number" min="18" max="200000" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="col-md-12 col-md-offset-10">
             <hr>
             <div class="card card-body bg-secondary p-3 mt-6 mb-6">
