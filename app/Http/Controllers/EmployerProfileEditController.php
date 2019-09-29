@@ -26,11 +26,11 @@ class EmployerProfileEditController extends Controller
     }
 
     public function update(Request $request) {
-        $employer = Auth::guard('employer')->user()->id;
+        $employer = Auth::guard('employer')->user();
 
         if ($employer) {
             $validate = null;
-            if (Auth::guard()->email === $request['email']){
+            if (Auth::guard('employer')->user()->email === $request['email']){
 
                 $validate = $request->validate([
 

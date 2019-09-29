@@ -20,8 +20,8 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Company Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" value="{{ $employer['company_name']}}" type="text"
-                                           class="form-control @error('company_name') is-invalid @enderror" name="name"
+                                    <input id="company_name" value="{{ $employer['company_name']}}" type="text"
+                                           class="form-control @error('company_name') is-invalid @enderror" name="company_name"
                                            value="{{ old('company_name') }}" autocomplete="name" autofocus>
 
                                     @error('company_name')
