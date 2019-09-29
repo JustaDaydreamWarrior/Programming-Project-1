@@ -11,7 +11,7 @@
             <div class="panel-heading">Filters</div>
             <div class="panel-body">
                 <div class="form-group" align="center">
-                    <label for="state">State/Territory</label>
+                    <label for="state">State</label>
 
                     <div class="col-md-6" >
                         <select id="state" class="form-control">
