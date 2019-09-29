@@ -46,6 +46,9 @@
 
                     <!-- Check if an employer is logged in -->
                     @if(Auth::guard('employer')->check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('employer.matches') }}">Matches</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="employerDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
