@@ -8,29 +8,24 @@
     <div class="container">
 
         <div id="filters" class="panel panel-default">
-            <div class="panel-heading">Filter Results</div>
+            <div class="panel-heading">Filters</div>
             <div class="panel-body">
                 <div class="form-group" align="center">
                     <label for="state">State/Territory</label>
 
                     <div class="col-md-6" >
                         <select id="state" class="form-control">
-                            <option value="vic" @if (Auth::user()->state === "VIC") selected @endif >Victoria</option>
-                            <option value="nsw" @if (Auth::user()->state === "NSW") selected @endif >New South Wales</option>
-                            <option value="sa" @if (Auth::user()->state === "SA") selected @endif >South Australia</option>
-                            <option value="qld" @if (Auth::user()->state === "QLD") selected @endif >Queensland</option>
-                            <option value="wa" @if (Auth::user()->state === "WA") selected @endif >Western Australia</option>
-                            <option value="tas" @if (Auth::user()->state === "TAS") selected @endif >Tasmania</option>
-                            <option value="act" @if (Auth::user()->state === "ACT") selected @endif >Australian Capital Territory</option>
-                            <option value="nt" @if (Auth::user()->state === "NT") selected @endif >Northern Territory</option>
+                            <option value="">Any</option>
+                            <option value="vic">Victoria</option>
+                            <option value="nsw">New South Wales</option>
+                            <option value="sa">South Australia</option>
+                            <option value="qld">Queensland</option>
+                            <option value="wa">Western Australia</option>
+                            <option value="tas">Tasmania</option>
+                            <option value="act">Australian Capital Territory</option>
+                            <option value="nt">Northern Territory</option>
                         </select>
-
                         <br>
-                    </div>
-
-                    <label for="salary">Salary</label>
-                    <div class="col-md-6">
-                        <input id="salary" type="number" min="18" max="200000" class="form-control">
                     </div>
                 </div>
             </div>
@@ -42,13 +37,13 @@
                 {{--Display an error if javascript isn't working, or enabled--}}
                 <div id="noscript" align="center">
                     <br><br>
-                    <p><i style="font-size: 200px" class="" aria-hidden="true"></i></p>
+                    <p><i style="font-size: 200px" class="" hidden="true"></i></p>
                     <br>
                     <h2>JavaScript Error</h2>
                     <p>An issue with javascript was found, please make sure javascript is enabled</p>
                     <br><br>
                 </div>
-                {{--Loading div. Used to display loading animation until first match is loaded to page. --}}
+                {{--Loading div. Used until first match is loaded --}}
                 <div id="loading" style="display: none" align="center">
                     <br><br>
                     <p><i style="font-size: 150px" class=""></i></p>
@@ -59,16 +54,15 @@
                 {{--No matches found div--}}
                 <div id="nomatch" style="display: none" align="center">
                     <br><br>
-                    <p><i style="font-size: 150px" class="" aria-hidden="true"></i></p>
+                    <p><i style="font-size: 150px" class="" hidden="true"></i></p>
                     <br>
                     <h2>No Matches Found.</h2>
-                    <p>Try again later.</p>
                     <br><br>
                 </div>
                 {{--Undefined error div--}}
                 <div id="error" style="display: none" align="center">
                     <br><br>
-                    <p><i style="font-size: 150px" class="" aria-hidden="true"></i></p>
+                    <p><i style="font-size: 150px" class="" hidden="true"></i></p>
                     <br>
                     <h2>Error.</h2>
                     <p>An error occurred.</p>
