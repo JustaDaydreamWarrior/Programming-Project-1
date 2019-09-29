@@ -20,7 +20,7 @@ class Employer extends Authenticatable
     protected $guard = 'employer';
 
     protected $fillable = [
-        'company_name', 'email', 'password', 'contact_phone', 'contact_email', 'city', 'state'
+        'id', 'company_name', 'email', 'password', 'contact_phone', 'contact_email', 'city', 'state'
     ];
 
 
@@ -41,4 +41,9 @@ class Employer extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function jobposts()
+    {
+        return $this->hasMany('App\JobPost');
+    }
 }

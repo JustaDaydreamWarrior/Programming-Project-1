@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendMailable;
 use App\User;
+use App\Employer;
 
 class DashboardController extends Controller
 {
@@ -27,8 +28,10 @@ class DashboardController extends Controller
     public function index()
     {
         $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('pages/dashboard')->with('jobPosts', $user->jobPosts);
+        $user = Employer::find($user_id);
+        // return view('pages/dashboard')->with('jobPosts', $user->jobPosts);
+
+        return view('pages/dashboard');
     }
     
 

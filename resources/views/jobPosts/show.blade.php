@@ -15,7 +15,7 @@
                 <div>
                     {!!$jobPosts->description!!}
                 </div>
-                <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->user->name}}</small>
+                <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->user->company_name}}</small>
                 <br>
                 <small>Updated on {{$jobPosts->updated_at}}</small>
                 <hr>

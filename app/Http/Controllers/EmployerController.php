@@ -33,9 +33,9 @@ class EmployerController extends Controller
     
         $user_id = auth()->user()->id;
         $user = Employer::find($user_id);
-        return view('employer.employer_dashboard')->with('jobPosts', $user->jobPosts);
+        // return view('employer.employer_dashboard')->with('jobPosts', $user->jobPosts);
     
-        // return view('employer/employer_dashboard');
+        return view('employer/employer_dashboard');
     }
 
 
