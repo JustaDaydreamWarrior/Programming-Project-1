@@ -101,12 +101,13 @@ Route::post('/search', function(){
     }
     return view('pages/searchresult')->withMessage("No users were found in the database. Try again!");
 });
-// API Routes
+
+// API Routes (matchmaking) //
 // Return currently authenticated user.
 Route::get('/api/user', 'APIController@getUser')->name('getUser');
 // Return job by ID.
 Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost');
-/* Return jobs by state. */
-Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByState')->name('getJobPostsByState');
-/* Return all jobs. */
+// Return all jobs.
 Route::get('/api/jobPosts/', 'APIController@getAllJobPosts')->name('getAllJobPosts');
+// Return jobs by filter.
+Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByFilter')->name('getJobPosts');
