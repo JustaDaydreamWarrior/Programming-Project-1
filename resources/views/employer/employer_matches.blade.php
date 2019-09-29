@@ -13,7 +13,6 @@
             </div>
             <div class="panel-body">
                 <div id="parameters">
-                    <form>
                         <!-- State -->
                         <div class="form-group row{{ $errors->has('state') ? ' has-error' : '' }}">
                             <label for="state" class="col-md-4 col-form-label text-md-right">State/Territory</label>
@@ -22,7 +21,7 @@
                                 <select id="state" name="state" class="form-control" value="{{ old('state') }}"
                                         required>
                                     <option disabled selected value>Select State</option>
-                                    <option value="any">Any</option>
+                                    <option value="">Any</option>
                                     <option value="NSW">New South Wales</option>
                                     <option value="ACT">Australian Capital Territory</option>
                                     <option value="VIC">Victoria</option>
@@ -600,11 +599,10 @@
                         </div>
                         <hr>
                         <div class="form-group" align="center">
-                            <button type="matchNow" class="btn btn-success" align="center">
-                                {{ __('Start Matchmaker') }}
+                            <button id ="matchNow" class="btn btn-success" align="center">
+                                Start Matchmaker
                             </button>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

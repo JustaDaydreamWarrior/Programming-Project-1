@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Employer;
+use App\User;
 use App\JobPost;
+
 
 use Auth;
 use Carbon\Carbon;
@@ -28,6 +29,31 @@ class APIController extends Controller
         return $user;
     }
 
+    //Get all Job Seekers
+    public function getAllUsers(){
+
+        Auth::user();
+        $users = User::all();
+        /* Populate an array of users*/
+        $Users = array();
+        foreach ($users as $user) {
+            array_push($Users, $user);
+        }
+        return $Users;
+    }
+
+    //Get filtered user results (currently only filters by state)
+    public function getUsersByFilter($state){
+        $users = User::where('state', $state)->get();
+        /* Populate an array of jobPosts*/
+        $Users = array();
+        foreach ($users as $user) {
+            array_push($JobPosts, $user);
+        }
+        return $Users;
+    }
+
+
     //Return a single job by ID. Currently unused
     public function getJobPost($id)
     {
@@ -47,7 +73,7 @@ class APIController extends Controller
         return $JobPosts;
     }
 
-    //Get filtered results (currently only filters by state)
+    //Get filtered job posting results (currently only filters by state)
     public function getJobPostsByFilter($state){
         $jobPosts = JobPost::where('state', $state)->get();
         /* Populate an array of jobPosts*/

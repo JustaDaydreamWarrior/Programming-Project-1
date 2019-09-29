@@ -115,3 +115,15 @@ Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost'
 Route::get('/api/jobPosts/', 'APIController@getAllJobPosts')->name('getAllJobPosts');
 // Return jobs by filter.
 Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByFilter')->name('getJobPosts');
+// Return all users.
+Route::get('/api/users/', 'APIController@getAllUsers')->name('getAllUsers');
+// Return users by filter.
+Route::get('/api/users/state/{state}', 'APIController@getUsersByFilter')->name('getUsers');
+
+
+
+
+
+
+
+
