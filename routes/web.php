@@ -87,7 +87,7 @@ Route::get('/employerprofiles', 'PublicAndEmployerProfileHomeController@employer
 
 Route::get('/employer/{company_name}', 'PublicAndEmployerProfileTemplateController@employershow')->name('employer_profile.show');
 
-Route::get('edit/employerprofiles/', 'EmployerProfileEditController@edit')->name('employer_profile_edit');
+Route::get('edit/employerprofiles/', 'EmployerProfileEditController@edit')->name('employer.profile_edit');
 
 Route::post('edit/employerprofiles/', 'EmployerProfileEditController@update')->name('employer.update');
 

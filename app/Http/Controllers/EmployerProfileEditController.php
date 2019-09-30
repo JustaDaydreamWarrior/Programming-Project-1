@@ -54,7 +54,7 @@ class EmployerProfileEditController extends Controller
                 $employer->save();
 
                 $request->session()->flash('success', 'Your details have been updated!');
-                return redirect()->back();
+                return redirect()->route('employer.dashboard');
 
 
 
