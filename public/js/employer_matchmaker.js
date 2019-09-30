@@ -70,7 +70,7 @@ function printJobSeeker(id, name, email, state, city, percentageMatch) {
 }
 
 // Function to perform matchmaking
-function match() {
+function matchJobSeeker() {
         var users = "/api/users/";
 
         // Parameters entered
@@ -188,14 +188,14 @@ function match() {
                                 printJobSeeker(data[order].id, data[order].name, data[order].email, data[order].state, data[order].city, Math.round(percentageMatch[i]));
                             }
                         } else {
-                            document.getElementById("loading").style.display = "none";
-                            document.getElementById("nomatch").style.display = "block";
+                            document.getElementById("employer_loading").style.display = "none";
+                            document.getElementById("employer_nomatch").style.display = "block";
                         }
                     })
                     //Display any relevant errors on failure
                         .fail(function () {
-                            document.getElementById("loading").style.display = "none";
-                            document.getElementById("error").style.display = "block";
+                            document.getElementById("employer_loading").style.display = "none";
+                            document.getElementById("employer_error").style.display = "block";
 
                         });
                 })
@@ -203,7 +203,7 @@ function match() {
 }
 
 // Initialise HTML elements and call matchmaker
-function init() {
+function emp_init() {
     //Parameters should be taken from employer_matches page, to be utilized in the matchmaker
 
 
@@ -237,16 +237,16 @@ function init() {
         // document.getElementById("adobe").addEventListener('change', init);
         // document.getElementById("ciscoSystems").addEventListener('change', init);
         // document.getElementById("cloud").addEventListener('change', init);
-        document.getElementById("matchNow").addEventListener('click', init);
+        document.getElementById("matchNow").addEventListener('click', emp_init);
 
     document.getElementById("jobseeker").innerHTML = "";
     document.getElementById("employer_noscript").style.display = "none";
     document.getElementById("employer_nomatch").style.display = "none";
     document.getElementById("employer_error").style.display = "none";
     document.getElementById("employer_loading").style.display = "block";
-    match();
+    matchJobSeeker();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded', emp_init);
 
 

@@ -28,8 +28,6 @@ Route::get('/email', 'EmailController@index')->name('support');
 
 Route::get('/matches', 'JobPostsController@matchingJobs')->name('matches');
 
-Route::get('/test_employer_matches', 'EmployerController@matchingJobSeekers')->name('test.employer.matches');
-
 Route::resource('jobPosts', 'JobPostsController');
 
 Route::resource('posts', 'PostsController');
@@ -118,9 +116,9 @@ Route::post('/search', function(){
 // Return jobs by filter.
     Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByFilter')->name('getJobPosts');
 // Return all users.
-    Route::get('/api/users/', 'APIController@getAllUsers')->name('getAllUsers');
+    Route::get('/api/users/', 'EmployerAPIController@getAllUsers')->name('getAllUsers');
 // Return users by filter.
-    Route::get('/api/users/state/{state}', 'APIController@getUsersByFilter')->name('getUsers');
+    Route::get('/api/users/state/{state}', 'EmployerAPIController@getUsersByFilter')->name('getUsers');
 
 
 
