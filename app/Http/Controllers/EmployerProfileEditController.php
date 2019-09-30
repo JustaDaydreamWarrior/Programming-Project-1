@@ -11,7 +11,7 @@ class EmployerProfileEditController extends Controller
     public function edit()
     {
         if (Auth::guard('employer')->check()) {
-            $employer = Auth::guard('employer')->user()->id;
+            $employer = Auth::guard('employer')->user();
 
             if ($employer) {
                 return view('employeredit/user.edit')->with('employer', $employer);
@@ -34,15 +34,15 @@ class EmployerProfileEditController extends Controller
 
                 $validate = $request->validate([
 
-                    'company_name' => 'required|min:2',
-                    'email' => 'required|email|unique:employers'
+                    'company_name' => '|min:2',
+                    'email' => '|email|unique:employers'
                 ]);
             } else {
 
                 $validate = $request->validate([
 
-                    'company_name' => 'required|min:2',
-                    'email' => 'required|email|unique:employers'
+                    'company_name' => '|min:2',
+                    'email' => '|email|unique:employers'
                 ]);
 
             }
