@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use App\Employer;
 use Illuminate\Http\Request;
 use App\User;
-class PublicProfileHomeController extends Controller
+class PublicAndEmployerProfileHomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,11 +21,11 @@ class PublicProfileHomeController extends Controller
     public function index()
     {
         $users = User::paginate(2);
-        return view('/publicprofile/publicprofilehomepage', compact('users'));
+        return view('/profiles/publicprofilehomepage', compact('users'));
     }
     public function employerindex()
     {
         $employers = Employer::paginate(2);
-        return view('/publicprofile/employerprofilehomepage', compact('employers'));
+        return view('/profiles/employerprofilehomepage', compact('employers'));
     }
 }
