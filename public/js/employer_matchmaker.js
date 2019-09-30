@@ -71,11 +71,9 @@ function printJobSeeker(id, name, email, state, city, percentageMatch) {
 
 // Function to perform matchmaking
 function match() {
-
         var users = "/api/users/";
-        // Check parameters on employer_matches page
 
-        // Current user information
+        // Parameters entered
         var parameterDetails;
 
         // Array of user indices.

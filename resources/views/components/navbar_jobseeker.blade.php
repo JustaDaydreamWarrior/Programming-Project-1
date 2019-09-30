@@ -64,6 +64,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('matches') }}">Matches</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('test.employer.matches') }}">TestEmpMatches</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::guard('web')->user()->name }}<span class="caret"></span>

@@ -28,6 +28,8 @@ Route::get('/email', 'EmailController@index')->name('support');
 
 Route::get('/matches', 'JobPostsController@matchingJobs')->name('matches');
 
+Route::get('/test_employer_matches', 'EmployerController@matchingJobSeekers')->name('test.employer.matches');
+
 Route::resource('jobPosts', 'JobPostsController');
 
 Route::resource('posts', 'PostsController');
@@ -108,18 +110,17 @@ Route::post('/search', function(){
 
 // API Routes (matchmaking) //
 // Return currently authenticated user.
-Route::get('/api/user', 'APIController@getUser')->name('getUser');
+    Route::get('/api/user', 'APIController@getUser')->name('getUser');
 // Return job by ID.
-Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost');
+    Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost');
 // Return all jobs.
-Route::get('/api/jobPosts/', 'APIController@getAllJobPosts')->name('getAllJobPosts');
+    Route::get('/api/jobPosts/', 'APIController@getAllJobPosts')->name('getAllJobPosts');
 // Return jobs by filter.
-Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByFilter')->name('getJobPosts');
+    Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByFilter')->name('getJobPosts');
 // Return all users.
-Route::get('/api/users/', 'APIController@getAllUsers')->name('getAllUsers');
+    Route::get('/api/users/', 'APIController@getAllUsers')->name('getAllUsers');
 // Return users by filter.
-Route::get('/api/users/state/{state}', 'APIController@getUsersByFilter')->name('getUsers');
-
+    Route::get('/api/users/state/{state}', 'APIController@getUsersByFilter')->name('getUsers');
 
 
 
