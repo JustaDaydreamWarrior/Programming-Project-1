@@ -71,10 +71,10 @@ Route::get('/admin', 'AdminController@index')->name('admin.home');
 
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
-//Public Profile Routes
-Route::get('/publicprofiles', 'PublicAndEmployerProfileHomeController@index')->name('profiles');
+//Job Seeker Profile Routes
+Route::get('/jobseekerprofiles', 'JobSeekerProfileHomeController@index')->name('jobseeker_profile');
 
-Route::get('/profile/{name}', 'PublicAndEmployerProfileTemplateController@show')->name('public_profile.show');
+Route::get('/jobseeker/{name}', 'JobSeekerProfileTemplateController@show')->name('jobseeker_profile.show');
 
 Route::get('/profiles{id}', 'PublicProfileEditController@profile')->name('user.profile');
 
@@ -83,9 +83,9 @@ Route::get('edit/profiles/', 'PublicProfileEditController@edit')->name('user.edi
 Route::post('edit/profiles/', 'PublicProfileEditController@update')->name('user.update');
 
 //Employer Profile Routes
-Route::get('/employerprofiles', 'PublicAndEmployerProfileHomeController@employerindex')->name('employer_profile');
+Route::get('/employerprofiles', 'EmployerProfileHomeController@employerindex')->name('employer_profile');
 
-Route::get('/employer/{company_name}', 'PublicAndEmployerProfileTemplateController@employershow')->name('employer_profile.show');
+Route::get('/employer/{company_name}', 'EmployerProfileTemplateController@employershow')->name('employer_profile.show');
 
 Route::get('edit/employerprofiles/', 'EmployerProfileEditController@edit')->name('employer.profile_edit');
 

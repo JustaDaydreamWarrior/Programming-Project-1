@@ -4,11 +4,10 @@
     <div class="container">
         <div class="col-md-12 col-md-offset-10">
             <div class="panel panel-default" align="center">
-                <h1>My Profile Page</h1>
+                <h1>My Job Seeker Profile Page</h1>
                 <br>
                 <br>
                 <h1>Name</h1>
-                <p>{{$user->company_name}}</p>
                 <p>{{$user->name}}</p>
                 <br>
                 <div>
