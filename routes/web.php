@@ -76,11 +76,11 @@ Route::get('/jobseekerprofiles', 'JobSeekerProfileHomeController@index')->name('
 
 Route::get('/jobseeker/{name}', 'JobSeekerProfileTemplateController@show')->name('jobseeker_profile.show');
 
-Route::get('/profiles{id}', 'PublicProfileEditController@profile')->name('user.profile');
+Route::get('/profiles{id}', 'JobSeekerProfileEditController@profile')->name('user.profile');
 
-Route::get('edit/profiles/', 'PublicProfileEditController@edit')->name('user.edit');
+Route::get('edit/profiles/', 'JobSeekerProfileEditController@edit')->name('user.edit');
 
-Route::post('edit/profiles/', 'PublicProfileEditController@update')->name('user.update');
+Route::post('edit/profiles/', 'JobSeekerProfileEditController@update')->name('user.update');
 
 //Employer Profile Routes
 Route::get('/employerprofiles', 'EmployerProfileHomeController@employerindex')->name('employer_profile');

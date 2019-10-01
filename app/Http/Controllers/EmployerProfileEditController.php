@@ -10,7 +10,7 @@ class EmployerProfileEditController extends Controller
         if (Auth::guard('employer')->check()) {
             $employer = Auth::guard('employer')->user();
             if ($employer) {
-                return view('employeredit/user.edit')->with('employer', $employer);
+                return view('employer/editprofile/user.edit')->with('employer', $employer);
             }
             {
                 return redirect()->back();
