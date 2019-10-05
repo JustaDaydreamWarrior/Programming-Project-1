@@ -232,22 +232,7 @@
                             </div>
                         </div>
 
-                        <!-- C++ -->
-                        <div class="{{ $errors->has('c++') ? ' has-error' : '' }}">
-                            <label for="c++" class="label.mdl-checkbox">C++</label>
 
-                            <div>
-                                <input id="c++-hidden" type="hidden" class="" name="c++" value="0">
-                                <input id="c++" type="checkbox" class="" name="c++"
-                                       value="{{ old('c++', 1) }}">
-
-                                @if ($errors->has('c++'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('c++') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <!-- CSS -->
                         <div class="{{ $errors->has('css') ? ' has-error' : '' }}">
