@@ -146,7 +146,7 @@ class JobSeekerProfileEditController extends Controller
                 $user->save();
 
                 $request->session()->flash('success', 'Your details have been updated!');
-                return redirect()->back();
+                return redirect()->route('home');
 
 
 
