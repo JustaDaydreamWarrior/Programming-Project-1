@@ -26,17 +26,27 @@ class EmployerProfileEditController extends Controller
             if (Auth::guard('employer')->user()->email === $request['email']){
                 $validate = $request->validate([
                     'company_name' => '|min:2',
-                    'email' => '|email|unique:employers'
+                    'email' => '|email|min:2',
+                    'contact_email' => '|email|min:2'
+
+
+
                 ]);
             } else {
                 $validate = $request->validate([
                     'company_name' => '|min:2',
-                    'email' => '|email|unique:employers'
+                    'email' => '|email|min:2',
+                    'contact_email' => '|email|min:2',
+
                 ]);
             }
             if ($validate) {
                 $employer->company_name = $request['company_name'];
                 $employer->email = $request['email'];
+                $employer->contact_email = $request['contact_email'];
+
+
+
                 $employer->save();
                 $request->session()->flash('success', 'Your details have been updated!');
                 return redirect()->route('employer.dashboard');
@@ -46,6 +56,8 @@ class EmployerProfileEditController extends Controller
             }
             $employer->company_name = $request['company_name'];
             $employer->email = $request['email'];
+            $employer->contact_email = $request['contact_email'];
+
             $employer->save();
             return redirect()->back();
         } else {

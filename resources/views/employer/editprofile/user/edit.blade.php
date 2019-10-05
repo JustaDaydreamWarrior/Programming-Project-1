@@ -49,7 +49,21 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Contact Email') }}</label>
 
+                                <div class="col-md-6">
+                                    <input id="contact_email" value="{{$employer['contact_email']}}" type="text"
+                                           class="form-control @error('contact_email') is-invalid @enderror" name="contact_email"
+                                           value="{{ old('contact_email') }}" autocomplete="name" autofocus>
+
+                                    @error('contact_email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <hr>
 

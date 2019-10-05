@@ -17,8 +17,8 @@
                 </div>
                 <br>
                 <div>
-                    <h1>Email Address</h1>
-                    {!!$user->email!!}
+                    <h1>Contact Email Address</h1>
+                    {!!$user->contact_email!!}
                     <br>
                 </div>
                 <br>
