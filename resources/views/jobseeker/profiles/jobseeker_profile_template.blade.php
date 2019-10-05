@@ -40,20 +40,6 @@
                     <br>
                 </div>
                 <br>
-
-                <div>
-                    <h1>Education</h1>
-                    {!!$user->education!!}
-                    <br>
-                </div>
-                <br>
-
-                <div>
-                    <h1>Years Of Experience</h1>
-                    {!!$user->experience!!}
-                    <br>
-                </div>
-                <br>
                 <h1>Skills</h1>
                 <br>
                 <h5 align="center">Programming and Scripting Languages</h5>
