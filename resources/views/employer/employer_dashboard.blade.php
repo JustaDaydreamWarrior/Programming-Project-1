@@ -30,7 +30,7 @@
                 <div class="panel-body">
                     <a href="/jobPosts/create" class="btn btn-primary">Create Job listing</a>
 
-                        {{-- @if(count($jobPosts) > 0)
+                        @if(count($jobPosts) > 0)
                             <table class="table table-striped">
                                 <tr>
                                     <th>Title</th>
@@ -50,12 +50,13 @@
                                         {{Form::hidden('_method', 'DELETE')}}
                                         {{Form::submit('Delete', ['class' => 'btn btn-danger '])}}
                                         {!!Form::close()!!}
+                                        </th>
                                     </tr>
                                 @endforeach
                             </table>
                         @else
                             <p>You have no job listings</p>
-                        @endif --}}
+                        @endif
                     
                 </div>
             </div>
