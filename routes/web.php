@@ -39,7 +39,7 @@ Route::post('/email/send', 'EmailController@send');
 
 Route::post('/jobPosts', 'JobPostsController@store')->name('jobPosts-create');
 
-Route::post('/jobPosts/update', 'JobPostsController@updateJob')->name('updateJob');
+Route::post('/jobPosts/update', 'JobPostsController@update')->name('updateJob');
 
 // Employer Specific Routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');

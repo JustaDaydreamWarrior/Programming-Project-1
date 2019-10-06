@@ -89,7 +89,7 @@ class JobPostsController extends Controller
 
         //create jobPost
         $jobPosts = new JobPost;
-        $jobPosts->user_id = auth()->user()->id;
+        $jobPosts->employer_id = auth()->user()->id;
         $jobPosts->title = $request->input('title');
         $jobPosts->organisation = $request->input('organisation');
         $jobPosts->estSalary = $request->input('estSalary');
@@ -151,7 +151,7 @@ class JobPostsController extends Controller
         $jobPosts = JobPost::find($id);
 
         // check for correct user (preventing unauthorized editing and deleting)
-        if (auth()->user()->id !== $jobPosts->user_id) {
+        if (auth()->user()->id !== $jobPosts->employer_id) {
             return redirect('/jobPosts')->with('error', 'Unauthorized Page');
         }
         return view('jobPosts/edit')->with('jobPosts', $jobPosts);
