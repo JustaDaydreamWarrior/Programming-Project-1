@@ -50,6 +50,7 @@ class CreateUsersTable extends Migration
             $table->boolean('macOS');
             $table->boolean('linux');
             $table->boolean('bash');
+            $table->boolean('android');
             $table->boolean('ciscoSystems');
             $table->boolean('microsoftOffice');
             $table->boolean('ruby');
