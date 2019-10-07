@@ -56,6 +56,10 @@ Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('em
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
+Route::get('/employer/employer_matches', 'EmployerController@matchingJobSeekers')->name('employer.matches');
+
+
+
 // Admin routes
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
@@ -71,21 +75,25 @@ Route::get('/admin', 'AdminController@index')->name('admin.home');
 
 Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
-//Public Profile Routes
-Route::get('/publicprofile', 'PublicProfileHomeController@index')->name('publicprofile');
+//Job Seeker Profile Routes
+Route::get('/jobseekerprofiles', 'JobSeekerProfileHomeController@index')->name('jobseeker_profile');
 
-Route::get('/profile/{name}', 'PublicProfileTemplateController@show')->name('public_profile.show');
+Route::get('/jobseeker/{name}', 'JobSeekerProfileTemplateController@show')->name('jobseeker_profile.show');
 
-Route::get('/publicprofile{id}', 'PublicProfileEditController@profile')->name('user.profile');
+Route::get('/profiles{id}', 'JobSeekerProfileEditController@profile')->name('user.profile');
 
-Route::get('edit/publicprofile/', 'PublicProfileEditController@edit')->name('user.edit');
+Route::get('edit/profiles/', 'JobSeekerProfileEditController@edit')->name('user.edit');
 
-Route::post('edit/publicprofile/', 'PublicProfileEditController@update')->name('user.update');
+Route::post('edit/profiles/', 'JobSeekerProfileEditController@update')->name('user.update');
 
 //Employer Profile Routes
-Route::get('/employerprofile', 'PublicProfileHomeController@employerindex')->name('employer_profile');
+Route::get('/employerprofiles', 'EmployerProfileHomeController@employerindex')->name('employer_profile');
 
-Route::get('/employer/{company_name}', 'PublicProfileTemplateController@employershow')->name('employer_profile.show');
+Route::get('/employer/{company_name}', 'EmployerProfileTemplateController@employershow')->name('employer_profile.show');
+
+Route::get('edit/employerprofiles/', 'EmployerProfileEditController@edit')->name('employer.profile_edit');
+
+Route::post('edit/employerprofiles/', 'EmployerProfileEditController@update')->name('employer.update');
 
 // Authentication Routes
 Auth::routes();
@@ -101,12 +109,24 @@ Route::post('/search', function(){
     }
     return view('pages/searchresult')->withMessage("No users were found in the database. Try again!");
 });
-// API Routes
+
+// API Routes (matchmaking) //
 // Return currently authenticated user.
-Route::get('/api/user', 'APIController@getUser')->name('getUser');
+    Route::get('/api/user', 'APIController@getUser')->name('getUser');
 // Return job by ID.
-Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost');
-/* Return jobs by state. */
-Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByState')->name('getJobPostsByState');
-/* Return all jobs. */
-Route::get('/api/jobPosts/', 'APIController@getAllJobPosts')->name('getAllJobPosts');
+    Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost');
+// Return all jobs.
+    Route::get('/api/jobPosts/', 'APIController@getAllJobPosts')->name('getAllJobPosts');
+// Return jobs by filter.
+    Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByFilter')->name('getJobPosts');
+// Return all users.
+    Route::get('/api/users/', 'EmployerAPIController@getAllUsers')->name('getAllUsers');
+// Return users by filter.
+    Route::get('/api/users/state/{state}', 'EmployerAPIController@getUsersByFilter')->name('getUsers');
+
+
+
+
+
+
+
