@@ -11,6 +11,7 @@
 */
 use App\User;
 use App\Employer;
+use App\JobPost;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Auth\EmployerLoginController;
 // Controller Routes
@@ -94,17 +95,30 @@ Route::post('edit/employerprofiles/', 'EmployerProfileEditController@update')->n
 // Authentication Routes
 Auth::routes();
 //Search Bar in job listings
-Route::post('/search', function(){
+Route::post('/searchemployer', function(){
     $q = Input::get('q');
     if($q != ' '){
         $employer = Employer::where('company_name', 'LIKE', '%' . $q . '%')
             ->orWhere('contact_email', 'LIKE', '%' . $q . '%')
             ->get();
         if(count($employer) > 0)
-            return view('pages/searchresult')->withDetails($employer)->withQuery($q);
+            return view('pages/searchemployerresult')->withDetails($employer)->withQuery($q);
     }
-    return view('pages/searchresult')->withMessage("No users were found in the database. Try again!");
+    return view('pages/searchemployerresult')->withMessage("No users were found in the database. Try again!");
 });
+
+Route::post('/searchjob', function(){
+    $q = Input::get('q');
+    if($q != ' '){
+        $jobpost = JobPost::where('title', 'LIKE', '%' . $q . '%')
+            ->orWhere('organisation', 'LIKE', '%' . $q . '%')
+            ->get();
+        if(count($jobpost) > 0)
+            return view('pages/searchjobresult')->withDetails($jobpost)->withQuery($q);
+    }
+    return view('pages/searchjobresult')->withMessage("No jobs were found in the database. Try again!");
+});
+
 // API Routes
 // Return currently authenticated user.
 Route::get('/api/user', 'APIController@getUser')->name('getUser');
