@@ -55,6 +55,8 @@ class JobSeekerProfileEditController extends Controller
                     'macOS' => 'required|boolean',
                     'linux' => 'required|boolean',
                     'bash' => 'required|boolean',
+                    'android' => 'required|boolean',
+                    'unix' => 'required|boolean',
                     'ciscoSystems' => 'required|boolean',
                     'microsoftOffice' => 'required|boolean',
                     'ruby' => 'required|boolean',
@@ -90,9 +92,11 @@ class JobSeekerProfileEditController extends Controller
                     'windows7' => 'required|boolean',
                     'windowsOld' => 'required|boolean',
                     'windowsServer' => 'required|boolean',
+                    'android' => 'required|boolean',
                     'macOS' => 'required|boolean',
                     'linux' => 'required|boolean',
                     'bash' => 'required|boolean',
+                    'unix' => 'required|boolean',
                     'ciscoSystems' => 'required|boolean',
                     'microsoftOffice' => 'required|boolean',
                     'ruby' => 'required|boolean',
@@ -131,6 +135,8 @@ class JobSeekerProfileEditController extends Controller
                 $user->macOS = $request['macOS'];
                 $user->linux = $request['linux'];
                 $user->bash = $request['bash'];
+                $user->unix = $request['unix'];
+                $user->android = $request['android'];
                 $user->ciscoSystems = $request['ciscoSystems'];
                 $user->microsoftOffice = $request['microsoftOffice'];
                 $user->ruby = $request['ruby'];
@@ -170,6 +176,7 @@ class JobSeekerProfileEditController extends Controller
             $user->python = $request['python'];
             $user->javascript = $request['javascript'];
             $user->sql = $request['sql'];
+            $user->android = $request['android'];
             $user->windows10 = $request['windows10'];
             $user->windows7 = $request['windows7'];
             $user->windowsOld = $request['windowsOld'];
@@ -177,6 +184,7 @@ class JobSeekerProfileEditController extends Controller
             $user->macOS = $request['macOS'];
             $user->linux = $request['linux'];
             $user->bash = $request['bash'];
+            $user->unix = $request['unix'];
             $user->ciscoSystems = $request['ciscoSystems'];
             $user->microsoftOffice = $request['microsoftOffice'];
             $user->ruby = $request['ruby'];
