@@ -40,12 +40,12 @@ import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 		url = "https://rmit-university.spiraservice.net",
 		login = "s3591176", 
 		rssToken = "{9E7D2EF1-F3F7-4BB0-A9E7-D9D078E305F9}", 
-		projectId = 614
+		projectId = 625
 // following are OPTIONAL
 // releaseId = 7, testSetId = 1)
 )
 @TestMethodOrder(OrderAnnotation.class) // << this annotation is for using @order, or adding order to my test-cases
-public class TestAdminAccess {
+public class Admin_RootAdminAccess {
 	// define all your variables that you need to initialise through different tests
 	private static ChromeDriver driver;
 	private String expectedResult;
@@ -71,7 +71,7 @@ public class TestAdminAccess {
 	@Test
 	@Order(1) // << the order of the test, so this test-case is running as first
 	@SpiraTestCase(testCaseId = 9144)
-	public void testAdminWebsite() {
+	public void openAdminWebsite() {
 
 		driver.get("http://handshake.test/admin");
 
@@ -96,7 +96,7 @@ public class TestAdminAccess {
 	@Test
 	@Order(2) // << the order of the test, so this test-case is running as second
 	@SpiraTestCase(testCaseId = 9146)
-	public void testRootLogin() {
+	public void loginAsRootAdmin() {
 		WebElement elementUser = driver.findElement(By.name("username"));
 		elementUser.sendKeys("root");
 		
