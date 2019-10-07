@@ -106,6 +106,7 @@ function matchJobSeeker() {
                 + (document.getElementById("macOS").checked + 0)
                 + (document.getElementById("linux").checked + 0)
                 + (document.getElementById("bash").checked + 0)
+                + (document.getElementById("android").checked + 0)
                 + (document.getElementById("ciscoSystems").checked + 0)
                 + (document.getElementById("microsoftOffice").checked + 0)
                 + (document.getElementById("ruby").checked + 0)
@@ -121,7 +122,7 @@ function matchJobSeeker() {
                 for (let i = 0; i < data.length; i++) {
                     user[i] = i;
                     // convert binary sequence of a Job Postings required skillset to integer ex. ( 01010010101110 )
-                    userMatch[i] = parseInt("" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].bash + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud, 2);
+                    userMatch[i] = parseInt("" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].android + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud, 2);
 
                     // Find the amount of comparisons
                     let noOfComp = parameterDetails | userMatch[i];
@@ -141,7 +142,7 @@ function matchJobSeeker() {
                     percentageMatch[i] = (matchedSkills / comparisonCount) * 100;
 
                     // Lastly, deal with any cases where percentage matches are over 100%, set those to 100%
-                    let bitJob = "" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].bash + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud;
+                    let bitJob = "" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].android + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud;
 
                     let countUser = bitJob.replace(/[^1]/g, "").length;
                     //Check length of the binary string with 0s removed. If they are both the same length, all skills match.

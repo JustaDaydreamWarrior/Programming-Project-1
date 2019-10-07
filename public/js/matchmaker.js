@@ -114,7 +114,7 @@ function match() {
     // Retrieve the current user's data
     $.getJSON("/api/user/", function (data) {
         // convert binary sequence of a User's skillset to integer ex. ( 01010010101110 )
-        userDetails = parseInt("" + data.java + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.python + data.javascript + data.sql + data.unix + data.windows10 + data.windows7 + data.windowsOld + data.windowsServer + data.macOS + data.linux + data.bash + data.ciscoSystems + data.microsoftOffice + data.ruby + data.powershell + data.rust + data.iOS + data.adobe + data.cloud, 2);
+        userDetails = parseInt("" + data.java + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.python + data.javascript + data.sql + data.unix + data.windows10 + data.windows7 + data.windowsOld + data.windowsServer + data.macOS + data.linux + data.bash + data.android + data.ciscoSystems + data.microsoftOffice + data.ruby + data.powershell + data.rust + data.iOS + data.adobe + data.cloud, 2);
     }).then(function () {
 
         // Populate values into jobPostIndex, jobPostMatch and percentageMatch arrays.
@@ -123,7 +123,7 @@ function match() {
             for (let i = 0; i < data.length; i++) {
                 jobPost[i] = i;
                 // convert binary sequence of a Job Postings required skillset to integer ex. ( 01010010101110 )
-                jobPostMatch[i] = parseInt("" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].bash + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud, 2);
+                jobPostMatch[i] = parseInt("" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].android + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud, 2);
 
                 // Find the amount of comparisons
                 let noOfComp = userDetails | jobPostMatch[i];
@@ -143,7 +143,7 @@ function match() {
                 percentageMatch[i] = (matchedSkills / comparisonCount) * 100;
 
                 // Lastly, deal with any cases where percentage matches are over 100%, set those to 100%
-                let bitJob = "" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].bash + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud;
+                let bitJob = "" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].android + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud;
 
                 let countJob = bitJob.replace(/[^1]/g, "").length;
                 //Check length of the binary string with 0s removed. If they are both the same length, all skills match.
