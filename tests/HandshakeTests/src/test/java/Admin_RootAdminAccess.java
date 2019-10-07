@@ -14,7 +14,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.inflectra.spiratest.addons.junitextension.SpiraTestCase;
 import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 
 /**
@@ -107,7 +106,7 @@ public class Admin_RootAdminAccess {
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		expectedResult = "Username: root";
+		expectedResult = "Welcome back, root";
 		actualResult = driver.findElement(By.id("adminUsername")).getText();
 		assertEquals(expectedResult, actualResult);
 	}
