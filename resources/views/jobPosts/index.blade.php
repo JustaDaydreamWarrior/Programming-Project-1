@@ -2,7 +2,7 @@
 
 @section('content')
     <h1 align="center" class="mt-3 mb-3">Job Listings</h1>
-
+<br>
     <br>
     <div class="container">
         <div class="col-md-12 col-md-offset-10">
