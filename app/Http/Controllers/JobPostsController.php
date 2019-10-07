@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\JobPost;
+use Illuminate\Support\Facades\Auth;
 
 class JobPostsController extends Controller
 {
@@ -151,7 +152,7 @@ class JobPostsController extends Controller
         $jobPosts = JobPost::find($id);
 
         // check for correct user (preventing unauthorized editing and deleting)
-        if (auth()->user()->id !== $jobPosts->employer_id) {
+        if (Auth::guard('employer')->user()->id !== $jobPosts->employer_id) {
             return redirect('/jobPosts')->with('error', 'Unauthorized Page');
         }
         return view('jobPosts/edit')->with('jobPosts', $jobPosts);
