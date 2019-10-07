@@ -70,7 +70,7 @@ public class Admin_RootAdminAccess {
 
 	@Test
 	@Order(1) // << the order of the test, so this test-case is running as first
-	@SpiraTestCase(testCaseId = 9144)
+	@SpiraTestCase(testCaseId = 16502)
 	public void openAdminWebsite() {
 
 		driver.get("http://handshake.test/admin");
@@ -95,7 +95,7 @@ public class Admin_RootAdminAccess {
     
 	@Test
 	@Order(2) // << the order of the test, so this test-case is running as second
-	@SpiraTestCase(testCaseId = 9146)
+	@SpiraTestCase(testCaseId = 16503)
 	public void loginAsRootAdmin() {
 		WebElement elementUser = driver.findElement(By.name("username"));
 		elementUser.sendKeys("root");
