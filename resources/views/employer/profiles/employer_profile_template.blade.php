@@ -16,6 +16,12 @@
                     <br>
                 </div>
                 <br>
+                <div>
+                    <h1>Phone Number</h1>
+                    {!!$user->contact_phone!!}
+                    <br>
+                </div>
+                <br>
             </div>
         </div>
     </div>

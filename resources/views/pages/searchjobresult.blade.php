@@ -19,8 +19,9 @@
                 <tbody>
                 @foreach($details as $user)
                     <tr>
-                        <td>{{$user->title}}</td>
+                        <td><a href="/jobPosts/{{$user->id}}">{{$user->title}}</a></td>
                         <td>{{$user->organisation}}</td>
+
                     </tr>
                 @endforeach
                 </tbody>
