@@ -7,14 +7,8 @@
                 <h1>My Employer Profile Page</h1>
                 <br>
                 <br>
-                <h1>Name</h1>
+                <h1>Organisation</h1>
                 <p>{{$user->company_name}}</p>
-                <br>
-                <div>
-                    <h1>User ID</h1>
-                    {!!$user->id!!}
-                    <br>
-                </div>
                 <br>
                 <div>
                     <h1>Contact Email Address</h1>
