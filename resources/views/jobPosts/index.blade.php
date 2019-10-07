@@ -8,14 +8,14 @@
         <div class="col-md-12 col-md-offset-10">
             <div class="panel panel-default" align="center">
                 <div class="panel-heading"><strong>Jobs</strong></div>
-
-                {{--Search Bar --}}
+                <div class="">
+                {{--Search Bar for Job search --}}
                 <div class="searchBar">
-                    <form action="/search" method="POST" role="search">
+                    <form action="/searchjob" method="POST" role="search">
                         {{ csrf_field() }}
                         <div class="input-group">
                             <input type="text" class="form-control" name="q"
-                                   placeholder="Search for employer organisation or email">
+                                   placeholder="Search for a job">
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-secondary" style="align: center">
                                     {{ __('Search') }}</button>
@@ -23,9 +23,11 @@
                         </div>
                     </form>
                 </div>
+                </div>
 
                 {{--Panel to display list of available jobPosts--}}
                 <div class="jobPanel">
+
                     @if(count($jobPosts) > 0)
                         @foreach($jobPosts as $jobPost)
                             <div class="card card-body bg-light p-3 mt-3 mb-3">
