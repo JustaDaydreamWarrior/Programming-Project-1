@@ -19,19 +19,10 @@
 @endif
 
 @if(Auth::guard('admin')->check())
-    <div id="admin_div" class="text-success">
+    <p id="admin"class="text-success">
         You are logged in as an <strong>ADMIN</strong>
-        <div id="adminUsername">
-            Welcome back, {{ Auth::guard('admin')->user()->username}}
-        </div>
-        <div id="adminRole">
-            isSuperAdmin:
-            @php
-                $isSuper = Auth::guard('admin')->user()->isSuperAdmin;
-                echo true === (bool)$isSuper ? 'True' : 'False';
-            @endphp
-        </div>
-    </div>
+
+    </p>
 @else
     <p id="admin" class="text-danger">
         You are logged out as an <strong>ADMIN</strong>
