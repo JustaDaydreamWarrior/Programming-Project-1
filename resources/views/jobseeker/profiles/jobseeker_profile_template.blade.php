@@ -11,12 +11,6 @@
                 <p>{{$user->name}}</p>
                 <br>
                 <div>
-                    <h1>User ID</h1>
-                    {!!$user->id!!}
-                    <br>
-                </div>
-                <br>
-                <div>
                     <h1>Email Address</h1>
                     {!!$user->email!!}
                     <br>
@@ -31,6 +25,12 @@
                 <div>
                     <h1>City</h1>
                     {!!$user->city!!}
+                    <br>
+                </div>
+                <br>
+                <div>
+                    <h1>Education</h1>
+                    {!!$user->education!!}
                     <br>
                 </div>
                 <br>
