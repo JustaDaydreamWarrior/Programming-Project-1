@@ -70,7 +70,7 @@ public class Admin_RootAdminAccess {
 
 	@Test
 	@Order(1) // << the order of the test, so this test-case is running as first
-	@SpiraTestCase(testCaseId = 16502)
+	//@SpiraTestCase(testCaseId = 16502)
 	public void openAdminWebsite() {
 
 		driver.get("http://handshake.test/admin");
@@ -94,8 +94,8 @@ public class Admin_RootAdminAccess {
 	}
     
 	@Test
-	@Order(2) // << the order of the test, so this test-case is running as second
-	@SpiraTestCase(testCaseId = 16503)
+	@Order(2)
+	//@SpiraTestCase(testCaseId = 16503)
 	public void loginAsRootAdmin() {
 		WebElement elementUser = driver.findElement(By.name("username"));
 		elementUser.sendKeys("root");
@@ -107,10 +107,23 @@ public class Admin_RootAdminAccess {
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		expectedResult = driver.findElement(By.id("admin")).getText();
-		actualResult = "You are logged in as an ADMIN - Username: root";
+		expectedResult = "Username: root";
+		actualResult = driver.findElement(By.id("adminUsername")).getText();
 		assertEquals(expectedResult, actualResult);
 	}
+	
+	@Test
+	@Order(3) 
+	//@SpiraTestCase(testCaseId = [16504])
+	public void checkIsSuperAdmin() {
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		expectedResult = driver.findElement(By.id("adminRole")).getText();
+		actualResult = "isSuperAdmin: True";
+		assertEquals(expectedResult, actualResult);
+	}
+	
+	
 
 	@AfterAll
 	// closing or quitting the browser after the test
