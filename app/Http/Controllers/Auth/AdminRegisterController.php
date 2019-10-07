@@ -44,6 +44,7 @@ class AdminRegisterController extends Controller
             'username' => $request['username'],
             'password' => Hash::make($request['password'])
         ]);
-        return redirect()->intended(route('admin.login'));
+        $request->session()->flash('success', "Admin {$request->username} has been created");
+        return redirect()->route('admin.dashboard');
     }
 }
