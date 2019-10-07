@@ -5,13 +5,14 @@
 @endsection
 
 @section('content')
-    <br>
+
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-md-offset-10">
                 <div class="panel panel-default">
                     <div class="panel-heading"><strong>Welcome</strong></div>
-
                     <div class="panel-body" align="center">
                         <img src="{{ asset('img/transparent_icon.png') }}" alt="icon"
                              style="height: 120px; width: 120px; display: block;">

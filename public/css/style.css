@@ -11,12 +11,20 @@ body {
 .navbar-default {
     background-color: #394047;
 }
-.nav-item{
+
+.nav-item {
     padding: 4px;
 }
 
 .form-group {
     padding: 20px;
+}
+
+.card-header {
+    font-size: 75%;
+    padding: 6px;
+    text-align: center;
+    background-color: #f8f8f8;
 }
 
 .panel {
@@ -30,21 +38,34 @@ body {
 .panel-heading {
     background-color: #394047;
     color: #fff;
+    font-size: 110%;
     text-align: center;
     padding: 8px 12px;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
 }
-.panel-body{
+
+.panel-body {
     padding: 8px 8px;
 }
 
+.searchBar {
+    padding: 20px 200px;
+}
 
+.jobPanel {
+    padding: 20px 100px;
+    margin: 40px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(32, 18, 47, 0.4);
+}
 
 .divider {
     background-color: #394047;
     color: #FFFFFF;
-    padding: 3px  3px;
+    padding: 3px 3px;
     text-align: center;
 }
 
@@ -54,3 +75,28 @@ body {
     margin: 0 0;
 }
 
+.checkbox-container {
+    text-align: center;
+    column-count: 3;
+    padding: 10px;
+}
+
+div.checkbox-container {
+    display: block;
+    margin: auto;
+}
+
+
+.mdl-checkbox {
+    resize: none;
+    display: block;
+}
+
+.mdl-checkbox, .choose-message-caption {
+    resize: none;
+    margin: 25px;
+}
+
+label.mdl-checkbox {
+    display: inline-block;
+}

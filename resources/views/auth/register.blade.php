@@ -1,77 +1,690 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1 align="center" class="mt-3 mb-3">Register</h1>
+                <div class="card">
+                    <div class="panel-heading"><strong>Job Seeker Registration</strong></div>
+                    <div class="card-header">
+                        <a href="{{ route('employer.register') }}">{{ __('Register as an Employer') }}</a>
+                    </div>
+                    <div>
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{('Name')}}</label>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                <div class="col-md-6">
+                                    <input id="name" type="text"
+                                           class="form-control @error('name') is-invalid @enderror" name="name"
+                                           value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
+                                    @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <div class="form-group row">
+                                <label for="email"
+                                       class="col-md-4 col-form-label text-md-right">{{('E-Mail Address')}}</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <div class="col-md-6">
+                                    <input id="email" type="email"
+                                           class="form-control @error('email') is-invalid @enderror" name="email"
+                                           value="{{ old('email') }}" required autocomplete="email">
 
-                                @error('email')
+                                    @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <!-- State -->
+                            <div class="form-group row{{ $errors->has('state') ? ' has-error' : '' }}">
+                                <label for="state" class="col-md-4 col-form-label text-md-right">State/Territory</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <div class="col-md-6">
+                                    <select id="state" name="state" class="form-control" value="{{ old('state') }}"
+                                            required>
+                                        <option disabled selected value>Select State</option>
+                                        <option value="NSW">New South Wales</option>
+                                        <option value="ACT">Australian Capital Territory</option>
+                                        <option value="VIC">Victoria</option>
+                                        <option value="QLD">Queensland</option>
+                                        <option value="SA">South Australia</option>
+                                        <option value="WA">Western Australia</option>
+                                        <option value="NT">Northern Territory</option>
+                                        <option value="TAS">Tasmania</option>
+                                    </select>
 
-                                @error('password')
+                                    @if ($errors->has('state'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <!-- City -->
+                            <div class="form-group row{{ $errors->has('city') ? ' has-error' : '' }}">
+                                <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
+
+                                <div class="col-md-6">
+                                    <input id="city" type="text" class="form-control" name="city" pattern="[a-zA-Z ]+"
+                                           value="{{ old('city') }}" required>
+
+                                    @if ($errors->has('city'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="password"
+                                       class="col-md-4 col-form-label text-md-right">{{('Password') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password"
+                                           class="form-control @error('password') is-invalid @enderror" name="password"
+                                           required autocomplete="new-password">
+
+                                    @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <div class="form-group row">
+                                <label for="password-confirm"
+                                       class="col-md-4 col-form-label text-md-right">{{('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control"
+                                           name="password_confirmation" required autocomplete="new-password">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                            <hr>
+                            <h4 align="center">Your Experience</h4>
+                            <hr>
+
+                            <!-- Education -->
+                            <div class="form-group row{{ $errors->has('education') ? ' has-error' : '' }}">
+                                <label for="education" class="col-md-4 col-form-label text-md-right">Highest Education
+                                    Level</label>
+
+                                <div class="col-md-6">
+                                    <select id="education" name="education" class="form-control"
+                                            value="{{ old('education') }}" required>
+                                        <option disabled selected value>Select Education
+                                        </option>
+                                        <option value="0">Cert I</option>
+                                        <option value="1">Cert II</option>
+                                        <option value="2">Cert III</option>
+                                        <option value="3">Cert IV</option>
+                                        <option value="4">Diploma</option>
+                                        <option value="5">Associate degree / Advanced Diploma</option>
+                                        <option value="6">Bachelor degree</option>
+                                        <option value="7">Bachelor Honors degree</option>
+                                        <option value="8">Masters degree</option>
+                                        <option value="9">PhD / Doctoral degree</option>
+                                        <option value="10">Not Applicable</option>
+                                    </select>
+
+                                    @if ($errors->has('education'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('education') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                    </form>
+
+
+                            <!-- Experience -->
+                            <div class="form-group row{{ $errors->has('experience') ? ' has-error' : '' }}">
+                                <label for="experience" class="col-md-4 col-form-label text-md-right">Overall Experience
+                                    (years)</label>
+
+                                <div class="col-md-6">
+                                    <input id="experience" type="number" min="0" max="60" class="form-control"
+                                           name="experience" value="{{ old('experience') }}" required>
+
+                                    @if ($errors->has('experience'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('experience') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <hr>
+                            <h5 align="center">Programming and Scripting Languages</h5>
+
+                            <div class="checkbox-container">
+                                <!-- Bash -->
+                                <div class="{{ $errors->has('bash') ? ' has-error' : '' }}">
+                                    <label for="bash" class="label.mdl-checkbox">Bash</label>
+
+                                    <div>
+                                        <input id="bash-hidden" type="hidden" class="" name="bash"
+                                               value="0">
+                                        <input id="bash" type="checkbox" class="" name="bash"
+                                               value="{{ old('bash', 1) }}">
+
+                                        @if ($errors->has('bash'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('bash') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- C -->
+                                <div class="{{ $errors->has('c') ? ' has-error' : '' }}">
+                                    <label for="c" class="label.mdl-checkbox">C</label>
+
+                                    <div>
+                                        <input id="c-hidden" type="hidden" class="" name="c" value="0">
+                                        <input id="c" type="checkbox" class="" name="c"
+                                               value="{{ old('c', 1) }}">
+
+                                        @if ($errors->has('c'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('c') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- C# -->
+                                <div class="{{ $errors->has('csharp') ? ' has-error' : '' }}">
+                                    <label for="csharp" class="label.mdl-checkbox">C#</label>
+
+                                    <div>
+                                        <input id="csharp-hidden" type="hidden" class="" name="csharp" value="0">
+                                        <input id="csharp" type="checkbox" class="" name="csharp"
+                                               value="{{ old('c#', 1) }}">
+
+                                        @if ($errors->has('csharp'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('csharp') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- C++ -->
+                                <div class="{{ $errors->has('cplus') ? ' has-error' : '' }}">
+                                    <label for="cplus" class="label.mdl-checkbox">C++</label>
+
+                                    <div>
+                                        <input id="cplus-hidden" type="hidden" class="" name="cplus" value="0">
+                                        <input id="cplus" type="checkbox" class="" name="cplus"
+                                               value="{{ old('cplus', 1) }}">
+
+                                        @if ($errors->has('cplus'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('cplus') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- CSS -->
+                                <div class="{{ $errors->has('css') ? ' has-error' : '' }}">
+                                    <label for="css" class="label.mdl-checkbox">CSS</label>
+
+                                    <div>
+                                        <input id="css-hidden" type="hidden" class="" name="css" value="0">
+                                        <input id="css" type="checkbox" class="" name="css"
+                                               value="{{ old('css', 1) }}">
+
+                                        @if ($errors->has('css'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('css') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- HTML -->
+                                <div class="{{ $errors->has('html') ? ' has-error' : '' }}">
+                                    <label for="html" class="label.mdl-checkbox">HTML</label>
+
+                                    <div>
+                                        <input id="html-hidden" type="hidden" class="" name="html"
+                                               value="0">
+                                        <input id="html" type="checkbox" class="" name="html"
+                                               value="{{ old('html', 1) }}">
+
+                                        @if ($errors->has('html'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('html') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Java -->
+                                <div class="{{ $errors->has('java') ? ' has-error' : '' }}">
+                                    <label for="java" class="label.mdl-checkbox">Java</label>
+
+                                    <div>
+                                        <input id="java-hidden" type="hidden" class="" name="java"
+                                               value="0">
+                                        <input id="java" type="checkbox" class="" name="java"
+                                               value="{{ old('java', 1) }}">
+
+                                        @if ($errors->has('java'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('java') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- JavaScript -->
+                                <div class="{{ $errors->has('javascript') ? ' has-error' : '' }}">
+                                    <label for="javascript" class="label.mdl-checkbox">JavaScript</label>
+
+                                    <div>
+                                        <input id="javascript-hidden" type="hidden" class=""
+                                               name="javascript"
+                                               value="0">
+                                        <input id="javascript" type="checkbox" class="" name="javascript"
+                                               value="{{ old('javascript', 1) }}">
+
+                                        @if ($errors->has('javascript'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('javascript') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- PowerShell -->
+                                <div class="{{ $errors->has('powershell') ? ' has-error' : '' }}">
+                                    <label for="powershell" class="label.mdl-checkbox">PowerShell</label>
+
+                                    <div>
+                                        <input id="powershell-hidden" type="hidden" class=""
+                                               name="powershell"
+                                               value="0">
+                                        <input id="powershell" type="checkbox" class="" name="powershell"
+                                               value="{{ old('powershell', 1) }}">
+
+                                        @if ($errors->has('powershell'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('powershell') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- PHP -->
+                                <div class="{{ $errors->has('php') ? ' has-error' : '' }}">
+                                    <label for="php" class="label.mdl-checkbox">PHP</label>
+
+                                    <div>
+                                        <input id="php-hidden" type="hidden" class="" name="php" value="0">
+                                        <input id="php" type="checkbox" class="" name="php"
+                                               value="{{ old('php', 1) }}">
+
+                                        @if ($errors->has('php'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('php') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Python -->
+                                <div class="{{ $errors->has('python') ? ' has-error' : '' }}">
+                                    <label for="python" class="label.mdl-checkbox">Python</label>
+
+                                    <div>
+                                        <input id="python-hidden" type="hidden" class="" name="python"
+                                               value="0">
+                                        <input id="python" type="checkbox" class="" name="python"
+                                               value="{{ old('python', 1) }}">
+
+                                        @if ($errors->has('python'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('python') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+
+                                <!-- Ruby -->
+                                <div class="{{ $errors->has('ruby') ? ' has-error' : '' }}">
+                                    <label for="ruby" class="label.mdl-checkbox">Ruby</label>
+
+                                    <div>
+                                        <input id="ruby-hidden" type="hidden" class="" name="ruby"
+                                               value="0">
+                                        <input id="ruby" type="checkbox" class="" name="ruby"
+                                               value="{{ old('ruby', 1) }}">
+
+                                        @if ($errors->has('ruby'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('ruby') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Rust -->
+                                <div class="{{ $errors->has('rust') ? ' has-error' : '' }}">
+                                    <label for="rust" class="label.mdl-checkbox">Rust</label>
+
+                                    <div>
+                                        <input id="rust-hidden" type="hidden" class="" name="rust"
+                                               value="0">
+                                        <input id="rust" type="checkbox" class="" name="rust"
+                                               value="{{ old('rust', 1) }}">
+
+                                        @if ($errors->has('rust'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('rust') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- SQL -->
+                                <div class="{{ $errors->has('sql') ? ' has-error' : '' }}">
+                                    <label for="sql" class="label.mdl-checkbox">SQL</label>
+
+                                    <div>
+                                        <input id="sql-hidden" type="hidden" name="sql" value="0">
+                                        <input id="sql" type="checkbox" name="sql"
+                                               value="{{ old('sql', 1) }}">
+
+                                        @if ($errors->has('sql'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('sql') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <hr>
+                            <h5 align="center">Operating Systems</h5>
+
+                            <div class="checkbox-container">
+                                <!-- Linux -->
+                                <div class="{{ $errors->has('linux') ? ' has-error' : '' }}">
+                                    <label for="linux" class="label.mdl-checkbox">Linux</label>
+
+                                    <div>
+                                        <input id="linux-hidden" type="hidden" name="linux"
+                                               value="0">
+                                        <input id="linux" type="checkbox" name="linux"
+                                               value="{{ old('linux', 1) }}">
+
+                                        @if ($errors->has('linux'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('linux') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- OS X  -->
+                                <div class="{{ $errors->has('macOS') ? ' has-error' : '' }}">
+                                    <label for="macOS" class="label.mdl-checkbox">MacOS</label>
+
+                                    <div>
+                                        <input id="macOS-hidden" type="hidden" name="macOS"
+                                               value="0">
+                                        <input id="macOS" type="checkbox" name="macOS"
+                                               value="{{ old('macOS', 1) }}">
+
+                                        @if ($errors->has('macOS'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('macOS') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Android -->
+                                <div class="{{ $errors->has('android') ? ' has-error' : '' }}">
+                                    <label for="android" class="label.mdl-checkbox">Android</label>
+
+                                    <div>
+                                        <input id="android-hidden" type="hidden" name="android"
+                                               value="0">
+                                        <input id="android" type="checkbox" name="android"
+                                               value="{{ old('android', 1) }}">
+
+                                        @if ($errors->has('android'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('android') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- iOS -->
+                                <div class="{{ $errors->has('iOS') ? ' has-error' : '' }}">
+                                    <label for="iOS" class="label.mdl-checkbox">iOS</label>
+
+                                    <div>
+                                        <input id="iOS-hidden" type="hidden" name="iOS"
+                                               value="0">
+                                        <input id="iOS" type="checkbox" name="iOS"
+                                               value="{{ old('iOS', 1) }}">
+
+                                        @if ($errors->has('iOS'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('iOS') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Unix -->
+                                <div class="{{ $errors->has('unix') ? ' has-error' : '' }}">
+                                    <label for="unix" class="label.mdl-checkbox">Unix</label>
+
+                                    <div>
+                                        <input id="unix-hidden" type="hidden" name="unix"
+                                               value="0">
+                                        <input id="unix" type="checkbox" name="unix"
+                                               value="{{ old('unix', 1) }}">
+
+                                        @if ($errors->has('unix'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('unix') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Windows 10 -->
+                                <div class="{{ $errors->has('windows10') ? ' has-error' : '' }}">
+                                    <label for="windows10" class="label.mdl-checkbox">Windows 10</label>
+
+                                    <div>
+                                        <input id="windows10-hidden" type="hidden" name="windows10"
+                                               value="0">
+                                        <input id="windows10" type="checkbox" name="windows10"
+                                               value="{{ old('windows10', 1) }}">
+
+                                        @if ($errors->has('windows10'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('windows10') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Windows 7 -->
+                                <div class="{{ $errors->has('windows7') ? ' has-error' : '' }}">
+                                    <label for="windows7" class="label.mdl-checkbox">Windows 7</label>
+
+                                    <div>
+                                        <input id="windows7-hidden" type="hidden" name="windows7"
+                                               value="0">
+                                        <input id="windows7" type="checkbox" name="windows7"
+                                               value="{{ old('windows7', 1) }}">
+
+                                        @if ($errors->has('windows7'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('windows7') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Legacy Windows -->
+                                <div class="{{ $errors->has('windowsOld') ? ' has-error' : '' }}">
+                                    <label for="windowsOld" class="label.mdl-checkbox">Legacy Windows</label>
+
+                                    <div>
+                                        <input id="windowsOld-hidden" type="hidden" name="windowsOld"
+                                               value="0">
+                                        <input id="windowsOld" type="checkbox" name="windowsOld"
+                                               value="{{ old('windowsOld', 1) }}">
+
+                                        @if ($errors->has('windowsOld'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('windowsOld') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Windows Server -->
+                                <div class="{{ $errors->has('windowsServer') ? ' has-error' : '' }}">
+                                    <label for="windowsServer" class="label.mdl-checkbox">Windows Server</label>
+
+                                    <div>
+                                        <input id="windowsServer-hidden" type="hidden"
+                                               name="windowsServer" value="0">
+                                        <input id="windowsServer" type="checkbox" name="windowsServer"
+                                               value="{{ old('windowsServer', 1) }}">
+
+                                        @if ($errors->has('windowsServer'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('windowsServer') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <h5 align="center">Software</h5>
+
+                            <div class="checkbox-container">
+
+                                <!-- Microsoft Office -->
+                                <div class="{{ $errors->has('microsoftOffice') ? ' has-error' : '' }}">
+                                    <label for="microsoftOffice" class="label.mdl-checkbox">Microsoft Office</label>
+
+                                    <div>
+                                        <input id="microsoftOffice-hidden" type="hidden"
+                                               name="microsoftOffice" value="0">
+                                        <input id="microsoftOffice" type="checkbox"
+                                               name="microsoftOffice" value="{{ old('microsoftOffice', 1) }}">
+
+                                        @if ($errors->has('microsoftOffice'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('microsoftOffice') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Adobe Suite -->
+                                <div class="{{ $errors->has('adobe') ? ' has-error' : '' }}">
+                                    <label for="adobe" class="label.mdl-checkbox">Creative Cloud</label>
+
+                                    <div>
+                                        <input id="adobe-hidden" type="hidden" name="adobe"
+                                               value="0">
+                                        <input id="adobe" type="checkbox" name="adobe"
+                                               value="{{ old('adobe', 1) }}">
+
+                                        @if ($errors->has('adobe'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('adobe') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+                            <h5 align="center">Other Skills</h5>
+
+                            <div class="checkbox-container">
+
+                                <!-- Cisco Networking -->
+                                <div class="{{ $errors->has('ciscoSystems') ? ' has-error' : '' }}">
+                                    <label for="ciscoSystems" class="label.mdl-checkbox">Cisco Networking</label>
+
+                                    <div>
+                                        <input id="ciscoSystems-hidden" type="hidden" name="ciscoSystems"
+                                               value="0">
+                                        <input id="ciscoSystems" type="checkbox" name="ciscoSystems"
+                                               value="{{ old('ciscoSystems', 1) }}">
+
+                                        @if ($errors->has('ciscoSystems'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('ciscoSystems') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Cloud Computing -->
+                                <div class="{{ $errors->has('cloud') ? ' has-error' : '' }}">
+                                    <label for="cloud" class="label.mdl-checkbox">Cloud Computing</label>
+
+                                    <div>
+                                        <input id="cloud-hidden" type="hidden" name="cloud"
+                                               value="0">
+                                        <input id="cloud" type="checkbox" name="cloud"
+                                               value="{{ old('cloud', 1) }}">
+
+                                        @if ($errors->has('cloud'))
+                                            <span class="help-block">
+                                        <strong>{{ $errors->first('cloud') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="form-group">
+                                    <button type="submit" class="btn btn-primary" style="align: center">
+                                        {{ __('Register') }}
+                                    </button>
+                                </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
