@@ -35,7 +35,7 @@ class EmployerRegisterController extends Controller
     protected function create(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email',
+            'email' => ['required|email', 'unique:employers'],
             'password' => 'required|min:6'
         ]);
         $employer = Employer::create([
