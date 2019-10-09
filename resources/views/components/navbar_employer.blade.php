@@ -78,7 +78,7 @@
                             <a id="login_employer" class="nav-link" href="{{ route('employer.login') }}">{{ __('Login') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a id="logout_employer" class="nav-link" href="{{ route('employer.register') }}">{{ __('Register') }}</a>
+                            <a id="register_employer" class="nav-link" href="{{ route('employer.register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
 
