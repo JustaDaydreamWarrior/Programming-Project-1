@@ -35,18 +35,18 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('about') }}">About</a>
+                                <a id="about" class="nav-link" href="{{ route('about') }}">About</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('support') }}">Support</a>
+                                <a id="support" class="nav-link" href="{{ route('support') }}">Support</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('jobseeker_profile') }}">Job Seeker Profiles</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('jobPosts-create') }}">Job Listings</a>
+                                <a id="list_job" class="nav-link" href="{{ route('jobPosts-create') }}">Job Listings</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('employer.home') }}">Employer Site</a>
@@ -58,7 +58,7 @@
                     <!-- Check if a Job seeker is logged in -->
                     @if(Auth::guard('web')->check())
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('matches') }}">Matches</a>
+                            <a id="matches" class="nav-link" href="{{ route('matches') }}">Matches</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="userDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -67,11 +67,11 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
                                 <a href="{{route('dashboard')}}" class="dropdown-item">Dashboard</a>
                                 <!-- add menu items below this line -->
-                                <a class="dropdown-item" href='{{ route('user.edit') }}'>
+                                <a id="edit_profile" class="dropdown-item" href='{{ route('user.edit') }}'>
                                     Edit Profile
                                 </a>
 
-                                <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#user-logout-form').submit();">
+                                <a id="logout" class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#user-logout-form').submit();">
                                     Logout
                                 </a>
                                 <form id="user-logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -81,10 +81,10 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a id="login_user" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a id="register_user" class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 </ul>
