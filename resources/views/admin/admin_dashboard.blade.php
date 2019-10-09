@@ -18,7 +18,7 @@
                 </div>
                 <div>
                     <div id="adminUsername">
-                        Welcome back, {{ Auth::guard('admin')->user()->username}}
+                        Welcome back, {{ Auth::guard('admin')->user()->name}}
                     </div>
                     <div id="adminRole">
                         isSuperAdmin:
