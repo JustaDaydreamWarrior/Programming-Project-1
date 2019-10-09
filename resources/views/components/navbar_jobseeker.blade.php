@@ -49,7 +49,7 @@
                                 <a id="list_job" class="nav-link" href="{{ route('jobPosts-create') }}">Job Listings</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('employer.home') }}">Employer Site</a>
+                                <a id="employers" class="nav-link" href="{{ route('employer.home') }}">Employer Site</a>
                             </li>
                         </ul>
                     </div>
