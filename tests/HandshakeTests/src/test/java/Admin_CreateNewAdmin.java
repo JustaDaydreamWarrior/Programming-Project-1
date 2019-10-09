@@ -51,6 +51,7 @@ public class Admin_CreateNewAdmin {
 	private String actualResult;
 	private WebElement element;
 	private WebDriverWait wait;
+	private WebElement notifcation;
 	
 
 	@BeforeAll
@@ -106,7 +107,7 @@ public class Admin_CreateNewAdmin {
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		expectedResult = "Welcome back, root";
+		expectedResult = "Welcome back, SuperAdmin";
 		actualResult = driver.findElement(By.id("adminUsername")).getText();
 		assertEquals(expectedResult, actualResult);
 	}
@@ -114,11 +115,80 @@ public class Admin_CreateNewAdmin {
 	@Test
 	@Order(3) 
 	//@SpiraTestCase(testCaseId = [16504])
-	public void checkIsSuperAdmin() {
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+	public void createNewAdmin() {
 		
-		expectedResult = driver.findElement(By.id("adminRole")).getText();
-		actualResult = "isSuperAdmin: True";
+		driver.findElement(By.xpath("//a[@id='adminDropdown']")).click();
+		
+		//notifcation = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("add_Admin")));
+		
+		driver.findElement(By.id("add_Admin")).click();;
+		
+		element = driver.findElement(By.name("name"));
+		element.sendKeys("Jason Keen");
+		
+		element = driver.findElement(By.name("username"));
+		element.sendKeys("Gunduck");
+		
+		element = driver.findElement(By.name("password"));
+		element.sendKeys("password");
+		
+		element = driver.findElement(By.name("password_confirmation"));
+		element.sendKeys("password");
+		
+		driver.findElement(By.id("admin_submit")).click();
+				
+		expectedResult = "Admin Gunduck has been created";
+		actualResult = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
+		
+		assertEquals(expectedResult, actualResult);
+	}
+	
+	@Test
+	@Order(4) 
+	//@SpiraTestCase(testCaseId = [16504])
+	//Test error condition - duplicate username
+	public void createDuplicateAdmin() {
+		
+		driver.findElement(By.xpath("//a[@id='adminDropdown']")).click();
+		
+		//notifcation = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("add_Admin")));
+		
+		driver.findElement(By.id("add_Admin")).click();;
+		
+		element = driver.findElement(By.name("name"));
+		element.sendKeys("Jason Keen");
+		
+		element = driver.findElement(By.name("username"));
+		element.sendKeys("Gunduck");
+		
+		element = driver.findElement(By.name("password"));
+		element.sendKeys("password");
+		
+		element = driver.findElement(By.name("password_confirmation"));
+		element.sendKeys("password");
+		
+		driver.findElement(By.id("admin_submit")).click();
+				
+		expectedResult = "The username has already been taken.";
+		actualResult = driver.findElement(By.xpath("//div[@class='alert alert-danger']")).getText();
+		
+		assertEquals(expectedResult, actualResult);
+	}
+	
+	@Test
+	@Order(5) 
+	//@SpiraTestCase(testCaseId = [16504])
+	//log out from account
+	public void logout() {
+		
+		driver.findElement(By.xpath("//a[@id='adminDropdown']")).click();
+		
+		
+		driver.findElement(By.id("admin-logout")).submit(); 
+				
+		expectedResult = "Logout sucessful.";
+		actualResult = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
+		
 		assertEquals(expectedResult, actualResult);
 	}
 	
