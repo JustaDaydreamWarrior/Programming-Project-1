@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class JobPostsSeeder extends Seeder
+class JobPostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -39,6 +39,7 @@ class JobPostsSeeder extends Seeder
             'windowsServer' => 1,
             'macOS' => 0,
             'linux' => 1,
+            'android' => 1,
             'bash' => 1,
             'ciscoSystems' => 1,
             'microsoftOffice' => 1,
@@ -85,6 +86,7 @@ class JobPostsSeeder extends Seeder
             'ciscoSystems' => 0,
             'microsoftOffice' => 1,
             'ruby' => 0,
+            'android' => 0,
             'powershell' => 0,
             'rust' => 0,
             'iOS' => 0,
@@ -134,6 +136,7 @@ class JobPostsSeeder extends Seeder
             'powershell' => 1,
             'rust' => 0,
             'iOS' => 1,
+            'android' => 1,
             'adobe' => 1,
             'cloud' => 1,
             'description' => 'A data center administrator (DCA) is an experienced information technology (IT) professional who is responsible for overseeing data center operations. Because DCAs are in charge of business-critical systems, they need to have an in-depth knowledge about everything that occurs in the data center, including infrastructure design, operations and lifecycle management for physical and virtual data center assets.',
@@ -176,6 +179,7 @@ class JobPostsSeeder extends Seeder
             'powershell' => 1,
             'rust' => 0,
             'iOS' => 1,
+            'android' => 1,
             'adobe' => 1,
             'cloud' => 1,
             'description' => 'Working with a passionate, professional team, the IT System administrator assists the council in 2nd and  3rd level Support and help manage the server systems and Council Applications.
@@ -219,6 +223,7 @@ class JobPostsSeeder extends Seeder
             'powershell' => 1,
             'rust' => 0,
             'iOS' => 0,
+            'android' => 1,
             'adobe' => 0,
             'cloud' => 0,
             'description' => 'The successful applicant will possess the following:

@@ -12,86 +12,87 @@
             </div>
             <div class="panel-body">
                 <div id="parameters">
-                    <!-- State -->
-                    <div class="form-group row{{ $errors->has('state') ? ' has-error' : '' }}">
-                        <label for="state" class="col-md-4 col-form-label text-md-right">State/Territory</label>
+                    {{--TODO - Filters and weightings--}}
+                    {{--                    <!-- State -->--}}
+                    {{--                    <div class="form-group row{{ $errors->has('state') ? ' has-error' : '' }}">--}}
+                    {{--                        <label for="state" class="col-md-4 col-form-label text-md-right">State/Territory</label>--}}
 
-                        <div class="col-md-6">
-                            <select id="state" name="state" class="form-control" value="{{ old('state') }}"
-                                    required>
-                                <option disabled selected value>Select State</option>
-                                <option value="">Any</option>
-                                <option value="NSW">New South Wales</option>
-                                <option value="ACT">Australian Capital Territory</option>
-                                <option value="VIC">Victoria</option>
-                                <option value="QLD">Queensland</option>
-                                <option value="SA">South Australia</option>
-                                <option value="WA">Western Australia</option>
-                                <option value="NT">Northern Territory</option>
-                                <option value="TAS">Tasmania</option>
-                            </select>
+                    {{--                        <div class="col-md-6">--}}
+                    {{--                            <select id="state" name="state" class="form-control" value="{{ old('state') }}"--}}
+                    {{--                                    required>--}}
+                    {{--                                <option disabled selected value>Select State</option>--}}
+                    {{--                                <option value="">Any</option>--}}
+                    {{--                                <option value="NSW">New South Wales</option>--}}
+                    {{--                                <option value="ACT">Australian Capital Territory</option>--}}
+                    {{--                                <option value="VIC">Victoria</option>--}}
+                    {{--                                <option value="QLD">Queensland</option>--}}
+                    {{--                                <option value="SA">South Australia</option>--}}
+                    {{--                                <option value="WA">Western Australia</option>--}}
+                    {{--                                <option value="NT">Northern Territory</option>--}}
+                    {{--                                <option value="TAS">Tasmania</option>--}}
+                    {{--                            </select>--}}
 
-                            @if ($errors->has('state'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('state') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
+                    {{--                            @if ($errors->has('state'))--}}
+                    {{--                                <span class="help-block">--}}
+                    {{--                                        <strong>{{ $errors->first('state') }}</strong>--}}
+                    {{--                                    </span>--}}
+                    {{--                            @endif--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
 
-                    <hr>
-                    <h5 align="center">Experience Requirements</h5>
-                    <hr>
+                    {{--                    <hr>--}}
+                    {{--                    <h5 align="center">Experience Requirements</h5>--}}
+                    {{--                    <hr>--}}
 
-                    <!-- Education -->
-                    <div class="form-group row{{ $errors->has('education') ? ' has-error' : '' }}">
-                        <label for="education" class="col-md-4 col-form-label text-md-right">Highest Education
-                            Level</label>
+                    {{--                    <!-- Education -->--}}
+                    {{--                    <div class="form-group row{{ $errors->has('education') ? ' has-error' : '' }}">--}}
+                    {{--                        <label for="education" class="col-md-4 col-form-label text-md-right">Highest Education--}}
+                    {{--                            Level</label>--}}
 
-                        <div class="col-md-6">
-                            <select id="education" name="education" class="form-control"
-                                    value="{{ old('education') }}" required>
-                                <option disabled selected value>Select Education
-                                </option>
-                                <option value="0">Cert I</option>
-                                <option value="1">Cert II</option>
-                                <option value="2">Cert III</option>
-                                <option value="3">Cert IV</option>
-                                <option value="4">Diploma</option>
-                                <option value="5">Associate degree / Advanced Diploma</option>
-                                <option value="6">Bachelor degree</option>
-                                <option value="7">Bachelor Honors degree</option>
-                                <option value="8">Masters degree</option>
-                                <option value="9">PhD / Doctoral degree</option>
-                                <option value="10">Not Applicable</option>
-                            </select>
+                    {{--                        <div class="col-md-6">--}}
+                    {{--                            <select id="education" name="education" class="form-control"--}}
+                    {{--                                    value="{{ old('education') }}" required>--}}
+                    {{--                                <option disabled selected value>Select Education--}}
+                    {{--                                </option>--}}
+                    {{--                                <option value="0">Cert I</option>--}}
+                    {{--                                <option value="1">Cert II</option>--}}
+                    {{--                                <option value="2">Cert III</option>--}}
+                    {{--                                <option value="3">Cert IV</option>--}}
+                    {{--                                <option value="4">Diploma</option>--}}
+                    {{--                                <option value="5">Associate degree / Advanced Diploma</option>--}}
+                    {{--                                <option value="6">Bachelor degree</option>--}}
+                    {{--                                <option value="7">Bachelor Honors degree</option>--}}
+                    {{--                                <option value="8">Masters degree</option>--}}
+                    {{--                                <option value="9">PhD / Doctoral degree</option>--}}
+                    {{--                                <option value="10">Not Applicable</option>--}}
+                    {{--                            </select>--}}
 
-                            @if ($errors->has('education'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('education') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
+                    {{--                            @if ($errors->has('education'))--}}
+                    {{--                                <span class="help-block">--}}
+                    {{--                                        <strong>{{ $errors->first('education') }}</strong>--}}
+                    {{--                                    </span>--}}
+                    {{--                            @endif--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
 
 
-                    <!-- Experience -->
-                    <div class="form-group row{{ $errors->has('experience') ? ' has-error' : '' }}">
-                        <label for="experience" class="col-md-4 col-form-label text-md-right">Overall Experience
-                            (years)</label>
+                    {{--                    <!-- Experience -->--}}
+                    {{--                    <div class="form-group row{{ $errors->has('experience') ? ' has-error' : '' }}">--}}
+                    {{--                        <label for="experience" class="col-md-4 col-form-label text-md-right">Overall Experience--}}
+                    {{--                            (years)</label>--}}
 
-                        <div class="col-md-6">
-                            <input id="experience" type="number" min="0" max="60" class="form-control"
-                                   name="experience" value="{{ old('experience') }}" required>
+                    {{--                        <div class="col-md-6">--}}
+                    {{--                            <input id="experience" type="number" min="0" max="60" class="form-control"--}}
+                    {{--                                   name="experience" value="{{ old('experience') }}" required>--}}
 
-                            @if ($errors->has('experience'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('experience') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
-                    <hr>
+                    {{--                            @if ($errors->has('experience'))--}}
+                    {{--                                <span class="help-block">--}}
+                    {{--                                        <strong>{{ $errors->first('experience') }}</strong>--}}
+                    {{--                                    </span>--}}
+                    {{--                            @endif--}}
+                    {{--                        </div>--}}
+                    {{--                    </div>--}}
+                    {{--                    <hr>--}}
                     <h5 align="center">Competence in Programming and Scripting Languages</h5>
 
                     <div class="checkbox-container">
@@ -636,8 +637,8 @@
                     <br><br>
                     <p><i style="font-size: 150px" class="" aria-hidden="true"></i></p>
                     <br>
-                    <h2>No Matches Found.</h2>
-                    <p>Try again later.</p>
+                    <h2>No Matches</h2>
+                    <p>Please input parameters above.</p>
                     <br><br>
                 </div>
                 {{--Undefined error div--}}
