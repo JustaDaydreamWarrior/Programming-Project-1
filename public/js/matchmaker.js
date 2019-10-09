@@ -13,7 +13,11 @@ function printJob(id, title, description, estSalary, state, city, percentageMatc
     heading.innerHTML += title + " - ";
 
     var match = document.createElement("strong");
-    match.innerHTML = percentageMatch + "&#37; Match";
+    if (percentageMatch === 100) {
+        match.innerHTML = "&#11088;" + percentageMatch + "&#37; Match";
+    } else {
+        match.innerHTML = percentageMatch + "&#37; Match";
+    }
 
     var body = document.createElement("div");
     body.className = "panel-body";
@@ -141,6 +145,8 @@ function match() {
 
                 // Calculate percentage match ( matched skills/amount of skills x 100 )
                 percentageMatch[i] = (matchedSkills / comparisonCount) * 100;
+                console.log("matchedSkills:" + matchedSkills);
+                console.log("comparisonCount" + comparisonCount);
 
                 // Lastly, deal with any cases where percentage matches are over 100%, set those to 100%
                 let bitJob = "" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].android + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud;
