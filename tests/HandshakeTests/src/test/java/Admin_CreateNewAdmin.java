@@ -16,24 +16,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 
-/**
- * 
- * @author Homy
- * @version 1.0
- * @since 09/2019 This code is a base code for RMIT Software Testing/ Selenium Lab Assessment.
- *        You may need to change the webpage target and test methods based on your assessment spec.
- *        You can send email to amirhomayoon.ashrafzadeh@rmit.edu.au if you have any question
- *        Alternatively use your course Canvas forum Assessment specification is
- *        available on Canvas/Assignment
- * 
- */
-
-/*
- * You must "junit 5 extension.jar" from SpiraTeam to your
- * project/properties/java build path, Library tab as an External Jar
- * 
- */
-
 @SpiraTestConfiguration(
 		// following are REQUIRED
 		url = "https://rmit-university.spiraservice.net",
@@ -43,6 +25,9 @@ import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 // following are OPTIONAL
 // releaseId = 7, testSetId = 1)
 )
+
+// 31 - As a Super Administrator I want to create other Administrators
+
 @TestMethodOrder(OrderAnnotation.class) // << this annotation is for using @order, or adding order to my test-cases
 public class Admin_CreateNewAdmin {
 	// define all your variables that you need to initialise through different tests
@@ -175,25 +160,6 @@ public class Admin_CreateNewAdmin {
 		assertEquals(expectedResult, actualResult);
 	}
 	
-	@Test
-	@Order(5) 
-	//@SpiraTestCase(testCaseId = [16504])
-	//log out from account
-	public void logout() {
-		
-		driver.findElement(By.xpath("//a[@id='adminDropdown']")).click();
-		
-		
-		driver.findElement(By.id("admin-logout")).submit(); 
-				
-		expectedResult = "Logout sucessful.";
-		actualResult = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
-		
-		assertEquals(expectedResult, actualResult);
-	}
-	
-	
-
 	@AfterAll
 	// closing or quitting the browser after the test
 	public static void closeBrowser() {
