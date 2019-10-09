@@ -106,7 +106,7 @@ public class Admin_RootAdminAccess {
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		expectedResult = "Welcome back, root";
+		expectedResult = "Welcome back, SuperAdmin";
 		actualResult = driver.findElement(By.id("adminUsername")).getText();
 		assertEquals(expectedResult, actualResult);
 	}
