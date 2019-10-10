@@ -6,9 +6,26 @@
         <div class="col-md-12 col-md-offset-10">
             <div class="panel panel-default" align="center">
                 <div class="panel-heading"><strong>Edit Listing Details</strong></div>
+                {!! Form::open(['action' => ['JobPostsController@update', $jobPosts->id], 'method' => 'POST']) !!}
+                <div class="form-group">
+                    {{form::label('title', 'Title')}}
+                    {{form::text('title', $jobPosts->title, ['class' => 'form-control', 'placeholder' => 'Title'])}}
+                </div>
+                <div class="form-group">
+                    {{form::label('body', 'Body')}}
+                    {{form::textarea('body', $jobPosts->description, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
+                </div>
+                {{Form::hidden('_method', 'PUT')}}
+                {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
+                {!! Form::close() !!}
 
+                <div class="row">
+                    <div class="col">
+                        <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
+                    </div>
+                </div>
 
-                <form class="form-horizontal" method="POST" action="{{ route('updateJob') }}">
+                {{-- <form class="form-horizontal" method="POST" action="{{ route('updateJob') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group row">
@@ -700,7 +717,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
-                    </div>
+                    </div> --}}
 
             </div>
         </div>
