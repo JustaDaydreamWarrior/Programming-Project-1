@@ -128,7 +128,7 @@ public class Employer_register {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
 		expectedResult = "http://handshake.test/employer/login";
-		actualResult = driver.getCurrentUrl()
+		actualResult = driver.getCurrentUrl();
 		assertEquals(expectedResult, actualResult);
 	}
 	
