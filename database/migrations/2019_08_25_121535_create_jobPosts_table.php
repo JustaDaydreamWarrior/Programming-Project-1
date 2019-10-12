@@ -50,13 +50,14 @@ class CreateJobPostsTable extends Migration
             $table->boolean('windowsServer');
             $table->boolean('macOS');
             $table->boolean('linux');
+            $table->boolean('android');
+            $table->boolean('iOS');
             $table->boolean('bash');
             $table->boolean('ciscoSystems');
             $table->boolean('microsoftOffice');
             $table->boolean('ruby');
             $table->boolean('powershell');
             $table->boolean('rust');
-            $table->boolean('iOS');
             $table->boolean('adobe');
             $table->boolean('cloud');
 
