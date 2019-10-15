@@ -6,7 +6,7 @@
         <div class="col-md-12 col-md-offset-10">
             <div class="panel panel-default" align="center">
                 <div class="panel-heading"><strong>Edit Listing Details</strong></div>
-                {!! Form::open(['action' => ['JobPostsController@update', $jobPosts->id], 'method' => 'POST']) !!}
+                {{-- {!! Form::open(['action' => ['JobPostsController@update', $jobPosts->id], 'method' => 'POST']) !!}
                 <div class="form-group">
                     {{form::label('title', 'Title')}}
                     {{form::text('title', $jobPosts->title, ['class' => 'form-control', 'placeholder' => 'Title'])}}
@@ -17,15 +17,10 @@
                 </div>
                 {{Form::hidden('_method', 'PUT')}}
                 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-                {!! Form::close() !!}
+                {!! Form::close() !!} --}}
 
-                <div class="row">
-                    <div class="col">
-                        <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
-                    </div>
-                </div>
 
-                {{-- <form class="form-horizontal" method="POST" action="{{ route('updateJob') }}">
+                <form class="form-horizontal" method="POST" action="{{ route('updateJob') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group row">
@@ -33,7 +28,7 @@
                                class="col-md-4 col-form-label text-md-right">{{('Title / Position')}}</label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text"
+                            <input id="title" value="{{$jobPosts['title']}}"  type="text"
                                    class="form-control @error('title') is-invalid @enderror" name="title"
                                    value="{{ old('title') }}" required autocomplete="title" autofocus>
 
@@ -51,7 +46,7 @@
                                class="col-md-4 col-form-label text-md-right">{{('Organisation')}}</label>
 
                         <div class="col-md-6">
-                            <input id="organisation" type="text"
+                            <input id="organisation" type="text" value="{{$jobPosts['organisation']}}"
                                    class="form-control @error('organisation') is-invalid @enderror" name="organisation"
                                    value="{{ old('organisation') }}" required autocomplete="organisation" autofocus>
 
@@ -67,7 +62,7 @@
                         <label for="title" class="col-md-4 col-form-label text-md-right">{{('Contact E-mail')}}</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="text"
+                            <input id="email" type="text" value="{{$jobPosts['email']}}"
                                    class="form-control @error('email') is-invalid @enderror" name="email"
                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -85,7 +80,7 @@
                                class="col-md-4 col-form-label text-md-right">{{('Estimated Yearly Salary')}}</label>
 
                         <div class="col-md-6">
-                            <input id="estSalary" type="text"
+                            <input id="estSalary" type="text" value="{{$jobPosts['estSalary']}}"
                                    class="form-control @error('estSalary') is-invalid @enderror" name="estSalary"
                                    value="{{ old('estSalary') }}" required autocomplete="estSalary" autofocus>
 
@@ -132,7 +127,7 @@
                         <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
 
                         <div class="col-md-6">
-                            <input id="city" type="text" class="form-control" name="city" pattern="[a-zA-Z ]+"
+                            <input id="city" type="text" value="{{$jobPosts['city']}}" class="form-control" name="city" pattern="[a-zA-Z ]+"
                                    value="{{ old('city') }}" required>
 
                             @if ($errors->has('city'))
@@ -183,7 +178,7 @@
                             (years)</label>
 
                         <div class="col-md-6">
-                            <input id="minExp" type="number" min="0" max="60" class="form-control"
+                            <input id="minExp" type="number" value="{{$jobPosts['minExp']}}" min="0" max="60" class="form-control"
                                    name="minExp" value="{{ old('minExp') }}" required>
 
                             @if ($errors->has('minExp'))
@@ -703,13 +698,14 @@
                     <h4 align="center">Other Details</h4>
                     <hr>
 
-                    <label for="description" class="col-md-4 col-form-label">{{('Description')}}</label>
+                    
 
 
                     <div class="col-md-6">
                             <textarea id="description" type="text"
                                       class="form-control @error('description') is-invalid @enderror" name="description"
                                       value="{{ old('description') }}" required autocomplete="description" autofocus>
+                                            {{$jobPosts['description']}}
                             </textarea>
 
                         @error('description')
@@ -717,7 +713,17 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                         @enderror
-                    </div> --}}
+                    </div>
+                    
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Update Details') }}
+                            </button>
+                        </div>
+                    </div>
+
 
             </div>
         </div>
