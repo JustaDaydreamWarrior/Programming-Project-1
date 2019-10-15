@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 
 class EmployerLoginController extends Controller
 {
-    use AuthenticatesUsers;
     public function __construct()
     {
         $this->middleware('guest:employer', ['except' => ['logout']]);

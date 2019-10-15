@@ -4,21 +4,22 @@
     <div class="container">
         <div class="col-md-12 col-md-offset-10">
             <div class="panel panel-default" align="center">
-                <h1>My Employer Profile Page</h1>
+                <h1>My Profile Page</h1>
                 <br>
                 <br>
-                <h1>Organisation</h1>
+                <h1>Name</h1>
                 <p>{{$user->company_name}}</p>
+                <p>{{$user->name}}</p>
                 <br>
                 <div>
-                    <h1>Contact Email Address</h1>
-                    {!!$user->contact_email!!}
+                    <h1>User ID</h1>
+                    {!!$user->id!!}
                     <br>
                 </div>
                 <br>
                 <div>
-                    <h1>Phone Number</h1>
-                    {!!$user->contact_phone!!}
+                    <h1>Email Address</h1>
+                    {!!$user->email!!}
                     <br>
                 </div>
                 <br>

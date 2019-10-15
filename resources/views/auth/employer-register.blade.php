@@ -8,11 +8,11 @@
              <h1 align="center" class="mt-3 mb-3">Register</h1>
                 <div class="card">
                     <div class="card-header">{{ __('Employer Register') }}</div>
-
+                    
                 <div class="card-header">
                     <a href="{{ route('register') }}">{{ __('Register as a Job Seeker') }}</a>
                 </div>
-
+                
                     <div class="card-body">
                         <form method="POST" action="{{ route('employer.register.submit') }}">
                         @csrf
@@ -78,21 +78,6 @@
                                     <input id="contact_email" type="email" class="form-control @error('contact_email') is-invalid @enderror" name="contact_email" value="{{ old('contact_email') }}" required autocomplete="email">
 
                                     @error('contact_email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <!--Phone-->
-                            <div class="form-group row">
-                                <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="contact_phone" type="text" class="form-control @error('contact_phone') is-invalid @enderror" name="contact_phone" value="{{ old('contact_phone') }}" required autocomplete="phone">
-
-                                    @error('contact_phone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

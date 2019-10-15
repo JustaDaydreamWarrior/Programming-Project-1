@@ -44,8 +44,4 @@ class EmployerController extends Controller
     }
 
 
-    public function matchingJobSeekers(){
-        return view('employer/employer_matches');
-    }
-
 }
