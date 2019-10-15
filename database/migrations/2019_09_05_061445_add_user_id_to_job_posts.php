@@ -15,6 +15,7 @@ class AddUserIdToJobPosts extends Migration
     {
         Schema::table('jobposts', function (Blueprint $table) {
             $table->integer('user_id');
+            $table->string('user_name');
         });
     }
 
@@ -27,6 +28,7 @@ class AddUserIdToJobPosts extends Migration
     {
         Schema::table('jobposts', function (Blueprint $table) {
             $table->dropColumn('user_id');
+            $table->string('user_name');
         });
     }
 }
