@@ -57,6 +57,9 @@
 
                     <!-- Check if an employer is logged in -->
                     @if(Auth::guard('employer')->check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('employer.matches') }}">Matches</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="employerDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -65,6 +68,8 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="employerDropdown">
                                 <a href="{{route('employer.dashboard')}}" class="dropdown-item">Dashboard</a>
+                                <a href="{{route('employer.profile_edit')}}" class="dropdown-item">Edit Employer profile</a>
+
                                 <!-- add menu items below this line -->
                                 <!-- <a class="dropdown-item" href='route('employer.edit')'>
                                     Edit Profile

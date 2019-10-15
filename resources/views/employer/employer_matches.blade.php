@@ -2,105 +2,16 @@
 
 @section('content')
 
+    <h1 align="center" class="mt-3 mb-3">Job Seeker Matchmaking</h1>
+
     <div class="container">
-        <div class="col-md-12 col-md-offset-10">
-            <div class="panel panel-default" align="center">
-                <div class="panel-heading"><strong>Edit Listing Details</strong></div>
-                {!! Form::open(['action' => ['JobPostsController@update', $jobPosts->id], 'method' => 'POST']) !!}
-                <div class="form-group">
-                    {{form::label('title', 'Title')}}
-                    {{form::text('title', $jobPosts->title, ['class' => 'form-control', 'placeholder' => 'Title'])}}
-                </div>
-                <div class="form-group">
-                    {{form::label('body', 'Body')}}
-                    {{form::textarea('body', $jobPosts->description, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Body Text'])}}
-                </div>
-                {{Form::hidden('_method', 'PUT')}}
-                {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
-                {!! Form::close() !!}
-
-                <div class="row">
-                    <div class="col">
-                        <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
-                    </div>
-                </div>
-
-                {{-- <form class="form-horizontal" method="POST" action="{{ route('updateJob') }}">
-                    {{ csrf_field() }}
-
-                    <div class="form-group row">
-                        <label for="title"
-                               class="col-md-4 col-form-label text-md-right">{{('Title / Position')}}</label>
-
-                        <div class="col-md-6">
-                            <input id="title" type="text"
-                                   class="form-control @error('title') is-invalid @enderror" name="title"
-                                   value="{{ old('title') }}" required autocomplete="title" autofocus>
-
-                            @error('title')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label for="organisation"
-                               class="col-md-4 col-form-label text-md-right">{{('Organisation')}}</label>
-
-                        <div class="col-md-6">
-                            <input id="organisation" type="text"
-                                   class="form-control @error('organisation') is-invalid @enderror" name="organisation"
-                                   value="{{ old('organisation') }}" required autocomplete="organisation" autofocus>
-
-                            @error('organisation')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group row">
-                        <label for="title" class="col-md-4 col-form-label text-md-right">{{('Contact E-mail')}}</label>
-
-                        <div class="col-md-6">
-                            <input id="email" type="text"
-                                   class="form-control @error('email') is-invalid @enderror" name="email"
-                                   value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label for="estSalary"
-                               class="col-md-4 col-form-label text-md-right">{{('Estimated Yearly Salary')}}</label>
-
-                        <div class="col-md-6">
-                            <input id="estSalary" type="text"
-                                   class="form-control @error('estSalary') is-invalid @enderror" name="estSalary"
-                                   value="{{ old('estSalary') }}" required autocomplete="estSalary" autofocus>
-
-                            @error('estSalary')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <hr>
-                    <h5 align="center">Location Details</h5>
-
-
+        <div id="parameters" class="panel panel-default">
+            <div class="panel-heading">Matchmaking parameters</div>
+            <div class="card-header">
+                <b> What kind of Job Seeker are you looking for? </b>
+            </div>
+            <div class="panel-body">
+                <div id="parameters">
                     <!-- State -->
                     <div class="form-group row{{ $errors->has('state') ? ' has-error' : '' }}">
                         <label for="state" class="col-md-4 col-form-label text-md-right">State/Territory</label>
@@ -109,6 +20,7 @@
                             <select id="state" name="state" class="form-control" value="{{ old('state') }}"
                                     required>
                                 <option disabled selected value>Select State</option>
+                                <option value="">Any</option>
                                 <option value="NSW">New South Wales</option>
                                 <option value="ACT">Australian Capital Territory</option>
                                 <option value="VIC">Victoria</option>
@@ -127,33 +39,18 @@
                         </div>
                     </div>
 
-                    <!-- City -->
-                    <div class="form-group row{{ $errors->has('city') ? ' has-error' : '' }}">
-                        <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
-
-                        <div class="col-md-6">
-                            <input id="city" type="text" class="form-control" name="city" pattern="[a-zA-Z ]+"
-                                   value="{{ old('city') }}" required>
-
-                            @if ($errors->has('city'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('city') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
-
-
                     <hr>
                     <h5 align="center">Experience Requirements</h5>
+                    <hr>
 
                     <!-- Education -->
-                    <div class="form-group row{{ $errors->has('minEdu') ? ' has-error' : '' }}">
-                        <label for="minEdu" class="col-md-4 col-form-label text-md-right">Minimum Education</label>
+                    <div class="form-group row{{ $errors->has('education') ? ' has-error' : '' }}">
+                        <label for="education" class="col-md-4 col-form-label text-md-right">Highest Education
+                            Level</label>
 
                         <div class="col-md-6">
-                            <select id="minEdu" name="minEdu" class="form-control"
-                                    value="{{ old('minEdu') }}" required>
+                            <select id="education" name="education" class="form-control"
+                                    value="{{ old('education') }}" required>
                                 <option disabled selected value>Select Education
                                 </option>
                                 <option value="0">Cert I</option>
@@ -169,32 +66,33 @@
                                 <option value="10">Not Applicable</option>
                             </select>
 
-                            @if ($errors->has('minEdu'))
+                            @if ($errors->has('education'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('minEdu') }}</strong>
+                                        <strong>{{ $errors->first('education') }}</strong>
                                     </span>
                             @endif
                         </div>
                     </div>
 
+
                     <!-- Experience -->
-                    <div class="form-group row{{ $errors->has('minExp') ? ' has-error' : '' }}">
-                        <label for="minExp" class="col-md-4 col-form-label text-md-right">Industry Experience
+                    <div class="form-group row{{ $errors->has('experience') ? ' has-error' : '' }}">
+                        <label for="experience" class="col-md-4 col-form-label text-md-right">Overall Experience
                             (years)</label>
 
                         <div class="col-md-6">
-                            <input id="minExp" type="number" min="0" max="60" class="form-control"
-                                   name="minExp" value="{{ old('minExp') }}" required>
+                            <input id="experience" type="number" min="0" max="60" class="form-control"
+                                   name="experience" value="{{ old('experience') }}" required>
 
-                            @if ($errors->has('minExp'))
+                            @if ($errors->has('experience'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('minExp') }}</strong>
+                                        <strong>{{ $errors->first('experience') }}</strong>
                                     </span>
                             @endif
                         </div>
                     </div>
                     <hr>
-                    <h5 align="center">Programming and Scripting Languages</h5>
+                    <h5 align="center">Competence in Programming and Scripting Languages</h5>
 
                     <div class="checkbox-container">
                         <!-- Bash -->
@@ -233,23 +131,38 @@
                         </div>
 
                         <!-- C# -->
-                        <div class="{{ $errors->has('c#') ? ' has-error' : '' }}">
-                            <label for="c#" class="label.mdl-checkbox">C#</label>
+                        <div class="{{ $errors->has('csharp') ? ' has-error' : '' }}">
+                            <label for="csharp" class="label.mdl-checkbox">C#</label>
 
                             <div>
-                                <input id="c#-hidden" type="hidden" class="" name="c#" value="0">
-                                <input id="c#" type="checkbox" class="" name="c#"
+                                <input id="csharp-hidden" type="hidden" class="" name="csharp" value="0">
+                                <input id="csharp" type="checkbox" class="" name="csharp"
                                        value="{{ old('c#', 1) }}">
 
-                                @if ($errors->has('c#'))
+                                @if ($errors->has('csharp'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('c#') }}</strong>
+                                        <strong>{{ $errors->first('csharp') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
+                        <!-- C++ -->
+                        <div class="{{ $errors->has('cplus') ? ' has-error' : '' }}">
+                            <label for="cplus" class="label.mdl-checkbox">C++</label>
 
+                            <div>
+                                <input id="cplus-hidden" type="hidden" class="" name="cplus" value="0">
+                                <input id="cplus" type="checkbox" class="" name="cplus"
+                                       value="{{ old('cplus', 1) }}">
+
+                                @if ($errors->has('cplus'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cplus') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <!-- CSS -->
                         <div class="{{ $errors->has('css') ? ' has-error' : '' }}">
@@ -434,7 +347,7 @@
 
 
                     <hr>
-                    <h5 align="center">Operating Systems</h5>
+                    <h5 align="center">Competence in Operating Systems</h5>
 
                     <div class="checkbox-container">
                         <!-- Linux -->
@@ -601,7 +514,7 @@
                     </div>
                     <hr>
 
-                    <h5 align="center">Software</h5>
+                    <h5 align="center">Competence with Software</h5>
 
                     <div class="checkbox-container">
 
@@ -643,7 +556,7 @@
                     </div>
 
                     <hr>
-                    <h5 align="center">Other Skills</h5>
+                    <h5 align="center">Competence in Other Skills</h5>
 
                     <div class="checkbox-container">
 
@@ -683,30 +596,63 @@
                             </div>
                         </div>
                     </div>
-
                     <hr>
-                    <h4 align="center">Other Details</h4>
-                    <hr>
+                    <div class="form-group" align="center">
+                        <button id="matchNow" class="btn btn-success" align="center">
+                            Start Matchmaker
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    <label for="description" class="col-md-4 col-form-label">{{('Description')}}</label>
 
+        <div class="col-md-12 col-md-offset-10">
+            <hr>
+            <h1 align="center" class="mt-3 mb-3">Results</h1>
 
-                    <div class="col-md-6">
-                            <textarea id="description" type="text"
-                                      class="form-control @error('description') is-invalid @enderror" name="description"
-                                      value="{{ old('description') }}" required autocomplete="description" autofocus>
-                            </textarea>
-
-                        @error('description')
-                        <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                        @enderror
-                    </div> --}}
-
+            <hr>
+            <div class="card card-body bg-secondary p-3 mt-6 mb-6">
+                {{--Display an error if javascript isn't working, or enabled--}}
+                <div id="employer_noscript" align="center">
+                    <br><br>
+                    <p><i style="font-size: 200px" class="" aria-hidden="true"></i></p>
+                    <br>
+                    <h2>JavaScript Error</h2>
+                    <p>An issue with javascript was found. Either JavaScript is not enabled, or the Matchmaker has
+                        issues..</p>
+                    <br><br>
+                </div>
+                {{--Loading div. Used to display loading animation until first match is loaded to page. --}}
+                <div id="employer_loading" style="display: none" align="center">
+                    <br><br>
+                    <p><i style="font-size: 150px" class=""></i></p>
+                    <br>
+                    <h2>Loading...</h2>
+                    <br><br>
+                </div>
+                {{--No matches found div--}}
+                <div id="employer_nomatch" style="display: none" align="center">
+                    <br><br>
+                    <p><i style="font-size: 150px" class="" aria-hidden="true"></i></p>
+                    <br>
+                    <h2>No Matches Found.</h2>
+                    <p>Try again later.</p>
+                    <br><br>
+                </div>
+                {{--Undefined error div--}}
+                <div id="employer_error" style="display: none" align="center">
+                    <br><br>
+                    <p><i style="font-size: 150px" class="" aria-hidden="true"></i></p>
+                    <br>
+                    <h2>Error.</h2>
+                    <p>An error occurred.</p>
+                    <br><br>
+                </div>
+                {{-- Match Div; div that holds a matched job seeker --}}
+                <div id="jobseeker"></div>
             </div>
         </div>
     </div>
-
+    </div>
 @endsection
-

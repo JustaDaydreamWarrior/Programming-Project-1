@@ -1,9 +1,8 @@
 <?php
 namespace App\Http\Controllers;
-use App\Employer;
 use Illuminate\Http\Request;
 use App\User;
-class PublicProfileHomeController extends Controller
+class JobSeekerProfileHomeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -21,11 +20,7 @@ class PublicProfileHomeController extends Controller
     public function index()
     {
         $users = User::paginate(2);
-        return view('/publicprofile/publicprofilehomepage', compact('users'));
+        return view('/jobseeker/profiles/jobseekerprofilehomepage', compact('users'));
     }
-    public function employerindex()
-    {
-        $employers = Employer::paginate(2);
-        return view('/publicprofile/employerprofilehomepage', compact('employers'));
-    }
+
 }
