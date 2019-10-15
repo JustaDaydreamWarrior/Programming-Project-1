@@ -15,12 +15,23 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    @component('components.who')
-
-                        @endcomponent
-
                 </div>
+                <div>
+                    <div id="adminUsername">
+                        Welcome back, {{ Auth::guard('admin')->user()->name}}
+                    </div>
+                    <div id="adminRole">
+                        isSuperAdmin:
+                        @php
+                            $isSuper = Auth::guard('admin')->user()->isSuperAdmin;
+                            echo true === (bool)$isSuper ? 'True' : 'False';
+                        @endphp
+                    </div>
+                </div>
+                <hr>
+                <div id="components">
+                    @component('components.who')
+                    @endcomponent
             </div>
         </div>
     </div>

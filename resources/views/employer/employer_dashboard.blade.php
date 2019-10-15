@@ -15,11 +15,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                </div>
+                <div>
+                    <div id="employerUsername">
+                        Welcome back, {{ Auth::guard('employer')->user()->name}}
+                    </div>
+                </div>
+                <hr>
+                <div id="components">
                     @component('components.who')
-
-                        @endcomponent
-
+                    @endcomponent
                 </div>
             </div>
         </div>

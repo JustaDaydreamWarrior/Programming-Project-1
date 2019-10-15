@@ -35,7 +35,7 @@ class EmployerRegisterController extends Controller
     protected function create(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email',
+            'email' => ['required', 'email', 'unique:employers'],
             'password' => 'required|min:6'
         ]);
         $employer = Employer::create([
@@ -46,6 +46,6 @@ class EmployerRegisterController extends Controller
             'contact_phone' => $request['contact_phone']
 
         ]);
-        return redirect()->intended(route('employer.login'));
+        return redirect()->route('employer.login')->with('status','Registration successful');
     }
 }
