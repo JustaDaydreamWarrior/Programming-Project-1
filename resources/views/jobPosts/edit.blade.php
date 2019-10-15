@@ -116,11 +116,12 @@
 
                             @if ($errors->has('state'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('state') }}</strong>
-                                    </span>
+                                <strong>{{ $errors->first('state') }}</strong>
+                            </span>
                             @endif
                         </div>
                     </div>
+
 
                     <!-- City -->
                     <div class="form-group row{{ $errors->has('city') ? ' has-error' : '' }}">
@@ -143,14 +144,14 @@
                     <h5 align="center">Experience Requirements</h5>
 
                     <!-- Education -->
-                    <div class="form-group row{{ $errors->has('minEdu') ? ' has-error' : '' }}">
-                        <label for="minEdu" class="col-md-4 col-form-label text-md-right">Minimum Education</label>
+                    <div class="form-group row{{ $errors->has('education') ? ' has-error' : '' }}">
+                        <label for="education" class="col-md-4 col-form-label text-md-right">Highest Education Level
+                        </label>
 
                         <div class="col-md-6">
-                            <select id="minEdu" name="minEdu" class="form-control"
-                                    value="{{ old('minEdu') }}" required>
-                                <option disabled selected value>Select Education
-                                </option>
+                            <select id="education" name="education" class="form-control" value="{{ old('minEdu') }}"
+                                    required>
+                                <option disabled selected value>Select Education</option>
                                 <option value="0">Cert I</option>
                                 <option value="1">Cert II</option>
                                 <option value="2">Cert III</option>
@@ -160,17 +161,19 @@
                                 <option value="6">Bachelor degree</option>
                                 <option value="7">Bachelor Honors degree</option>
                                 <option value="8">Masters degree</option>
-                                <option value="9">PhD / Doctoral degree</option>
+                                <option value="9">phD / Doctoral degree</option>
                                 <option value="10">Not Applicable</option>
+
                             </select>
 
-                            @if ($errors->has('minEdu'))
+                            @if ($errors->has('education'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('minEdu') }}</strong>
-                                    </span>
+                                <strong>{{ $errors->first('education') }}</strong>
+                            </span>
                             @endif
                         </div>
                     </div>
+
 
                     <!-- Experience -->
                     <div class="form-group row{{ $errors->has('minExp') ? ' has-error' : '' }}">
