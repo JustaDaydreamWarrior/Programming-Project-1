@@ -53,6 +53,7 @@ class JobPostsTableSeeder extends Seeder
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
             'user_id' => 1,
+            'user_name' => "Connor",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -99,7 +100,7 @@ class JobPostsTableSeeder extends Seeder
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
             'user_id' => 1,
-
+            'user_name' => "Connor",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -143,6 +144,7 @@ class JobPostsTableSeeder extends Seeder
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
             'user_id' => 1,
+            'user_name' => "Connor",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -187,6 +189,7 @@ class JobPostsTableSeeder extends Seeder
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
             'user_id' => 1,
+            'user_name' => "Connor",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -242,6 +245,7 @@ IT or related tertiary education',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
             'user_id' => 1,
+            'user_name' => "Connor",
         ]);
     }
 }

@@ -128,6 +128,8 @@ Route::post('/searchjob', function(){
 // API Routes (matchmaking) //
 // Return currently authenticated user.
     Route::get('/api/user', 'APIController@getUser')->name('getUser');
+// Return a single user by id.
+    Route::get('/api/user/{id}/', 'APIController@getUserByID')->name('getUserByID');
 // Return job by ID.
     Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost');
 // Return all jobs.
