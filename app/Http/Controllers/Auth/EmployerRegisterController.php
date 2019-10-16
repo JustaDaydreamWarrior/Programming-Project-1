@@ -42,9 +42,7 @@ class EmployerRegisterController extends Controller
             'company_name' => $request['company_name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'contact_email' => $request['contact_email'],
-            'contact_phone' => $request['contact_phone']
-
+            'contact_email' => $request['contact_email']
         ]);
         return redirect()->route('employer.login')->with('status','Registration successful');
     }

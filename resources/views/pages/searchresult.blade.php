@@ -19,7 +19,7 @@
             <tbody>
             @foreach($details as $user)
                 <tr>
-                    <td><a href="{{ route('employer_profile.show', $user->company_name) }}"> {{ $user->company_name }} </a></td>
+                    <td>{{$user->company_name}}</td>
                     <td>{{$user->contact_email}}</td>
                 </tr>
             @endforeach

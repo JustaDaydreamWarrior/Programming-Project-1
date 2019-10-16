@@ -102,7 +102,7 @@ function printJob(id, username, title, description, estSalary, state, city, perc
     document.getElementById("loading").style.display = "none";
 }
 
-// Function to perform matchmaking. Using bitwise
+// Function to perform matchmaking. Using bitwise operations
 //https://www.w3schools.com/js/js_bitwise.asp
 function match() {
 
@@ -125,7 +125,7 @@ function match() {
     var userDetails;
 
     // Array of job Posting indices.
-    var jobPost = [];
+    var jobPostIndex = [];
 
     // Bitwise integers to compare.
     var jobPostMatch = [];
@@ -156,18 +156,18 @@ function match() {
                 jobPostMatch[i] = parseInt("" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].android + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud, 2);
 
                 // Find the amount of comparisons
-                let noOfComp = userDetails | jobPostMatch[i];
-                let bitComp = (noOfComp).toString(2);
+                var noOfComp = userDetails | jobPostMatch[i];
+                var bitComp = (noOfComp).toString(2);
 
                 //Final number of comparisons
-                let comparisonCount = bitComp.replace(/[^1]/g, "").length;
+                var comparisonCount = bitComp.replace(/[^1]/g, "").length;
 
-                let matchCalc = userDetails & jobPostMatch[i];
+                var matchCalc = userDetails & jobPostMatch[i];
 
-                let toBinary = (matchCalc).toString(2);
+                var toBinary = (matchCalc).toString(2);
 
                 //Final no. of matched skills (remove all zeros and count string length)
-                let matchedSkills = toBinary.replace(/[^1]/g, "").length;
+                var matchedSkills = toBinary.replace(/[^1]/g, "").length;
 
                 // Calculate percentage match ( matched skills/amount of skills x 100 )
                 percentageMatch[i] = (matchedSkills / comparisonCount) * 100;
@@ -181,7 +181,7 @@ function match() {
                 // Lastly, deal with any cases where percentage matches are over 100%, set those to 100%
                 let bitJob = "" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].android + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud;
 
-                let countJob = bitJob.replace(/[^1]/g, "").length;
+                var countJob = bitJob.replace(/[^1]/g, "").length;
                 //Check length of the binary string with 0s removed. If they are both the same length, all skills match.
                 if (matchedSkills === countJob) {
                     percentageMatch[i] = 100;
@@ -195,18 +195,19 @@ function match() {
             do {
                 swap = false;
 
-                for (let i = 0; i < jobPost.length - 1; i++) {
+                var i;
+                for (i = 0; i < jobPostIndex.length - 1; i++) {
                     if (percentageMatch[i] < percentageMatch[i + 1]) {
 
-                        let tmpPercent = percentageMatch[i];
+                        var tmpPercent = percentageMatch[i];
                         percentageMatch[i] = percentageMatch[i + 1];
                         percentageMatch[i + 1] = tmpPercent;
 
-                        let tmpPostId = jobPost[i];
-                        jobPost[i] = jobPost[i + 1];
-                        jobPost[i + 1] = tmpPostId;
+                        var tmpPostId = jobPostIndex[i];
+                        jobPostIndex[i] = jobPostIndex[i + 1];
+                        jobPostIndex[i + 1] = tmpPostId;
 
-                        let tmpJobPost = jobPostMatch[i];
+                        var tmpJobPost = jobPostMatch[i];
                         jobPostMatch[i] = jobPostMatch[i + 1];
                         jobPostMatch[i + 1] = tmpJobPost;
 
@@ -227,39 +228,39 @@ function match() {
                             printJob(data[order].id, data[order].user_name, data[order].title, data[order].description, data[order].estSalary, data[order].state, data[order].city, Math.round(percentageMatch[i]));
 
                         }
-                    } else {
+                    }
+                    //Display any relevant errors
+                    else {
                         document.getElementById("loading").style.display = "none";
-                        document.getElementById("nomatch").style.display = "block";
+                        document.getElementById("nomatches").style.display = "block";
                     }
                 })
-                //Display any relevant errors on failure
                     .fail(function () {
                         document.getElementById("loading").style.display = "none";
                         document.getElementById("error").style.display = "block";
-
                     });
             })
             .fail(function () {
                 document.getElementById("loading").style.display = "none";
                 document.getElementById("error").style.display = "block";
-
             });
-    });
+    })
+        .fail(function () {
+            document.getElementById("loading").style.display = "none";
+            document.getElementById("error").style.display = "block";
+        });
 }
 
-// Initialise HTML elements and call matchmaker
+// Elements that display caught errors and loading divs
 function init() {
-    if (document.getElementById("filters") !== null) {
-        document.getElementById("state").addEventListener('change', init);
-    }
     document.getElementById("jobposts").innerHTML = "";
     document.getElementById("noscript").style.display = "none";
     document.getElementById("nomatch").style.display = "none";
     document.getElementById("error").style.display = "none";
     document.getElementById("loading").style.display = "block";
+
     match();
 }
 
 document.addEventListener('DOMContentLoaded', init);
-
 

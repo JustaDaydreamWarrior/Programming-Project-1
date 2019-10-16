@@ -6,7 +6,7 @@ use App\User;
 use App\Employer;
 use Illuminate\Support\Facades\Input;
 
-class SearchEmployerFunctionalityController extends Controller
+class SearchFunctionalityController extends Controller
 {
     public function index()
     {
