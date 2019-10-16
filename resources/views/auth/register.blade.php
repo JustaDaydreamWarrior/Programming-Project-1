@@ -130,17 +130,17 @@
                                             value="{{ old('education') }}" required>
                                         <option disabled selected value>Select Education
                                         </option>
-                                        <option value="0">Cert I</option>
-                                        <option value="1">Cert II</option>
-                                        <option value="2">Cert III</option>
-                                        <option value="3">Cert IV</option>
-                                        <option value="4">Diploma</option>
-                                        <option value="5">Associate degree / Advanced Diploma</option>
-                                        <option value="6">Bachelor degree</option>
-                                        <option value="7">Bachelor Honors degree</option>
-                                        <option value="8">Masters degree</option>
-                                        <option value="9">PhD / Doctoral degree</option>
-                                        <option value="10">Not Applicable</option>
+                                        <option value="1">Cert I</option>
+                                        <option value="2">Cert II</option>
+                                        <option value="3">Cert III</option>
+                                        <option value="4">Cert IV</option>
+                                        <option value="5">Diploma</option>
+                                        <option value="6">Associate degree / Advanced Diploma</option>
+                                        <option value="7">Bachelor degree</option>
+                                        <option value="8">Bachelor Honors degree</option>
+                                        <option value="9">Masters degree</option>
+                                        <option value="10">PhD / Doctoral degree</option>
+                                        <option value="0">Not Applicable / None</option>
                                     </select>
 
                                     @if ($errors->has('education'))

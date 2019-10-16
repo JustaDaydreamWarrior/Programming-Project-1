@@ -12,8 +12,7 @@
             </div>
             <div class="panel-body">
                 <div id="parameters">
-                {{--TODO - Filters and weightings--}}
-                <!-- State -->
+                    <!-- State -->
                     <h5 align="center">Filters</h5>
                     <hr>
                     <div id="stateFilter">
@@ -37,8 +36,26 @@
 
                                 @if ($errors->has('state'))
                                     <span class="help-block">
-                                                            <strong>{{ $errors->first('state') }}</strong>
-                                                        </span>
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- City -->
+                    <div id="cityFilter">
+                        <div class="form-group row{{ $errors->has('city') ? ' has-error' : '' }}">
+                            <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
+
+                            <div class="col-md-6">
+                                <input id="city" type="text" class="form-control" name="city" pattern="[a-zA-Z ]+"
+                                       value="{{ old('city') }}" required>
+
+                                @if ($errors->has('city'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
                                 @endif
                             </div>
                         </div>
@@ -47,55 +64,57 @@
                     <hr>
                     <h5 align="center">Experience Preferences</h5>
                     <hr>
+                    <div id="preferences">
+                        <!-- Education -->
+                        <div class="form-group row{{ $errors->has('education') ? ' has-error' : '' }}">
+                            <label for="education" class="col-md-4 col-form-label text-md-right">Highest Education
+                                Level</label>
 
-                    <!-- Education -->
-                    <div class="form-group row{{ $errors->has('education') ? ' has-error' : '' }}">
-                        <label for="education" class="col-md-4 col-form-label text-md-right">Highest Education
-                            Level</label>
+                            <div class="col-md-6">
+                                <select id="education" name="education" class="form-control"
+                                        value="{{ old('education') }}" required>
+                                    <option disabled selected value>Select Education
+                                    </option>
+                                    <option value="1">Cert I</option>
+                                    <option value="2">Cert II</option>
+                                    <option value="3">Cert III</option>
+                                    <option value="4">Cert IV</option>
+                                    <option value="5">Diploma</option>
+                                    <option value="6">Associate degree / Advanced Diploma</option>
+                                    <option value="7">Bachelor degree</option>
+                                    <option value="8">Bachelor Honors degree</option>
+                                    <option value="9">Masters degree</option>
+                                    <option value="10">PhD / Doctoral degree</option>
+                                    <option value="0">Not Applicable / None</option>
+                                </select>
 
-                        <div class="col-md-6">
-                            <select id="education" name="education" class="form-control"
-                                    value="{{ old('education') }}" required>
-                                <option disabled selected value>Select Education
-                                </option>
-                                <option value="0">Cert I</option>
-                                <option value="1">Cert II</option>
-                                <option value="2">Cert III</option>
-                                <option value="3">Cert IV</option>
-                                <option value="4">Diploma</option>
-                                <option value="5">Associate degree / Advanced Diploma</option>
-                                <option value="6">Bachelor degree</option>
-                                <option value="7">Bachelor Honors degree</option>
-                                <option value="8">Masters degree</option>
-                                <option value="9">PhD / Doctoral degree</option>
-                                <option value="10">Not Applicable</option>
-                            </select>
+                                @if ($errors->has('education'))
+                                    <span class="help-block">
+                                    <strong>{{ $errors->first('education') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
 
-                            @if ($errors->has('education'))
-                                <span class="help-block">
-                                                            <strong>{{ $errors->first('education') }}</strong>
-                                                        </span>
-                            @endif
+
+                        <!-- Experience -->
+                        <div class="form-group row{{ $errors->has('experience') ? ' has-error' : '' }}">
+                            <label for="experience" class="col-md-4 col-form-label text-md-right">Overall Experience
+                                (years)</label>
+
+                            <div class="col-md-6">
+                                <input id="experience" type="number" min="0" max="60" class="form-control"
+                                       name="experience" value="{{ old('experience') }}" required>
+
+                                @if ($errors->has('experience'))
+                                    <span class="help-block">
+                                    <strong>{{ $errors->first('experience') }}</strong>
+                                </span>
+                                @endif
+                            </div>
                         </div>
                     </div>
 
-
-                    <!-- Experience -->
-                    <div class="form-group row{{ $errors->has('experience') ? ' has-error' : '' }}">
-                        <label for="experience" class="col-md-4 col-form-label text-md-right">Overall Experience
-                            (years)</label>
-
-                        <div class="col-md-6">
-                            <input id="experience" type="number" min="0" max="60" class="form-control"
-                                   name="experience" value="{{ old('experience') }}" required>
-
-                            @if ($errors->has('experience'))
-                                <span class="help-block">
-                                                            <strong>{{ $errors->first('experience') }}</strong>
-                                                        </span>
-                            @endif
-                        </div>
-                    </div>
                     <hr>
                     <h5 align="center">Competence in Programming and Scripting Languages</h5>
 
@@ -641,8 +660,7 @@
                     <br><br>
                     <p><i style="font-size: 150px" class="" aria-hidden="true"></i></p>
                     <br>
-                    <h2>No Matches</h2>
-                    <p>Please input parameters above.</p>
+                    <h2>No Matches Found..</h2>
                     <br><br>
                 </div>
                 {{--Undefined error div--}}

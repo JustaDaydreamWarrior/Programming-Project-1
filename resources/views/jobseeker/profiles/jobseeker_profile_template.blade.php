@@ -142,7 +142,7 @@
                         {!!$user->php!!}
                         <br>
                     </div>
-                        </div>
+                </div>
 
                 <hr>
                 <h5 align="center">Operating Systems</h5>
@@ -233,7 +233,6 @@
                     </div>
 
 
-
                 </div>
 
                 <hr>
@@ -258,19 +257,8 @@
                 </div>
 
 
-
-
-
-
-
-
-
             </div>
-                </div>
-
-
-
-
+        </div>
 
 
     </div>
