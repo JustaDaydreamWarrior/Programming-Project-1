@@ -36,10 +36,10 @@ class EmployerAPIController extends Controller
     //Get filtered user results (currently only filters by state)
     public function getUsersByFilter($state){
         $users = User::where('state', $state)->get();
-        /* Populate an array of jobPosts*/
+        /* Populate an array of users*/
         $Users = array();
         foreach ($users as $user) {
-            array_push($JobPosts, $user);
+            array_push($Users, $user);
         }
         return $Users;
     }

@@ -77,13 +77,33 @@ function printJobSeeker(id, name, email, state, city, percentageMatch) {
 
 // Function to perform matchmaking
 function matchJobSeeker() {
-    var users = "/api/users/";
+    var users
+
+    // Check filter on employer_matches page
+    if (document.getElementById("stateFilter") !== null) {
+
+        if (document.getElementById("state").value !== "") {
+            users = "/api/users/state/" + document.getElementById("state").value;
+            filter = "state"
+        } else users = "/api/users/";
+    }
+
+    // Check experience/education preferences on matches page
+    // if (document.getElementById("filters") !== null) {
+    //
+    //     if (document.getElementById("state").value !== "") {
+    //         jobPosts = "/api/jobPosts/state/" + document.getElementById("state").value;
+    //         filter = "state"
+    //     } else jobPosts = "/api/jobPosts/";
+    // }
+
+
 
     // Parameters entered as a binary string
     var parameterBinaryString;
+
     //Parameter binary string converted to int
     var parameterInt;
-
 
     // Array of user indices.
     var user = [];
