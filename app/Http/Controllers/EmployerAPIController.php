@@ -34,12 +34,32 @@ class EmployerAPIController extends Controller
         }
 
     //Get filtered user results (currently only filters by state)
-    public function getUsersByFilter($state){
+    public function getUsersByStateFilter($state){
         $users = User::where('state', $state)->get();
-        /* Populate an array of jobPosts*/
+        /* Populate an array of users*/
         $Users = array();
         foreach ($users as $user) {
-            array_push($JobPosts, $user);
+            array_push($Users, $user);
+        }
+        return $Users;
+    }
+
+    public function getUsersByCityFilter($city){
+        $users = User::where('city', $city)->get();
+        /* Populate an array of users*/
+        $Users = array();
+        foreach ($users as $user) {
+            array_push($Users, $user);
+        }
+        return $Users;
+    }
+
+    public function getUsersByCityStateFilter($state, $city){
+        $users = User::where('state', $state)->where('city', $city)->get();
+        /* Populate an array of users*/
+        $Users = array();
+        foreach ($users as $user) {
+            array_push($Users, $user);
         }
         return $Users;
     }
