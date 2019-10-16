@@ -2,7 +2,7 @@
 
 <!-- Check if accessing an employer route -->
 @if (Route::is('employer.*'))
-{{-- @if(Auth::guard('employer')->check()) --}}
+
     <!-- Load employer navbar -->
     @component('components.navbar_employer')
 
@@ -10,7 +10,6 @@
 
 <!-- Check if accessing an admin route -->
 @elseif(Route::is('admin.*'))
-{{-- @elseif(Auth::guard('admin')->check()) --}}
     <!-- Load admin navbar -->
     @component('components.navbar_admin')
 

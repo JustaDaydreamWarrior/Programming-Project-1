@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddEmployerIdToJobPosts extends Migration
+class AddUserIdToJobPosts extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class AddEmployerIdToJobPosts extends Migration
     public function up()
     {
         Schema::table('jobposts', function (Blueprint $table) {
-            $table->integer('employer_id');
+            $table->integer('user_id');
+            $table->string('user_name');
         });
     }
 
@@ -26,7 +27,8 @@ class AddEmployerIdToJobPosts extends Migration
     public function down()
     {
         Schema::table('jobposts', function (Blueprint $table) {
-            $table->dropColumn('employer_id');
+            $table->dropColumn('user_id');
+            $table->string('user_name');
         });
     }
 }

@@ -40,23 +40,15 @@
                             <li class="nav-item">
                                 <a id="support" class="nav-link" href="{{ route('support') }}">Support</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('publicprofile') }}">Public Profiles</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('employer_profile') }}">Employer Profiles</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('jobPosts.index') }}">Job Listings</a>
-                            </li>
                         </ul>
                     </div>
                     <!-- Login & registration Authentication Links -->
 
                     <!-- Check if an employer is logged in -->
                     @if(Auth::guard('employer')->check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('employer.matches') }}">Matches</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="employerDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

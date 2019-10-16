@@ -27,45 +27,6 @@
                     @endcomponent
                 </div>
             </div>
-
-            {{-- Mini Job Listings Panel. Shows all the job listing the user has created --}}
-            <div class="panel paneldefault">
-                <div class="panel-heading">Your Job Listings</div>
-
-                <div class="panel-body">
-                    <a href="/jobPosts/create" class="btn btn-primary">Create Job listing</a>
-
-                        @if(count($jobPosts) > 0)
-                            <table class="table table-striped">
-                                <tr>
-                                    <th>Title</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-
-                            <!-- Buttons for removing and editing user's listings -->
-                                @foreach($jobPosts as $jobPost)
-                                    <tr>
-                                        <th>{{$jobPost->title}}</th>
-                                        <th><a href="/jobPosts/{{$jobPost->id}}/edit"
-                                            class="btn btn-primary">Edit</a>
-                                        </th>
-                                        <th>
-                                        {!!Form::open(['action' => ['JobPostsController@destroy', $jobPost->id], 'method' => 'POST'])!!}
-                                        {{Form::hidden('_method', 'DELETE')}}
-                                        {{Form::submit('Delete', ['class' => 'btn btn-danger '])}}
-                                        {!!Form::close()!!}
-                                        </th>
-                                    </tr>
-                                @endforeach
-                            </table>
-                        @else
-                            <p>You have no job listings</p>
-                        @endif
-                    
-                </div>
-            </div>
-            
         </div>
     </div>
 </div>

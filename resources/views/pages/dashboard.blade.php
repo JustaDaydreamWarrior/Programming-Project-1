@@ -37,8 +37,7 @@
 
                     <div class="panel-body">
                         <a href="/jobPosts/create" class="btn btn-primary">Create Job listing</a>
-
-                        {{-- @if(count($jobPosts) > 0)
+                        @if(count($jobPosts) > 0)
                             <table class="table table-striped">
                                 <tr>
                                     <th>Title</th>
@@ -46,7 +45,7 @@
                                     <th></th>
                                 </tr>
 
-                                <!--Buttons for removing and editing user's listings-->
+                                {{-- Buttons for removing and editing user's listings --}}
                                 @foreach($jobPosts as $jobPost)
                                     <tr>
                                         <th>{{$jobPost->title}}</th>
@@ -64,7 +63,6 @@
                         @else
                             <p>You have no job listings</p>
                         @endif
-                         --}}
                     </div>
                 </div>
 

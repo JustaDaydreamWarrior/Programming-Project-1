@@ -5,11 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">All Created Public Profiles</div>
+                <div class="card-header">All Created Job Seeker Profiles</div>
                 <div class="card-body">
                     @foreach($users as $user)
                         {{ $user->id }}
-                        <a href="{{ route('public_profile.show', $user->name) }}"> {{ $user->name }} </a>
+                        <a href="{{ route('jobseeker_profile.show', $user->name) }}"> {{ $user->name }} </a>
                         <br>
 
 
