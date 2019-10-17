@@ -36,6 +36,12 @@ class PagesController extends Controller
         return view('pages/register')->with('title', $title);
     }
 
+    /* Show matches page. */
+    public function matchingJobs()
+    {
+        return view('pages/matches');
+    }
+
     public function employers()
     {
         $title = 'Employers Homepage';

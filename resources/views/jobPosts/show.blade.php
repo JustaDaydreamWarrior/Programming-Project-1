@@ -26,7 +26,7 @@
                     </div>
                     @if(!Auth::guest())
                         {{-- @if(Auth::user()->id == $jobPosts->user_id) --}}
-                        @if(Auth::guard('employer')->user()->id == $jobPosts->user_id)
+                        @if(Auth::guard('employer')->user()->id == $jobPosts->employer_id)
                             <div class="col">
                                 <a href="/jobPosts/{{$jobPosts->id}}/edit" class="btn btn-outline-dark mt-3 mb-3">Edit</a>
                             </div>

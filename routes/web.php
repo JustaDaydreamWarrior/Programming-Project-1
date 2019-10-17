@@ -25,9 +25,9 @@ Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
 
-Route::get('/email', 'EmailController@index')->name('support');
+Route::get('/matches', 'PagesController@matchingJobs')->name('matches');
 
-Route::get('/matches', 'JobPostsController@matchingJobs')->name('matches');
+Route::get('/email', 'EmailController@index')->name('support');
 
 Route::resource('jobPosts', 'JobPostsController');
 

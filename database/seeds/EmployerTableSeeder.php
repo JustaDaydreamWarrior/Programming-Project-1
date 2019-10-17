@@ -11,26 +11,26 @@ class EmployerTableSeeder extends Seeder
      */
     public function run()
     {
-//        DB::table('employers')->insert([
-//            'id' => '1',
-//            'name' => 'Group54',
-//            'email' => 's123456@student.rmit.edu.au',
-//            'password' => bcrypt('password'),
-//            'contact-phone' => '1234-5478',
-//            'contact-email' => 'Group54@gmail.com',
-//            'state' => 'VIC',
-//            'city' => 'Melbourne',
-//        ]);
-//
-//        DB::table('employers')->insert([
-//            'id' => '2',
-//            'name' => 'Techadon',
-//            'email' => 's123456@student.rmit.edu.au',
-//            'password' => bcrypt('password'),
-//            'contact-phone' => '9010-7020',
-//            'contact-email' => 'Group54@gmail.com',
-//            'state' => 'SA',
-//            'city' => 'Adelaide',
-//        ]);
+        DB::table('employers')->insert([
+            'id' => '1',
+            'company_name' => 'Group54',
+            'email' => 's123456@student.rmit.edu.au',
+            'password' => bcrypt('password'),
+            'contact_phone' => '1234-5478',
+            'contact_email' => 'Group54@gmail.com',
+            'state' => 'VIC',
+            'city' => 'Melbourne',
+        ]);
+
+        DB::table('employers')->insert([
+            'id' => '2',
+            'company_name' => 'SilentRunner',
+            'email' => 'group54@gmail.com',
+            'password' => bcrypt('password'),
+            'contact_phone' => '9010-7020',
+            'contact_email' => 'group54@gmail.com',
+            'state' => 'SA',
+            'city' => 'Adelaide',
+        ]);
     }
 }

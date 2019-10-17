@@ -1,9 +1,12 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\JobPost;
 use Auth;
 use App\Employer;
+
 class JobPostsController extends Controller
 {
     /**
@@ -15,6 +18,7 @@ class JobPostsController extends Controller
     {
         $this->middleware('auth:employer', ['except' => ['index', 'show']]);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,6 +30,7 @@ class JobPostsController extends Controller
         $jobPosts = JobPost::orderBy('created_at', 'desc')->paginate(5); //change pagination here
         return view('jobPosts/index')->with('jobPosts', $jobPosts);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,6 +40,7 @@ class JobPostsController extends Controller
     {
         return view('jobPosts/create');
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -119,6 +125,7 @@ class JobPostsController extends Controller
         $jobPosts->save();
         return redirect('/jobPosts')->with('success', 'Post created!');
     }
+
     /**
      * Display the specified resource.
      *
@@ -130,6 +137,7 @@ class JobPostsController extends Controller
         $jobPosts = JobPost::find($id);
         return view('jobPosts/show')->with('jobPosts', $jobPosts);
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -228,22 +236,23 @@ class JobPostsController extends Controller
     //     $jobPosts->save();
     //     return redirect('/jobPosts')->with('success', 'Listing updated!');
     // }
-    public function update(Request $request) {
+    public function update(Request $request)
+    {
         $jobPosts = JobPost::find(Auth::user()->id);
         if ($jobPosts) {
             $validate = null;
-            if (Auth::user()->email === $request['email']){
+            if (Auth::user()->email === $request['email']) {
                 $validate = $request->validate([
                     'title' => 'required|min:1',
                     'email' => '|email|min:2',
                     'state' => 'required|string|in:NSW,ACT,VIC,QLD,SA,WA,NT,TAS',
                     'city' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-                    // 'minEdu' => 'required|integer|min:0|max:10',
+                    'minEdu' => 'required|integer|min:0|max:10',
                     'minExp' => 'required|integer|min:0|max:100',
                     'java' => 'required|boolean',
                     'c' => 'required|boolean',
-                    // 'csharp' => 'required|boolean',
-                    // 'cplus' => 'required|boolean',
+                    'csharp' => 'required|boolean',
+                    'cplus' => 'required|boolean',
                     'php' => 'required|boolean',
                     'html' => 'required|boolean',
                     'css' => 'required|boolean',
@@ -274,12 +283,12 @@ class JobPostsController extends Controller
                     'email' => '|email|min:2',
                     'state' => 'required|string|in:NSW,ACT,VIC,QLD,SA,WA,NT,TAS',
                     'city' => 'required|string|regex:/^[a-zA-Z ]+$/|max:255',
-                    // 'minEdu' => 'required|integer|min:0|max:10',
+                    'minEdu' => 'required|integer|min:0|max:10',
                     'minExp' => 'required|integer|min:0|max:100',
                     'java' => 'required|boolean',
                     'c' => 'required|boolean',
-                    // 'csharp' => 'required|boolean',
-                    // 'cplus' => 'required|boolean',
+                    'csharp' => 'required|boolean',
+                    'cplus' => 'required|boolean',
                     'php' => 'required|boolean',
                     'html' => 'required|boolean',
                     'css' => 'required|boolean',
@@ -310,12 +319,12 @@ class JobPostsController extends Controller
                 $jobPosts->email = $request['email'];
                 $jobPosts->state = $request['state'];
                 $jobPosts->city = $request['city'];
-                // $jobPosts->minEdu = $request['minEdu'];
+                $jobPosts->minEdu = $request['minEdu'];
                 $jobPosts->minExp = $request['minExp'];
                 $jobPosts->java = $request['java'];
                 $jobPosts->c = $request['c'];
-                // $jobPosts->cplus = $request['cplus'];
-                // $jobPosts->csharp = $request['csharp'];
+                $jobPosts->cplus = $request['cplus'];
+                $jobPosts->csharp = $request['csharp'];
                 $jobPosts->php = $request['php'];
                 $jobPosts->html = $request['html'];
                 $jobPosts->css = $request['css'];
@@ -342,27 +351,26 @@ class JobPostsController extends Controller
                 $jobPosts->save();
                 $request->session()->flash('success', 'Your joblisting has been updated!');
                 return redirect()->route('jobPosts-create');
-            }
-            else {
+            } else {
                 return redirect()->back();
             }
             $jobPosts->title = $request['title'];
             $jobPosts->email = $request['email'];
             $jobPosts->state = $request['state'];
             $jobPosts->city = $request['city'];
-            // $jobPosts->minEdu = $request['minEdu'];
+            $jobPosts->minEdu = $request['minEdu'];
             $jobPosts->minExp = $request['minExp'];
             $jobPosts->java = $request['java'];
             $jobPosts->c = $request['c'];
-            // $jobPosts->cplus = $request['cplus'];
-            // $jobPosts->csharp = $request['csharp'];
+            $jobPosts->cplus = $request['cplus'];
+            $jobPosts->csharp = $request['csharp'];
             $jobPosts->php = $request['php'];
             $jobPosts->html = $request['html'];
             $jobPosts->css = $request['css'];
             $jobPosts->python = $request['python'];
             $jobPosts->javascript = $request['javascript'];
             $jobPosts->sql = $request['sql'];
-            // $jobPosts->android = $request['android'];
+            $jobPosts->android = $request['android'];
             $jobPosts->windows10 = $request['windows10'];
             $jobPosts->windows7 = $request['windows7'];
             $jobPosts->windowsOld = $request['windowsOld'];
@@ -385,10 +393,8 @@ class JobPostsController extends Controller
             return redirect()->back();
         }
     }
-    /* Show matches page. */
-    public function matchingJobs(){
-        return view('pages/matches');
-    }
+
+
     /**
      * Remove the specified resource from storage.
      *
