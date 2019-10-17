@@ -62,12 +62,7 @@ class CreateJobPostsTable extends Migration
             $table->boolean('cloud');
 
             $table->mediumText('description');
-
             $table->timestamps();
-
-            //Reference to employer table. An a single employer is attached to a job listing as a foreign key. To be completed once employer login/registration is done.
-//            $table->uuid('empID');
-//            $table->foreign('empID')->references('id')->on('employers')->onDelete('cascade');
         });
     }
 

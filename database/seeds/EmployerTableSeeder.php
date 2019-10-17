@@ -14,7 +14,7 @@ class EmployerTableSeeder extends Seeder
         DB::table('employers')->insert([
             'id' => '1',
             'company_name' => 'Group54',
-            'email' => 's123456@student.rmit.edu.au',
+            'email' => 'group54@gmail.com',
             'password' => bcrypt('password'),
             'contact_phone' => '1234-5478',
             'contact_email' => 'Group54@gmail.com',
@@ -25,10 +25,10 @@ class EmployerTableSeeder extends Seeder
         DB::table('employers')->insert([
             'id' => '2',
             'company_name' => 'SilentRunner',
-            'email' => 'group54@gmail.com',
+            'email' => 'silentrunner@gmail.com',
             'password' => bcrypt('password'),
             'contact_phone' => '9010-7020',
-            'contact_email' => 'group54@gmail.com',
+            'contact_email' => 'silentrunner@gmail.com',
             'state' => 'SA',
             'city' => 'Adelaide',
         ]);

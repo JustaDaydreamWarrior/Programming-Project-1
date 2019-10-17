@@ -52,8 +52,8 @@ class JobPostsTableSeeder extends Seeder
             'description' => 'Information and Data are some of the most important organizational assets in today’s businesses. As an IT Consultant, you will be a key advisor for IBM’s clients, analyzing business requirements to design and implement the best security solutions for their needs. You will apply your technical skills to find the balance between enabling and securing the client\'s organization with the cognitive solutions that are making IBM the fastest growing enterprise security business in the world.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'employer_id' => 1,
-            'employer_name' => "Connor",
+            'employer_id' => 2,
+            'company_name' => "SilentRunner",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -100,7 +100,7 @@ class JobPostsTableSeeder extends Seeder
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
             'employer_id' => 1,
-            'employer_name' => "Connor",
+            'company_name' => "Group54",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -144,7 +144,7 @@ class JobPostsTableSeeder extends Seeder
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
             'employer_id' => 1,
-            'employer_name' => "Connor",
+            'company_name' => "Group54",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -188,8 +188,8 @@ class JobPostsTableSeeder extends Seeder
                               Your background will be with IT, having worked previously as a System Analyst. This local council prides itself on efficient services and integrity of its IT Systems. You are someone who brings stability and previous skills to reach outcomes.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'employer_id' => 1,
-            'employer_name' => "Connor",
+            'employer_id' => 2,
+            'company_name' => "SilentRunner",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -245,7 +245,7 @@ IT or related tertiary education',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
             'employer_id' => 1,
-            'employer_name' => "Connor",
+            'company_name' => "Group54",
         ]);
     }
 }

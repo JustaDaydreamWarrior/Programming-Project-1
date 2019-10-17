@@ -1,7 +1,7 @@
 // Group 54 matchmaking .js for matching Job Seekers to Job Postings/Listings
 
 // Function to print a matched jobPosting to panel in matches view
-function printJob(id, username, title, description, estSalary, state, city, percentageMatch, totalMatchedSkills, totalSkills) {
+function printJob(id, companyname, title, description, estSalary, state, city, percentageMatch, totalMatchedSkills, totalSkills) {
     //Building the contents of the div to display a particular posting
     var display = document.getElementById("jobposts");
 
@@ -25,7 +25,7 @@ function printJob(id, username, title, description, estSalary, state, city, perc
     var p = document.createElement("p");
     var pTitle = document.createElement("strong");
 
-    p.innerHTML = username;
+    p.innerHTML = companyname;
 
     pTitle.innerHTML = "Employer: ";
 
@@ -235,7 +235,7 @@ function match() {
 
                         for (let i = 0; i < data.length; i++) {
                             let order = jobPost[i];
-                            printJob(data[order].id, data[order].user_name, data[order].title, data[order].description, data[order].estSalary, data[order].state, data[order].city, Math.round(percentageMatch[i]), totalMatchedSkills[order], totalSkills[order]);
+                            printJob(data[order].id, data[order].company_name, data[order].title, data[order].description, data[order].estSalary, data[order].state, data[order].city, Math.round(percentageMatch[i]), totalMatchedSkills[order], totalSkills[order]);
 
                         }
                     } else {

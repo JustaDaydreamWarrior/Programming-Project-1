@@ -90,6 +90,7 @@ class JobPostsController extends Controller
         //create jobPost
         $jobPosts = new JobPost;
         $jobPosts->employer_id = auth()->user()->id;
+        $jobPosts->company_name = auth()->user()->company_name;
         $jobPosts->title = $request->input('title');
         $jobPosts->organisation = $request->input('organisation');
         $jobPosts->estSalary = $request->input('estSalary');
