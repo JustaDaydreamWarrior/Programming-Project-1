@@ -15,7 +15,8 @@
                 <div>
                     {!!$jobPosts->description!!}
                 </div>
-                <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->user->name}}</small>
+                {{-- <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->user->company_name}}</small> --}}
+                <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->organisation}}</small>
                 <br>
                 <small>Updated on {{$jobPosts->updated_at}}</small>
                 <hr>
@@ -24,7 +25,8 @@
                         <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
                     </div>
                     @if(!Auth::guest())
-                        @if(Auth::user()->id == $jobPosts->user_id)
+                        {{-- @if(Auth::user()->id == $jobPosts->user_id) --}}
+                        @if(Auth::guard('employer')->user()->id == $jobPosts->user_id)
                             <div class="col">
                                 <a href="/jobPosts/{{$jobPosts->id}}/edit" class="btn btn-outline-dark mt-3 mb-3">Edit</a>
                             </div>
@@ -43,4 +45,3 @@
     </div>
 
 @endsection
-
