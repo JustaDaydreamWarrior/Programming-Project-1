@@ -52,8 +52,8 @@ class JobPostsTableSeeder extends Seeder
             'description' => 'Information and Data are some of the most important organizational assets in today’s businesses. As an IT Consultant, you will be a key advisor for IBM’s clients, analyzing business requirements to design and implement the best security solutions for their needs. You will apply your technical skills to find the balance between enabling and securing the client\'s organization with the cognitive solutions that are making IBM the fastest growing enterprise security business in the world.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
-            'user_name' => "Connor",
+            'employer_id' => 1,
+            'employer_name' => "Connor",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -99,8 +99,8 @@ class JobPostsTableSeeder extends Seeder
 • Should have programming and Continuous integration: Build automation using Github, ANT, Maven, Jenkins, code quality analysis using SonarQube, and Python and R knowledge.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
-            'user_name' => "Connor",
+            'employer_id' => 1,
+            'employer_name' => "Connor",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -143,8 +143,8 @@ class JobPostsTableSeeder extends Seeder
             'description' => 'A data center administrator (DCA) is an experienced information technology (IT) professional who is responsible for overseeing data center operations. Because DCAs are in charge of business-critical systems, they need to have an in-depth knowledge about everything that occurs in the data center, including infrastructure design, operations and lifecycle management for physical and virtual data center assets.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
-            'user_name' => "Connor",
+            'employer_id' => 1,
+            'employer_name' => "Connor",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -188,8 +188,8 @@ class JobPostsTableSeeder extends Seeder
                               Your background will be with IT, having worked previously as a System Analyst. This local council prides itself on efficient services and integrity of its IT Systems. You are someone who brings stability and previous skills to reach outcomes.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
-            'user_name' => "Connor",
+            'employer_id' => 1,
+            'employer_name' => "Connor",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -244,8 +244,8 @@ Experience in building and supporting hardware (Windows and MAC OS/environment)
 IT or related tertiary education',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
-            'user_name' => "Connor",
+            'employer_id' => 1,
+            'employer_name' => "Connor",
         ]);
     }
 }

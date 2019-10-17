@@ -18,7 +18,7 @@
 
 @else
     <!-- Not on an employer page -->
-    <!-- Load jobseaker navbar -->
+    <!-- Load jobseeker navbar -->
     @component('components.navbar_jobseeker')
 
     @endcomponent

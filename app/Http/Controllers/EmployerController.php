@@ -25,7 +25,7 @@ class EmployerController extends Controller
     }
     public function dashboard()
     {
-    
+
         // $user_id = auth()->user()->id;
         $user_id = Auth::guard('employer')->user()->id;
         // dd($user_id);
@@ -35,5 +35,9 @@ class EmployerController extends Controller
         return view('employer.employer_dashboard')->with('jobPosts', $user->jobPost);
     
         // return view('employer/employer_dashboard');
+    }
+
+    public function matchingJobSeekers(){
+        return view('employer/employer_matches');
     }
 }

@@ -144,31 +144,30 @@
                     <h5 align="center">Experience Requirements</h5>
 
                     <!-- Education -->
-                    <div class="form-group row{{ $errors->has('education') ? ' has-error' : '' }}">
-                        <label for="education" class="col-md-4 col-form-label text-md-right">Highest Education Level
+                    <div class="form-group row{{ $errors->has('minEdu') ? ' has-error' : '' }}">
+                        <label for="minEdu" class="col-md-4 col-form-label text-md-right">Highest Education Level
                         </label>
 
                         <div class="col-md-6">
-                            <select id="education" name="education" class="form-control" value="{{ old('minEdu') }}"
+                            <select id="minEdu" name="minEdu" class="form-control" value="{{ old('minEdu') }}"
                                     required>
                                 <option disabled selected value>Select Education</option>
-                                <option value="0">Cert I</option>
-                                <option value="1">Cert II</option>
-                                <option value="2">Cert III</option>
-                                <option value="3">Cert IV</option>
-                                <option value="4">Diploma</option>
-                                <option value="5">Associate degree / Advanced Diploma</option>
-                                <option value="6">Bachelor degree</option>
-                                <option value="7">Bachelor Honors degree</option>
-                                <option value="8">Masters degree</option>
-                                <option value="9">phD / Doctoral degree</option>
-                                <option value="10">Not Applicable</option>
-
+                                <option value="1">Cert I</option>
+                                <option value="2">Cert II</option>
+                                <option value="3">Cert III</option>
+                                <option value="4">Cert IV</option>
+                                <option value="5">Diploma</option>
+                                <option value="6">Associate degree / Advanced Diploma</option>
+                                <option value="7">Bachelor degree</option>
+                                <option value="8">Bachelor Honors degree</option>
+                                <option value="9">Masters degree</option>
+                                <option value="10">phD / Doctoral degree</option>
+                                <option value="0">Not Applicable</option>
                             </select>
 
-                            @if ($errors->has('education'))
+                            @if ($errors->has('minEdu'))
                                 <span class="help-block">
-                                <strong>{{ $errors->first('education') }}</strong>
+                                <strong>{{ $errors->first('minEdu') }}</strong>
                             </span>
                             @endif
                         </div>
@@ -231,15 +230,15 @@
                         </div>
 
                         <!-- C# -->
-                        <div class="{{ $errors->has('c#') ? ' has-error' : '' }}">
-                            <label for="c#" class="label.mdl-checkbox">C#</label>
+                        <div class="{{ $errors->has('csharp') ? ' has-error' : '' }}">
+                            <label for="csharp" class="label.mdl-checkbox">C#</label>
 
                             <div>
-                                <input id="c#-hidden" type="hidden" class="" name="c#" value="0">
-                                <input id="c#" type="checkbox" class="" name="c#"
-                                       value="{{ old('c#', 1) }}">
+                                <input id="csharp-hidden" type="hidden" class="" name="csharp" value="0">
+                                <input id="csharp" type="checkbox" class="" name="csharp"
+                                       value="{{ old('csharp', 1) }}">
 
-                                @if ($errors->has('c#'))
+                                @if ($errors->has('csharp'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('c#') }}</strong>
                                     </span>
@@ -248,17 +247,17 @@
                         </div>
 
                         <!-- C++ -->
-                        <div class="{{ $errors->has('c++') ? ' has-error' : '' }}">
-                            <label for="c++" class="label.mdl-checkbox">C++</label>
+                        <div class="{{ $errors->has('cplus') ? ' has-error' : '' }}">
+                            <label for="cplus" class="label.mdl-checkbox">C++</label>
 
                             <div>
-                                <input id="c++-hidden" type="hidden" class="" name="c++" value="0">
-                                <input id="c++" type="checkbox" class="" name="c++"
-                                       value="{{ old('c++', 1) }}">
+                                <input id="cplus-hidden" type="hidden" class="" name="cplus" value="0">
+                                <input id="cplus" type="checkbox" class="" name="cplus"
+                                       value="{{ old('cplus', 1) }}">
 
-                                @if ($errors->has('c++'))
+                                @if ($errors->has('cplus'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('c++') }}</strong>
+                                        <strong>{{ $errors->first('cplus') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -701,7 +700,7 @@
                     <h4 align="center">Other Details</h4>
                     <hr>
 
-                    
+
 
 
                     <div class="col-md-6">
@@ -717,7 +716,7 @@
                                     </span>
                         @enderror
                     </div>
-                    
+
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
