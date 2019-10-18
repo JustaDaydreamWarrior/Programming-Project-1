@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.inflectra.spiratest.addons.junitextension.SpiraTestCase;
 import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 
 @SpiraTestConfiguration(
@@ -56,8 +57,8 @@ public class Employer_Login {
 
 	@Test
 	@Order(1) // << the order of the test, so this test-case is running as first
-	//@SpiraTestCase(testCaseId = 16502)
-	public void openUserWebsite() {
+	@SpiraTestCase(testCaseId = 17151)
+	public void openMainWebsite() {
 
 		driver.get("http://handshake.test/");
 
@@ -78,24 +79,35 @@ public class Employer_Login {
 		assertEquals(expectedResult, actualResult);
 
 	}
-    
+	
 	@Test
 	@Order(2)
-	//@SpiraTestCase(testCaseId = 16503)
-	public void goToLoginPage() {
-		driver.findElement(By.id("login_user")).click();;
+	@SpiraTestCase(testCaseId = 17152)
+	public void goToEmployerSite() {
+		driver.findElement(By.id("employers")).click();
 		
-		expectedResult = "Job Seeker Login";
+		expectedResult = "EMPLOYER homepage";
+		actualResult = driver.findElement(By.xpath("//div[@class='card-header']")).getText();
+		assertEquals(expectedResult, actualResult);
+	}
+    
+	@Test
+	@Order(3)
+	@SpiraTestCase(testCaseId = 17156)
+	public void goToEmployerLoginPage() {
+		driver.findElement(By.id("login_employer")).click();;
+		
+		expectedResult = "Employer Login";
 		actualResult = driver.findElement(By.xpath("//div[@class='panel-heading']")).getText();
 		assertEquals(expectedResult, actualResult);
 	}
 	
 	@Test
-	@Order(3)
-	//@SpiraTestCase(testCaseId = 16503)
-	public void userLogin() {
+	@Order(4)
+	@SpiraTestCase(testCaseId = 17157)
+	public void employerLogin() {
 		WebElement elementEmail = driver.findElement(By.name("email"));
-		elementEmail.sendKeys("testaccount@fakeemail.com");
+		elementEmail.sendKeys("testaccount@testco.com");
 		
 		WebElement elementPass = driver.findElement(By.name("password"));
 		elementPass.sendKeys("password");	
@@ -104,8 +116,8 @@ public class Employer_Login {
 		
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
-		expectedResult = "Jimmy Hoffer";
-		actualResult = driver.findElement(By.xpath("//a[@id='userDropdown']")).getText();
+		expectedResult = "Test Company Inc.";
+		actualResult = driver.findElement(By.xpath("//a[@id='employerDropdown']")).getText();
 		assertEquals(expectedResult, actualResult);
 		
 	}
