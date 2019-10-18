@@ -138,7 +138,6 @@ public class User_register {
 	@AfterAll
 	// closing or quitting the browser after the test
 	public static void closeBrowser() {
-		driver.close();
-		// driver.quit();
+		driver.quit();
 	}
 }
