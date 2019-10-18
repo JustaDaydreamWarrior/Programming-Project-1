@@ -81,7 +81,7 @@ public class User_Login {
     
 	@Test
 	@Order(2)
-	@SpiraTestCase(testCaseId = 1716)
+	@SpiraTestCase(testCaseId = 17161)
 	public void goToLoginPage() {
 		driver.findElement(By.id("login_user")).click();;
 		
