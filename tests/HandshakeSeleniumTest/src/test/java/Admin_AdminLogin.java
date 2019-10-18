@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.inflectra.spiratest.addons.junitextension.SpiraTestCase;
 import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 
 @SpiraTestConfiguration(
@@ -27,7 +28,7 @@ import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 // releaseId = 7, testSetId = 1)
 )
 
-// 31 - As a Super Administrator I want to create other Administrators
+// 32 - As an Administrator I want to log into the system
 
 @TestMethodOrder(OrderAnnotation.class) // << this annotation is for using @order, or adding order to my test-cases
 public class Admin_AdminLogin {
@@ -56,7 +57,7 @@ public class Admin_AdminLogin {
 
 	@Test
 	@Order(1) // << the order of the test, so this test-case is running as first
-	//@SpiraTestCase(testCaseId = 16502)
+	@SpiraTestCase(testCaseId = 16502)
 	public void openAdminWebsite() {
 
 		driver.get("http://handshake.test/admin");
@@ -81,7 +82,7 @@ public class Admin_AdminLogin {
     
 	@Test
 	@Order(2)
-	//@SpiraTestCase(testCaseId = 16503)
+	@SpiraTestCase(testCaseId = 17149)
 	public void loginAsNormalAdmin() {
 		WebElement elementUser = driver.findElement(By.name("username"));
 		elementUser.sendKeys("Gunduck");
@@ -100,7 +101,7 @@ public class Admin_AdminLogin {
 	
 	@Test
 	@Order(3) 
-	//@SpiraTestCase(testCaseId = [16504])
+	@SpiraTestCase(testCaseId = 17150)
 	public void checkIsNotSuperAdmin() {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		
