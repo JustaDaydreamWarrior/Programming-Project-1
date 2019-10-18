@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.inflectra.spiratest.addons.junitextension.SpiraTestCase;
 import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 
 @SpiraTestConfiguration(
@@ -55,8 +56,8 @@ public class Employer_register {
 
 	@Test
 	@Order(1) // << the order of the test, so this test-case is running as first
-	//@SpiraTestCase(testCaseId = 16502)
-	public void openUserWebsite() {
+	@SpiraTestCase(testCaseId = 17151)
+	public void openMainWebsite() {
 
 		driver.get("http://handshake.test/");
 
@@ -80,7 +81,7 @@ public class Employer_register {
     
 	@Test
 	@Order(2)
-	//@SpiraTestCase(testCaseId = 16503)
+	@SpiraTestCase(testCaseId = 17152)
 	public void goToEmployerSite() {
 		driver.findElement(By.id("employers")).click();
 		
@@ -91,7 +92,7 @@ public class Employer_register {
     
 	@Test
 	@Order(3)
-	//@SpiraTestCase(testCaseId = 16503)
+	@SpiraTestCase(testCaseId = 17153)
 	public void goToEmployerReg() {
 		driver.findElement(By.id("register_employer")).click();
 		
@@ -103,8 +104,8 @@ public class Employer_register {
 	
 	@Test
 	@Order(4)
-	//@SpiraTestCase(testCaseId = 16503)
-	public void registerAccount() {
+	@SpiraTestCase(testCaseId = 17154)
+	public void registerEmployerAccount() {
 		WebElement elementUser = driver.findElement(By.name("company_name"));
 		elementUser.sendKeys("Test Company Inc.");
 		
