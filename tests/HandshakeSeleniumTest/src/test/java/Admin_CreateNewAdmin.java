@@ -15,6 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.inflectra.spiratest.addons.junitextension.SpiraTestCase;
 import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 
 @SpiraTestConfiguration(
@@ -56,7 +57,7 @@ public class Admin_CreateNewAdmin {
 
 	@Test
 	@Order(1) // << the order of the test, so this test-case is running as first
-	//@SpiraTestCase(testCaseId = 16502)
+	@SpiraTestCase(testCaseId = 16502)
 	public void openAdminWebsite() {
 
 		driver.get("http://handshake.test/admin");
@@ -81,7 +82,7 @@ public class Admin_CreateNewAdmin {
     
 	@Test
 	@Order(2)
-	//@SpiraTestCase(testCaseId = 16503)
+	@SpiraTestCase(testCaseId = 16503)
 	public void loginAsRootAdmin() {
 		WebElement elementUser = driver.findElement(By.name("username"));
 		elementUser.sendKeys("root");
@@ -100,7 +101,7 @@ public class Admin_CreateNewAdmin {
 	
 	@Test
 	@Order(3) 
-	//@SpiraTestCase(testCaseId = [16504])
+	@SpiraTestCase(testCaseId = 17147)
 	public void createNewAdmin() {
 		
 		driver.findElement(By.xpath("//a[@id='adminDropdown']")).click();
@@ -131,7 +132,7 @@ public class Admin_CreateNewAdmin {
 	
 	@Test
 	@Order(4) 
-	//@SpiraTestCase(testCaseId = [16504])
+	@SpiraTestCase(testCaseId = 17148)
 	//Test error condition - duplicate username
 	public void createDuplicateAdmin() {
 		
