@@ -15,8 +15,7 @@
                 <div>
                     {!!$jobPosts->description!!}
                 </div>
-                {{-- <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->user->company_name}}</small> --}}
-                <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->organisation}}</small>
+                 <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->company_name}}</small>
                 <br>
                 <small>Updated on {{$jobPosts->updated_at}}</small>
                 <hr>
@@ -24,21 +23,21 @@
                     <div class="col">
                         <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
                     </div>
-                    @if(!Auth::guest())
-                        {{-- @if(Auth::user()->id == $jobPosts->user_id) --}}
-                        @if(Auth::guard('employer')->user()->id == $jobPosts->employer_id)
-                            <div class="col">
-                                <a href="/jobPosts/{{$jobPosts->id}}/edit" class="btn btn-outline-dark mt-3 mb-3">Edit</a>
-                            </div>
-                            <div class="col mt-3 mb-3">
+{{--                    @if(!Auth::guest())--}}
+{{--                        --}}{{-- @if(Auth::user()->id == $jobPosts->user_id) --}}
+{{--                        @if(Auth::guard('employer')->user()->id == $jobPosts->employer_id)--}}
+{{--                            <div class="col">--}}
+{{--                                <a href="/jobPosts/{{$jobPosts->id}}/edit" class="btn btn-outline-dark mt-3 mb-3">Edit</a>--}}
+{{--                            </div>--}}
+{{--                            <div class="col mt-3 mb-3">--}}
 
-                                {!!Form::open(['action' => ['JobPostsController@destroy', $jobPosts->id], 'method' => 'POST'])!!}
-                                {{Form::hidden('_method', 'DELETE')}}
-                                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-                                {!!Form::close()!!}
-                            </div>
-                        @endif
-                    @endif
+{{--                                {!!Form::open(['action' => ['EmployerJobPostsController@destroy', $jobPosts->id], 'method' => 'POST'])!!}--}}
+{{--                                {{Form::hidden('_method', 'DELETE')}}--}}
+{{--                                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}--}}
+{{--                                {!!Form::close()!!}--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+{{--                    @endif--}}
                 </div>
             </div>
         </div>
