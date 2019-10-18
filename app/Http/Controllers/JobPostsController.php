@@ -90,6 +90,7 @@ class JobPostsController extends Controller
         //create jobPost
         $jobPosts = new JobPost;
         $jobPosts->user_id = auth()->user()->id;
+        $jobPosts->user_name = auth()->user()->name;
         $jobPosts->title = $request->input('title');
         $jobPosts->organisation = $request->input('organisation');
         $jobPosts->estSalary = $request->input('estSalary');
@@ -127,6 +128,7 @@ class JobPostsController extends Controller
 
         return redirect('/jobPosts')->with('success', 'Post created!');
     }
+
 
     /**
      * Display the specified resource.

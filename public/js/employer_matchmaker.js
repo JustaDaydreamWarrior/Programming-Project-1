@@ -1,7 +1,7 @@
 // Group 54 employer_matchmaking .js for matching Job Seekers to Job Postings/Listings
 
 // Function to print a matched Job Seeker to panel in employer_matches view
-function printJobSeeker(id, name, email, state, city, percentageMatch) {
+function printJobSeeker(id, name, email, state, city, percentageMatch, totalMatchedSkills, totalSkills) {
     //Building the contents of the div to display a particular Job Seeker
     let display = document.getElementById("jobseeker");
 
@@ -24,8 +24,19 @@ function printJobSeeker(id, name, email, state, city, percentageMatch) {
     let body = document.createElement("div");
     body.className = "panel-body";
 
+    let p0 = document.createElement("p");
+    if (totalMatchedSkills > 0) {
+        p0.innerHTML = totalMatchedSkills + " out of " + totalSkills;
+    } else {
+        p0.innerHTML = "None, or not applicable";
+    }
+    let p0Title = document.createElement("strong");
+    p0Title.innerHTML = "Matched Skills: ";
+
     let p1 = document.createElement("p");
     p1.innerHTML = email;
+    let p1Title = document.createElement("strong");
+    p1Title.innerHTML = "Contact E-mail: ";
 
     let hr1 = document.createElement("hr");
 
@@ -62,7 +73,10 @@ function printJobSeeker(id, name, email, state, city, percentageMatch) {
     panel.appendChild(heading);
     panel.appendChild(body);
     heading.append(match);
+    body.append(p0);
+    p0.prepend(p0Title);
     body.append(p1);
+    p1.prepend(p1Title);
     body.append(hr1);
     body.append(p2);
     p2.prepend(p2Title);
@@ -77,13 +91,41 @@ function printJobSeeker(id, name, email, state, city, percentageMatch) {
 
 // Function to perform matchmaking
 function matchJobSeeker() {
-    var users = "/api/users/";
+    var users;
+    var eduPref = 0;
+    var expPref = 0;
+    var eduWeight = 0.1;
+    var expWeight = 0.2;
+
+
+    // Check state and city filter on employer_matches page
+    if (document.getElementById("state").value !== "" && document.getElementById("city").value !== "") {
+        users = "/api/users/state/" + document.getElementById("state").value + "/city/" + document.getElementById("city").value;
+    } else if (document.getElementById("state").value !== "") {
+        users = "/api/users/state/" + document.getElementById("state").value;
+    } else if (document.getElementById("city").value !== "") {
+        users = "/api/users/city/" + document.getElementById("city").value;
+    }
+    //If there are no filters, get all users for matchmaking
+    else {
+        users = "/api/users/";
+    }
+
+
+    // Check experience/education preferences on matches page
+    if (document.getElementById("education").value !== "") {
+        eduPref = parseInt(document.getElementById("education").value);
+    }
+    if (document.getElementById("experience").value !== "") {
+        expPref = parseInt(document.getElementById("experience").value);
+    }
+
 
     // Parameters entered as a binary string
     var parameterBinaryString;
+
     //Parameter binary string converted to int
     var parameterInt;
-
 
     // Array of user indices.
     var user = [];
@@ -93,6 +135,13 @@ function matchJobSeeker() {
 
     // Percentage matches.
     var percentageMatch = [];
+
+    //No. matched skills
+    var totalMatchedSkills = [];
+
+    //No. total skills required
+    var totalSkills;
+
     // Retrieve the current user's data
     // Retrieve the employer_match preferred skillset
     // convert binary sequence of the employer preferenced skillset to integer ex. ( 01010010101110 )
@@ -141,15 +190,36 @@ function matchJobSeeker() {
 
             //Final no. of matched skills (remove all zeros and count string length)
             let matchedSkills = toBinary.replace(/[^1]/g, "").length;
+            totalMatchedSkills[i] = matchedSkills;
 
             // Calculate percentage match ( matched skills/amount of skills x 100 )
             let countEmployer = parameterBinaryString.replace(/[^1]/g, "").length;
+            totalSkills = countEmployer;
             percentageMatch[i] = (matchedSkills / countEmployer) * 100;
 
             //Check length of the binary string with 0s removed. If they are both the same length, all skills match.
             if (matchedSkills === countEmployer) {
                 percentageMatch[i] = 100;
             }
+
+            //Calculate weighted percentage value, if required
+            var weighting = 1;
+            if (eduPref !== 0) {
+                if (data[i].education >= eduPref) {
+                    weighting += eduWeight
+                } else if (data[i].education < eduPref) {
+                    weighting -= eduWeight
+                }
+            }
+
+            if (expPref !== 0) {
+                if (data[i].experience >= expPref) {
+                    weighting += expWeight
+                } else if (data[i].education < expPref) {
+                    weighting -= expWeight
+                }
+            }
+            percentageMatch[i] = percentageMatch[i] * weighting;
 
             //When percentage matches are over 100 for whatever reason, set those matches to 100
             if (percentageMatch[i] > 100) {
@@ -192,7 +262,7 @@ function matchJobSeeker() {
 
                     for (let i = 0; i < data.length; i++) {
                         let order = user[i];
-                        printJobSeeker(data[order].id, data[order].name, data[order].email, data[order].state, data[order].city, Math.round(percentageMatch[i]));
+                        printJobSeeker(data[order].id, data[order].name, data[order].email, data[order].state, data[order].city, Math.round(percentageMatch[i]), totalMatchedSkills[order], totalSkills);
                     }
                 } else {
                     document.getElementById("employer_loading").style.display = "none";

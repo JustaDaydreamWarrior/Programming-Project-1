@@ -128,20 +128,22 @@ Route::post('/searchjob', function(){
 // API Routes (matchmaking) //
 // Return currently authenticated user.
     Route::get('/api/user', 'APIController@getUser')->name('getUser');
+// Return a single user by id.
+    Route::get('/api/user/{id}/', 'APIController@getUserByID')->name('getUserByID');
 // Return job by ID.
     Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost');
 // Return all jobs.
     Route::get('/api/jobPosts/', 'APIController@getAllJobPosts')->name('getAllJobPosts');
-// Return jobs by filter.
+// Return jobs by state filter.
     Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByFilter')->name('getJobPosts');
 // Return all users.
     Route::get('/api/users/', 'EmployerAPIController@getAllUsers')->name('getAllUsers');
-// Return users by filter.
-    Route::get('/api/users/state/{state}', 'EmployerAPIController@getUsersByFilter')->name('getUsers');
-
-
-
-
+// Return users by state filter.
+    Route::get('/api/users/state/{state}', 'EmployerAPIController@getUsersByStateFilter')->name('getUsers');
+// Return users by city filter.
+    Route::get('/api/users/city/{city}', 'EmployerAPIController@getUsersByCityFilter')->name('getUsers');
+// Return users by city and state filter.
+    Route::get('/api/users/state/{state}/city/{city}', 'EmployerAPIController@getUsersByCityStateFilter')->name('getUsers');
 
 
 

@@ -28,6 +28,13 @@ class APIController extends Controller
         return $user;
     }
 
+    public function getUserByID($id)
+    {
+        $user = User::where('id', $id)->get('name');
+
+        return $user;
+    }
+
     //Return a single job by ID. Currently unused
     public function getJobPost($id)
     {
