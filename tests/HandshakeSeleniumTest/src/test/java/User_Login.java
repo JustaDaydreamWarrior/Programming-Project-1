@@ -14,6 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.inflectra.spiratest.addons.junitextension.SpiraTestCase;
 import com.inflectra.spiratest.addons.junitextension.SpiraTestConfiguration;
 
 @SpiraTestConfiguration(
@@ -55,7 +56,7 @@ public class User_Login {
 
 	@Test
 	@Order(1) // << the order of the test, so this test-case is running as first
-	//@SpiraTestCase(testCaseId = 16502)
+	@SpiraTestCase(testCaseId = 17151)
 	public void openUserWebsite() {
 
 		driver.get("http://handshake.test/");
@@ -80,7 +81,7 @@ public class User_Login {
     
 	@Test
 	@Order(2)
-	//@SpiraTestCase(testCaseId = 16503)
+	@SpiraTestCase(testCaseId = 1716)
 	public void goToLoginPage() {
 		driver.findElement(By.id("login_user")).click();;
 		
@@ -91,7 +92,7 @@ public class User_Login {
 	
 	@Test
 	@Order(3)
-	//@SpiraTestCase(testCaseId = 16503)
+	@SpiraTestCase(testCaseId = 17162)
 	public void userLogin() {
 		WebElement elementEmail = driver.findElement(By.name("email"));
 		elementEmail.sendKeys("testaccount@fakeemail.com");
