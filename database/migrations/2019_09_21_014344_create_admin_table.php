@@ -24,7 +24,7 @@ class CreateAdminTable extends Migration
         });
 
         DB::table('admins')->insert([
-            'name' => string('SuperAdmin'),
+            'name' => 'SuperAdmin',
             'username' => 'root',
             'password' => bcrypt('password'),
             'isSuperAdmin' => '1',
