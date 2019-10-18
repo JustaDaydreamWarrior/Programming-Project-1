@@ -39,7 +39,7 @@ class PagesController extends Controller
     public function jobPosts()
     {
         $title = 'Job Postings';
-        return view('pages/jobPosts')->with('title', $title);
+        return view('pages/jobPosts');
     }
 
     /* Show matches page. */

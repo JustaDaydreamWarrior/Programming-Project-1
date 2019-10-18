@@ -25,9 +25,12 @@ Route::get('/login', 'PagesController@login');
 
 Route::get('/register', 'PagesController@register');
 
+Route::get('/jobPosts/index', 'JobPostsController@index')->name('jobPosts');
+
 Route::get('/matches', 'PagesController@matchingJobs')->name('matches');
 
 Route::get('/email', 'EmailController@index')->name('support');
+
 
 Route::resource('jobPosts', 'JobPostsController');
 
@@ -38,9 +41,9 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 //POST routes
 Route::post('/email/send', 'EmailController@send');
 
-Route::post('/jobPosts', 'JobPostsController@store')->name('jobPosts-create');
+Route::post('/jobPosts/create', 'JobPostsController@store')->name('employer.createJob');
 
-Route::post('/jobPosts/update', 'JobPostsController@update')->name('updateJob');
+Route::post('/jobPosts/update', 'JobPostsController@update')->name('employer.updateJob');
 
 // Employer Specific Routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
