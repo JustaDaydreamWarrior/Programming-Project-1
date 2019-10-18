@@ -32,7 +32,12 @@ Route::get('/matches', 'PagesController@matchingJobs')->name('matches');
 Route::get('/email', 'EmailController@index')->name('support');
 
 
-Route::resource('jobPosts', 'JobPostsController');
+Route::resource('/jobPosts', 'JobPostsController')->names([
+    'index' => 'employer.indexJobPost',
+    'create' => 'employer.createJobPost',
+    'edit' => 'employer.editJobPost'
+]);
+
 
 Route::resource('posts', 'PostsController');
 
