@@ -4,7 +4,7 @@
 /* Background. */
 body {
     background-size: 10%;
-    background: url("background.jpg") no-repeat;
+    background: url("background.jpg") repeat-y;
 }
 
 /* Navigation bar. */

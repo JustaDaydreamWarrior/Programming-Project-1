@@ -7,8 +7,7 @@
             <div class="panel panel-default" align="center">
                 <div class="panel-heading"><strong>Edit Listing Details</strong></div>
 
-
-                <form class="form-horizontal" method="POST" action="{{ route('updateJob') }}">
+                <form class="form-horizontal" method="POST" action="{{ route('employer.updateJob') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group row">
@@ -16,7 +15,7 @@
                                class="col-md-4 col-form-label text-md-right">{{('Title / Position')}}</label>
 
                         <div class="col-md-6">
-                            <input id="title" type="text"
+                            <input id="title" value="{{$jobPosts['title']}}"  type="text"
                                    class="form-control @error('title') is-invalid @enderror" name="title"
                                    value="{{ old('title') }}" required autocomplete="title" autofocus>
 
@@ -34,7 +33,7 @@
                                class="col-md-4 col-form-label text-md-right">{{('Organisation')}}</label>
 
                         <div class="col-md-6">
-                            <input id="organisation" type="text"
+                            <input id="organisation" type="text" value="{{$jobPosts['organisation']}}"
                                    class="form-control @error('organisation') is-invalid @enderror" name="organisation"
                                    value="{{ old('organisation') }}" required autocomplete="organisation" autofocus>
 
@@ -50,7 +49,7 @@
                         <label for="title" class="col-md-4 col-form-label text-md-right">{{('Contact E-mail')}}</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="text"
+                            <input id="email" type="text" value="{{$jobPosts['email']}}"
                                    class="form-control @error('email') is-invalid @enderror" name="email"
                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
 
@@ -68,7 +67,7 @@
                                class="col-md-4 col-form-label text-md-right">{{('Estimated Yearly Salary')}}</label>
 
                         <div class="col-md-6">
-                            <input id="estSalary" type="text"
+                            <input id="estSalary" type="text" value="{{$jobPosts['estSalary']}}"
                                    class="form-control @error('estSalary') is-invalid @enderror" name="estSalary"
                                    value="{{ old('estSalary') }}" required autocomplete="estSalary" autofocus>
 
@@ -104,18 +103,19 @@
 
                             @if ($errors->has('state'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('state') }}</strong>
-                                    </span>
+                                <strong>{{ $errors->first('state') }}</strong>
+                            </span>
                             @endif
                         </div>
                     </div>
+
 
                     <!-- City -->
                     <div class="form-group row{{ $errors->has('city') ? ' has-error' : '' }}">
                         <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
 
                         <div class="col-md-6">
-                            <input id="city" type="text" class="form-control" name="city" pattern="[a-zA-Z ]+"
+                            <input id="city" type="text" value="{{$jobPosts['city']}}" class="form-control" name="city" pattern="[a-zA-Z ]+"
                                    value="{{ old('city') }}" required>
 
                             @if ($errors->has('city'))
@@ -132,13 +132,13 @@
 
                     <!-- Education -->
                     <div class="form-group row{{ $errors->has('minEdu') ? ' has-error' : '' }}">
-                        <label for="minEdu" class="col-md-4 col-form-label text-md-right">Minimum Education</label>
+                        <label for="minEdu" class="col-md-4 col-form-label text-md-right">Highest Education Level
+                        </label>
 
                         <div class="col-md-6">
-                            <select id="minEdu" name="minEdu" class="form-control"
-                                    value="{{ old('minEdu') }}" required>
-                                <option disabled selected value>Select Education
-                                </option>
+                            <select id="minEdu" name="minEdu" class="form-control" value="{{ old('minEdu') }}"
+                                    required>
+                                <option disabled selected value>Select Education</option>
                                 <option value="1">Cert I</option>
                                 <option value="2">Cert II</option>
                                 <option value="3">Cert III</option>
@@ -148,17 +148,18 @@
                                 <option value="7">Bachelor degree</option>
                                 <option value="8">Bachelor Honors degree</option>
                                 <option value="9">Masters degree</option>
-                                <option value="10">PhD / Doctoral degree</option>
-                                <option value="0">Not Applicable / None</option>
+                                <option value="10">phD / Doctoral degree</option>
+                                <option value="0">Not Applicable</option>
                             </select>
 
                             @if ($errors->has('minEdu'))
                                 <span class="help-block">
-                                        <strong>{{ $errors->first('minEdu') }}</strong>
-                                    </span>
+                                <strong>{{ $errors->first('minEdu') }}</strong>
+                            </span>
                             @endif
                         </div>
                     </div>
+
 
                     <!-- Experience -->
                     <div class="form-group row{{ $errors->has('minExp') ? ' has-error' : '' }}">
@@ -166,7 +167,7 @@
                             (years)</label>
 
                         <div class="col-md-6">
-                            <input id="minExp" type="number" min="0" max="60" class="form-control"
+                            <input id="minExp" type="number" value="{{$jobPosts['minExp']}}" min="0" max="60" class="form-control"
                                    name="minExp" value="{{ old('minExp') }}" required>
 
                             @if ($errors->has('minExp'))
@@ -216,15 +217,15 @@
                         </div>
 
                         <!-- C# -->
-                        <div class="{{ $errors->has('c#') ? ' has-error' : '' }}">
-                            <label for="c#" class="label.mdl-checkbox">C#</label>
+                        <div class="{{ $errors->has('csharp') ? ' has-error' : '' }}">
+                            <label for="csharp" class="label.mdl-checkbox">C#</label>
 
                             <div>
-                                <input id="c#-hidden" type="hidden" class="" name="c#" value="0">
-                                <input id="c#" type="checkbox" class="" name="c#"
-                                       value="{{ old('c#', 1) }}">
+                                <input id="csharp-hidden" type="hidden" class="" name="csharp" value="0">
+                                <input id="csharp" type="checkbox" class="" name="csharp"
+                                       value="{{ old('csharp', 1) }}">
 
-                                @if ($errors->has('c#'))
+                                @if ($errors->has('csharp'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('c#') }}</strong>
                                     </span>
@@ -232,7 +233,22 @@
                             </div>
                         </div>
 
+                        <!-- C++ -->
+                        <div class="{{ $errors->has('cplus') ? ' has-error' : '' }}">
+                            <label for="cplus" class="label.mdl-checkbox">C++</label>
 
+                            <div>
+                                <input id="cplus-hidden" type="hidden" class="" name="cplus" value="0">
+                                <input id="cplus" type="checkbox" class="" name="cplus"
+                                       value="{{ old('cplus', 1) }}">
+
+                                @if ($errors->has('cplus'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('cplus') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <!-- CSS -->
                         <div class="{{ $errors->has('css') ? ' has-error' : '' }}">
@@ -671,13 +687,14 @@
                     <h4 align="center">Other Details</h4>
                     <hr>
 
-                    <label for="description" class="col-md-4 col-form-label">{{('Description')}}</label>
+
 
 
                     <div class="col-md-6">
                             <textarea id="description" type="text"
                                       class="form-control @error('description') is-invalid @enderror" name="description"
                                       value="{{ old('description') }}" required autocomplete="description" autofocus>
+                                            {{$jobPosts['description']}}
                             </textarea>
 
                         @error('description')
@@ -687,9 +704,18 @@
                         @enderror
                     </div>
 
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Update Details') }}
+                            </button>
+                        </div>
+                    </div>
+
+
             </div>
         </div>
     </div>
 
 @endsection
-

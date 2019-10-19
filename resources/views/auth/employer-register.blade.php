@@ -47,6 +47,48 @@
                                 </div>
                             </div>
 
+                            <!-- State -->
+                            <div class="form-group row{{ $errors->has('state') ? ' has-error' : '' }}">
+                                <label for="state" class="col-md-4 col-form-label text-md-right">State/Territory</label>
+
+                                <div class="col-md-6">
+                                    <select id="state" name="state" class="form-control" value="{{ old('state') }}"
+                                            required>
+                                        <option disabled selected value>Select State</option>
+                                        <option value="NSW">New South Wales</option>
+                                        <option value="ACT">Australian Capital Territory</option>
+                                        <option value="VIC">Victoria</option>
+                                        <option value="QLD">Queensland</option>
+                                        <option value="SA">South Australia</option>
+                                        <option value="WA">Western Australia</option>
+                                        <option value="NT">Northern Territory</option>
+                                        <option value="TAS">Tasmania</option>
+                                    </select>
+
+                                    @if ($errors->has('state'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('state') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <!-- City -->
+                            <div class="form-group row{{ $errors->has('city') ? ' has-error' : '' }}">
+                                <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
+
+                                <div class="col-md-6">
+                                    <input id="city" type="text" class="form-control" name="city" pattern="[a-zA-Z ]+"
+                                           value="{{ old('city') }}" required>
+
+                                    @if ($errors->has('city'))
+                                        <span class="help-block">
+                                        <strong>{{ $errors->first('city') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
                             <!--Password-->
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>

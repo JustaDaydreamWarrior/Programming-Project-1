@@ -7,7 +7,7 @@
         <div class="col-md-12 col-md-offset-10">
             <div class="panel panel-default" align="center">
                 <div class="panel-heading"><strong>Enter Listing Details</strong></div>
-                <form class="form-horizontal" method="POST" action="{{ route('jobPosts-create') }}">
+                <form class="form-horizontal" method="POST" action="{{ route('employer.createJob') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group row">

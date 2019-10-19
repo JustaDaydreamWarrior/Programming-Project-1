@@ -41,6 +41,8 @@ class EmployerRegisterController extends Controller
         $employer = Employer::create([
             'company_name' => $request['company_name'],
             'email' => $request['email'],
+            'state' => $request['state'],
+            'city' => $request['city'],
             'password' => Hash::make($request['password']),
             'contact_email' => $request['contact_email'],
             'contact_phone' => $request['contact_phone']
