@@ -38,9 +38,6 @@ Route::resource('/jobPosts', 'JobPostsController')->names([
     'edit' => 'employer.editJobPost'
 ]);
 
-
-Route::resource('posts', 'PostsController');
-
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 //POST routes
