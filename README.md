@@ -26,7 +26,7 @@ Create database called ‘handshake’ and click create
 
 <b>6. Generate composer files</b>
 
-Using git bash, run composer install to generate composer files for the project.
+Using git bash, run $composer install to generate composer files for the project.
 
 Important: when database schema changes are made, you must run composer-dump autoload before migrating the new schema
 
@@ -34,7 +34,7 @@ Important: when database schema changes are made, you must run composer-dump aut
 
 In git bash create the .env file for Laravel to use during development 
 
-cp .env.example .env
+$cp .env.example .env
 
 <b>8. Open the .env file in nano (or any text editor)</b>
 
@@ -54,11 +54,11 @@ $php artisan key:generate
 
 from project folder:
 
-php artisan migrate:fresh
+$ php artisan migrate:fresh
 
 <b>11. (OPTIONAL) Seeding the database</b>
 
-Run php artisan db:seed command in project folder. This will create some users, job postings and employers in the recently created database.
+Run'$php artisan db:seed' in the project folder. This will create some users, job postings and employers in the recently created database.
 
 please refer to development guide if you need picture assistance with setup
 
