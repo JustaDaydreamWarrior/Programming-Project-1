@@ -1,6 +1,6 @@
 <h1>Programming Project 1 - Group 54</h1>
 
-Installation / Getting Started:
+<h2> Installation / Getting Started: </h2>
 
 1. Install git bash at https://gitforwindows.org/
 
@@ -29,8 +29,11 @@ cp .env.example .env
 
 8. Open the .env file in nano (or any text editor)
 Edit the following lines and save the file.
+
 DB_DATABASE= -> DB_DATABASE=handshake
+
 DB_USERNAME=homestead -> DB_USERNAME=root
+
 DB_PASSWORD=homestead -> DB_PASSWORD=’’
 
 9. Generate a new Application Key for Laravel to use with the application
