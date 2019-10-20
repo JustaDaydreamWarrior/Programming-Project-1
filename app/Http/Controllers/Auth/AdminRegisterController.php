@@ -6,6 +6,7 @@ use App\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminRegisterController extends Controller
@@ -34,16 +35,22 @@ class AdminRegisterController extends Controller
 
     protected function create(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'username' => 'required',
-            'password' => 'required|min:6'
-        ]);
-        $employer = Admin::create([
-            'name' => $request['name'],
-            'username' => $request['username'],
-            'password' => Hash::make($request['password'])
-        ]);
-        return redirect()->intended(route('admin.login'));
+        if(Auth::guard('admin')->user()->isSuperAdmin)
+        {
+            $this->validate($request, [
+                'name' => 'required',
+                'username' => ['required', 'unique:admins'],
+                'password' => 'required|min:6'
+            ]);
+            $employer = Admin::create([
+                'name' => $request['name'],
+                'username' => $request['username'],
+                'password' => Hash::make($request['password'])
+            ]);
+
+            return redirect()->route('admin.dashboard')->with('success', "Admin {$request->username} has been created");
+        }
+        else
+            return abort(403);
     }
 }

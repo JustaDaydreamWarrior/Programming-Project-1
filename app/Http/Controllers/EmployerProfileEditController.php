@@ -27,7 +27,9 @@ class EmployerProfileEditController extends Controller
                 $validate = $request->validate([
                     'company_name' => '|min:2',
                     'email' => '|email|min:2',
-                    'contact_email' => '|email|min:2'
+                    'contact_email' => '|email|min:2',
+                    'contact_phone' => '|min:2'
+
 
 
 
@@ -37,6 +39,8 @@ class EmployerProfileEditController extends Controller
                     'company_name' => '|min:2',
                     'email' => '|email|min:2',
                     'contact_email' => '|email|min:2',
+                    'contact_phone' => '|min:2'
+
 
                 ]);
             }
@@ -44,6 +48,8 @@ class EmployerProfileEditController extends Controller
                 $employer->company_name = $request['company_name'];
                 $employer->email = $request['email'];
                 $employer->contact_email = $request['contact_email'];
+                $employer->contact_phone = $request['contact_phone'];
+
 
 
 
@@ -57,6 +63,7 @@ class EmployerProfileEditController extends Controller
             $employer->company_name = $request['company_name'];
             $employer->email = $request['email'];
             $employer->contact_email = $request['contact_email'];
+            $employer->contact_phone = $request['contact_phone'];
 
             $employer->save();
             return redirect()->back();

@@ -35,15 +35,19 @@ class EmployerRegisterController extends Controller
     protected function create(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email',
+            'email' => ['required', 'email', 'unique:employers'],
             'password' => 'required|min:6'
         ]);
         $employer = Employer::create([
             'company_name' => $request['company_name'],
             'email' => $request['email'],
+            'state' => $request['state'],
+            'city' => $request['city'],
             'password' => Hash::make($request['password']),
-            'contact_email' => $request['contact_email']
+            'contact_email' => $request['contact_email'],
+            'contact_phone' => $request['contact_phone']
+
         ]);
-        return redirect()->intended(route('employer.login'));
+        return redirect()->route('employer.login')->with('status','Registration successful');
     }
 }

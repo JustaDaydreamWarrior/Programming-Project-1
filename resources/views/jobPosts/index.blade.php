@@ -31,7 +31,8 @@
                             <div class="card card-body bg-light p-3 mt-3 mb-3">
 
                                 <h3><a href="/jobPosts/{{$jobPost->id}}">{{$jobPost->title}}</a></h3>
-                                <small>Written on {{$jobPost->created_at}} by {{$jobPost->user->name}}</small>
+                                {{-- <small>Written on {{$jobPost->created_at}} by {{$jobPost->company_name}}</small> --}}
+                                <small>Written on {{$jobPost->created_at}} by {{$jobPost->organisation}}</small>
                                 <small>Updated on {{$jobPost->updated_at}}</small>
 
                             </div>

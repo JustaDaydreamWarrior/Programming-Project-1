@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Employer;
+use App\User;
 use App\JobPost;
-
-use Auth;
 use Carbon\Carbon;
 use Session;
-
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class APIController extends Controller
 {
@@ -25,6 +25,13 @@ class APIController extends Controller
     public function getUser()
     {
         $user = Auth::user();
+        return $user;
+    }
+
+    public function getUserByID($id)
+    {
+        $user = User::where('id', $id)->get('name');
+
         return $user;
     }
 
@@ -47,7 +54,7 @@ class APIController extends Controller
         return $JobPosts;
     }
 
-    //Get filtered results (currently only filters by state)
+    //Get filtered job posting results (currently only filters by state)
     public function getJobPostsByFilter($state){
         $jobPosts = JobPost::where('state', $state)->get();
         /* Populate an array of jobPosts*/

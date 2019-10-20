@@ -8,6 +8,13 @@
                 <div class="card">
                     <div class="panel-heading"><strong>Administrator Login</strong></div>
                     <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                    </div>
+                    <div>
                         <form method="POST" action="{{ route('admin.login.submit') }}">
                             @csrf
 

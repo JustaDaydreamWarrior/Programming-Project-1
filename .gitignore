@@ -12,3 +12,5 @@ yarn-error.log
 *.md
 /.idea/*
 /.idea/workspace.xml
+tests/HandshakeTests/.classpath
+*.class

@@ -35,10 +35,10 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('about') }}">About</a>
+                                <a id="about" class="nav-link" href="{{ route('about') }}">About</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('support') }}">Support</a>
+                                <a id="support" class="nav-link" href="{{ route('support') }}">Support</a>
                             </li>
                         </ul>
                     </div>
@@ -46,6 +46,12 @@
 
                     <!-- Check if an employer is logged in -->
                     @if(Auth::guard('employer')->check())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('employer.matches') }}">Matches</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('employer.createJob') }}">Create Job post</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="employerDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -54,7 +60,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="employerDropdown">
                                 <a href="{{route('employer.dashboard')}}" class="dropdown-item">Dashboard</a>
-                                <a href="{{route('employer.profile_edit')}}" class="dropdown-item">Edit Employer profile</a>
+                                <a id="edit_employer" href="{{route('employer.profile_edit')}}" class="dropdown-item">Edit Employer profile</a>
 
                                 <!-- add menu items below this line -->
                                 <!-- <a class="dropdown-item" href='route('employer.edit')'>
@@ -72,10 +78,10 @@
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('employer.login') }}">{{ __('Login') }}</a>
+                            <a id="login_employer" class="nav-link" href="{{ route('employer.login') }}">{{ __('Login') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('employer.register') }}">{{ __('Register') }}</a>
+                            <a id="register_employer" class="nav-link" href="{{ route('employer.register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
 

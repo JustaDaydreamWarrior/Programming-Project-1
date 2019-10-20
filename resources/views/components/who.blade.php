@@ -19,8 +19,9 @@
 @endif
 
 @if(Auth::guard('admin')->check())
-    <p id="admin" class="text-success">
-        You are logged in as an <strong>ADMIN</strong> - Username: {{ Auth::guard('admin')->user()->username}}
+    <p id="admin"class="text-success">
+        You are logged in as an <strong>ADMIN</strong>
+
     </p>
 @else
     <p id="admin" class="text-danger">

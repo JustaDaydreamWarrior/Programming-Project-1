@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class JobPostsSeeder extends Seeder
+class JobPostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -39,6 +39,7 @@ class JobPostsSeeder extends Seeder
             'windowsServer' => 1,
             'macOS' => 0,
             'linux' => 1,
+            'android' => 1,
             'bash' => 1,
             'ciscoSystems' => 1,
             'microsoftOffice' => 1,
@@ -51,7 +52,8 @@ class JobPostsSeeder extends Seeder
             'description' => 'Information and Data are some of the most important organizational assets in today’s businesses. As an IT Consultant, you will be a key advisor for IBM’s clients, analyzing business requirements to design and implement the best security solutions for their needs. You will apply your technical skills to find the balance between enabling and securing the client\'s organization with the cognitive solutions that are making IBM the fastest growing enterprise security business in the world.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
+            'employer_id' => 2,
+            'company_name' => "SilentRunner",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -85,6 +87,7 @@ class JobPostsSeeder extends Seeder
             'ciscoSystems' => 0,
             'microsoftOffice' => 1,
             'ruby' => 0,
+            'android' => 0,
             'powershell' => 0,
             'rust' => 0,
             'iOS' => 0,
@@ -96,8 +99,8 @@ class JobPostsSeeder extends Seeder
 • Should have programming and Continuous integration: Build automation using Github, ANT, Maven, Jenkins, code quality analysis using SonarQube, and Python and R knowledge.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
-
+            'employer_id' => 1,
+            'company_name' => "Group54",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -134,12 +137,14 @@ class JobPostsSeeder extends Seeder
             'powershell' => 1,
             'rust' => 0,
             'iOS' => 1,
+            'android' => 1,
             'adobe' => 1,
             'cloud' => 1,
             'description' => 'A data center administrator (DCA) is an experienced information technology (IT) professional who is responsible for overseeing data center operations. Because DCAs are in charge of business-critical systems, they need to have an in-depth knowledge about everything that occurs in the data center, including infrastructure design, operations and lifecycle management for physical and virtual data center assets.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
+            'employer_id' => 1,
+            'company_name' => "Group54",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -176,13 +181,15 @@ class JobPostsSeeder extends Seeder
             'powershell' => 1,
             'rust' => 0,
             'iOS' => 1,
+            'android' => 1,
             'adobe' => 1,
             'cloud' => 1,
             'description' => 'Working with a passionate, professional team, the IT System administrator assists the council in 2nd and  3rd level Support and help manage the server systems and Council Applications.
                               Your background will be with IT, having worked previously as a System Analyst. This local council prides itself on efficient services and integrity of its IT Systems. You are someone who brings stability and previous skills to reach outcomes.',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
+            'employer_id' => 2,
+            'company_name' => "SilentRunner",
         ]);
 
         DB::table('jobPosts')->insert([
@@ -219,6 +226,7 @@ class JobPostsSeeder extends Seeder
             'powershell' => 1,
             'rust' => 0,
             'iOS' => 0,
+            'android' => 1,
             'adobe' => 0,
             'cloud' => 0,
             'description' => 'The successful applicant will possess the following:
@@ -236,7 +244,8 @@ Experience in building and supporting hardware (Windows and MAC OS/environment)
 IT or related tertiary education',
             'created_at' => '2019-09-14 14:50:05',
             'updated_at' => '2019-09-14 14:50:05',
-            'user_id' => 1,
+            'employer_id' => 1,
+            'company_name' => "Group54",
         ]);
     }
 }

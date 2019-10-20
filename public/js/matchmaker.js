@@ -1,7 +1,7 @@
 // Group 54 matchmaking .js for matching Job Seekers to Job Postings/Listings
 
 // Function to print a matched jobPosting to panel in matches view
-function printJob(id, title, description, estSalary, state, city, percentageMatch) {
+function printJob(id, companyname, title, description, estSalary, state, city, percentageMatch, totalMatchedSkills, totalSkills) {
     //Building the contents of the div to display a particular posting
     var display = document.getElementById("jobposts");
 
@@ -13,15 +13,28 @@ function printJob(id, title, description, estSalary, state, city, percentageMatc
     heading.innerHTML += title + " - ";
 
     var match = document.createElement("strong");
-    match.innerHTML = percentageMatch + "&#37; Match";
+    if (percentageMatch === 100) {
+        match.innerHTML = "&#11088;" + percentageMatch + "&#37; Match";
+    } else {
+        match.innerHTML = percentageMatch + "&#37; Match";
+    }
 
     var body = document.createElement("div");
     body.className = "panel-body";
 
+    var p = document.createElement("p");
+    var pTitle = document.createElement("strong");
+
+    p.innerHTML = companyname;
+
+    pTitle.innerHTML = "Employer: ";
+
+    var hr1 = document.createElement("hr");
+
     var p1 = document.createElement("p");
     p1.innerHTML = description;
 
-    var hr1 = document.createElement("hr");
+    var hr2 = document.createElement("hr");
 
     var p2 = document.createElement("p");
     var p2Title = document.createElement("strong");
@@ -67,12 +80,28 @@ function printJob(id, title, description, estSalary, state, city, percentageMatc
 
     p5Title.innerHTML = "Location: ";
 
+    var p6 = document.createElement("p");
+    if (totalMatchedSkills > 0) {
+        p6.innerHTML = totalMatchedSkills + " out of " + totalSkills;
+    } else {
+        p6.innerHTML = "None, or not applicable";
+    }
+    var p6Title = document.createElement("strong");
+    p6Title.innerHTML = "Matched Skills: ";
+
+    var hr3 = document.createElement("hr");
 
     panel.appendChild(heading);
     panel.appendChild(body);
     heading.append(match);
-    body.append(p1);
+    body.append(p);
+    p.prepend(pTitle);
+    body.append(hr3);
+    body.append(p6);
+    p6.prepend(p6Title);
     body.append(hr1);
+    body.append(p1);
+    body.append(hr2);
     body.append(p2);
     p2.prepend(p2Title);
     body.append(p3);
@@ -90,12 +119,18 @@ function printJob(id, title, description, estSalary, state, city, percentageMatc
 //https://www.w3schools.com/js/js_bitwise.asp
 function match() {
 
+    var orgName;
+
+    //used to determine what filters are being used, if any
+    var filter;
+
     var jobPosts;
     // Check filter on matches page
     if (document.getElementById("filters") !== null) {
 
         if (document.getElementById("state").value !== "") {
             jobPosts = "/api/jobPosts/state/" + document.getElementById("state").value;
+            filter = "state"
         } else jobPosts = "/api/jobPosts/";
     }
 
@@ -111,10 +146,23 @@ function match() {
     // Percentage matches.
     var percentageMatch = [];
 
+    //User's location (for weighting)
+    var userLocation;
+
+    //Job's location (for weighting)
+    var jobLocation;
+
+    //No. matched skills
+    var totalMatchedSkills = [];
+
+    //No. total skills required
+    var totalSkills = [];
+
     // Retrieve the current user's data
     $.getJSON("/api/user/", function (data) {
+        userLocation = data.location;
         // convert binary sequence of a User's skillset to integer ex. ( 01010010101110 )
-        userDetails = parseInt("" + data.java + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.python + data.javascript + data.sql + data.unix + data.windows10 + data.windows7 + data.windowsOld + data.windowsServer + data.macOS + data.linux + data.bash + data.bash + data.ciscoSystems + data.microsoftOffice + data.ruby + data.powershell + data.rust + data.iOS + data.adobe + data.cloud, 2);
+        userDetails = parseInt("" + data.java + data.c + data.csharp + data.cplus + data.php + data.html + data.css + data.python + data.javascript + data.sql + data.unix + data.windows10 + data.windows7 + data.windowsOld + data.windowsServer + data.macOS + data.linux + data.bash + data.android + data.ciscoSystems + data.microsoftOffice + data.ruby + data.powershell + data.rust + data.iOS + data.adobe + data.cloud, 2);
     }).then(function () {
 
         // Populate values into jobPostIndex, jobPostMatch and percentageMatch arrays.
@@ -122,30 +170,30 @@ function match() {
 
             for (let i = 0; i < data.length; i++) {
                 jobPost[i] = i;
+                jobLocation = jobPost[i].location;
                 // convert binary sequence of a Job Postings required skillset to integer ex. ( 01010010101110 )
-                jobPostMatch[i] = parseInt("" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].bash + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud, 2);
+                jobPostMatch[i] = parseInt("" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].android + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud, 2);
 
-                // Find the amount of comparisons
-                let noOfComp = userDetails | jobPostMatch[i];
-                let bitComp = (noOfComp).toString(2);
-
-                //Final number of comparisons
-                let comparisonCount = bitComp.replace(/[^1]/g, "").length;
-
+                //AND the two binary strings
                 let matchCalc = userDetails & jobPostMatch[i];
 
                 let toBinary = (matchCalc).toString(2);
 
                 //Final no. of matched skills (remove all zeros and count string length)
                 let matchedSkills = toBinary.replace(/[^1]/g, "").length;
+                totalMatchedSkills[i] = matchedSkills;
 
-                // Calculate percentage match ( matched skills/amount of skills x 100 )
-                percentageMatch[i] = (matchedSkills / comparisonCount) * 100;
-
-                // Lastly, deal with any cases where percentage matches are over 100%, set those to 100%
-                let bitJob = "" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].bash + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud;
-
+                //Count the amount of preferred skills
+                let bitJob = "" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].bash + data[i].android + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].iOS + data[i].adobe + data[i].cloud;
                 let countJob = bitJob.replace(/[^1]/g, "").length;
+                totalSkills[i] = countJob;
+                // Calculate percentage match ( matched skills/amount of skills x 100 )
+                percentageMatch[i] = (matchedSkills / countJob) * 100;
+
+                //Basic weighting adjustments, can be added to with additional weighted values later on. For now, state is the only weighted increase for jobseeker to job postings
+                //Increase match percentage by 5% if the states match. This will NOT apply when a state filter is selected.
+                if (jobLocation === userLocation && filter !== "state") percentageMatch[i] = percentageMatch[i] * 1.05;
+
                 //Check length of the binary string with 0s removed. If they are both the same length, all skills match.
                 if (matchedSkills === countJob) {
                     percentageMatch[i] = 100;
@@ -187,7 +235,8 @@ function match() {
 
                         for (let i = 0; i < data.length; i++) {
                             let order = jobPost[i];
-                            printJob(data[order].id, data[order].title, data[order].description, data[order].estSalary, data[order].state, data[order].city, Math.round(percentageMatch[i]));
+                            printJob(data[order].id, data[order].company_name, data[order].title, data[order].description, data[order].estSalary, data[order].state, data[order].city, Math.round(percentageMatch[i]), totalMatchedSkills[order], totalSkills[order]);
+
                         }
                     } else {
                         document.getElementById("loading").style.display = "none";

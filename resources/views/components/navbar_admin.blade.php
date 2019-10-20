@@ -54,10 +54,12 @@
                                 <!-- <a class="dropdown-item" href='route('employer.edit')'>
                                     Edit Profile
                                 </a>-->
-                                <a class="dropdown-item" href='{{route('admin.register')}}'>
-                                    Create new Administrator
-                                </a>
-                                <a class="dropdown-item" href="#"
+                                @if(Auth::guard('admin')->user()->isSuperAdmin)
+                                    <a id="add_Admin" class="dropdown-item" href='{{route('admin.register')}}'>
+                                        Create new Administrator
+                                    </a>
+                                @endif
+                                <a id="admin-logout" class="dropdown-item" href="#"
                                    onclick="event.preventDefault();document.querySelector('#admin-logout-form').submit();">
                                     Logout
                                 </a>
