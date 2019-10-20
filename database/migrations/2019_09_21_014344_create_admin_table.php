@@ -26,7 +26,7 @@ class CreateAdminTable extends Migration
         DB::table('admins')->insert([
             'name' => 'SuperAdmin',
             'username' => 'root',
-            'password' => bcrypt('password'),
+            'password' => bcrypt('Capstone2019'),
             'isSuperAdmin' => '1',
             'created_at' => date("Y-m-d H:i:s")
         ]);
