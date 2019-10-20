@@ -11,9 +11,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class EmployerAPIController extends Controller
+class EmployerMatchmakingController extends Controller
 {
-    //This controller is dedicated to returning job postings to the matchmaker
+    //This controller is dedicated to returning Job Seekers to the matchmaker based on filters/parameters
 
     // Create a new controller instance.
     public function __construct()
@@ -33,7 +33,7 @@ class EmployerAPIController extends Controller
             return $Users;
         }
 
-    //Get filtered user results (currently only filters by state)
+    //Get filtered user by STATE
     public function getUsersByStateFilter($state){
         $users = User::where('state', $state)->get();
         /* Populate an array of users*/
@@ -44,6 +44,7 @@ class EmployerAPIController extends Controller
         return $Users;
     }
 
+    //Get filtered user by CITY
     public function getUsersByCityFilter($city){
         $users = User::where('city', $city)->get();
         /* Populate an array of users*/
@@ -54,6 +55,7 @@ class EmployerAPIController extends Controller
         return $Users;
     }
 
+    //Get filtered user by STATE AND CITY
     public function getUsersByCityStateFilter($state, $city){
         $users = User::where('state', $state)->where('city', $city)->get();
         /* Populate an array of users*/

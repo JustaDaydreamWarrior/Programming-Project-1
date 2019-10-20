@@ -17,6 +17,9 @@
                              style="height: 120px; width: 120px; display: block;">
                         <p> Handshake is a web application dedicated to assisting employers and job seekers to connect
                             with one another with the click of a button!</p><br>
+
+                        <p> In order to get started, login, then navigate to the matchmaking page!, </p><br>
+
                     </div>
                 </div>
                 <div class="col-md-6" style="float: right;">
@@ -42,7 +45,7 @@
                 </div>
                 <div class="col-md-6" style="float: left;">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><strong>Benefits of using Handshake</strong></div>
+                        <div class="panel-heading"><strong>How to get started?</strong></div>
                         <div class="panel-body" align="left">
                             <strong>Employers:</strong>
                             <p>&bull; Find suitably skilled employees at the click of a button

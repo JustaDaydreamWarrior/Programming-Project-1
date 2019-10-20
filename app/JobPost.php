@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class JobPost extends Model
 {
+    //Technical skills a job seeker can possess
     protected $fillable = [
         'id',
         'title',
@@ -15,8 +16,8 @@ class JobPost extends Model
         'city',
         'java',
         'c',
-        'c#',
-        'c++',
+        'csharp',
+        'cplus',
         'php',
         'html',
         'css',
@@ -36,6 +37,7 @@ class JobPost extends Model
         'ruby',
         'powershell',
         'rust',
+        'android',
         'iOS',
         'adobe',
         'cloud',
@@ -50,7 +52,6 @@ class JobPost extends Model
 
     public function user()
     {
-        // return $this->belongsTo('App\User');
         return $this->belongsTo('App\Employer');
     }
 }
