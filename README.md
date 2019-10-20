@@ -1,4 +1,4 @@
-Programming Project 1 - Group 54
+<h1>Programming Project 1 - Group 54</h1>
 
 Installation / Getting Started:
 
