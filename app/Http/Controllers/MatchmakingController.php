@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class APIController extends Controller
+class MatchmakingController extends Controller
 {
     //This controller is dedicated to returning job postings to the matchmaker
 
@@ -35,7 +35,7 @@ class APIController extends Controller
         return $user;
     }
 
-    //Return a single job by ID. Currently unused
+    //Return a single job by ID.
     public function getJobPost($id)
     {
         $jobPost = JobPost::where('id', $id)->get();

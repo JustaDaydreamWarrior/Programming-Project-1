@@ -9,11 +9,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 use App\User;
 use App\Employer;
 use App\JobPost;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Auth\EmployerLoginController;
+
 // Controller Routes
 Route::get('/', 'PagesController@index')->name('home');
 
@@ -31,21 +33,15 @@ Route::get('/matches', 'PagesController@matchingJobs')->name('matches');
 
 Route::get('/email', 'EmailController@index')->name('support');
 
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::post('/email/send', 'EmailController@send');
 
 Route::resource('/jobPosts', 'JobPostsController')->names([
     'index' => 'employer.indexJobPost',
     'create' => 'employer.createJobPost',
     'edit' => 'employer.editJobPost'
 ]);
-
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-
-//POST routes
-Route::post('/email/send', 'EmailController@send');
-
-Route::post('/jobPosts/create', 'JobPostsController@store')->name('employer.createJob');
-
-Route::post('/jobPosts/update', 'JobPostsController@update')->name('employer.updateJob');
 
 // Employer Specific Routes
 Route::get('/employer/login', 'Auth\EmployerLoginController@showLoginForm')->name('employer.login');
@@ -56,7 +52,9 @@ Route::get('/employer/register', 'Auth\EmployerRegisterController@showRegisterFo
 
 Route::post('/employer/register', 'Auth\EmployerRegisterController@create')->name('employer.register.submit');
 
-Route::get('/employer/logout', function (){abort(403);}) ;
+Route::get('/employer/logout', function () {
+    abort(403);
+});
 Route::post('/employer/logout', 'Auth\EmployerLoginController@logout')->name('employer.logout');
 
 Route::get('/employer/dashboard', 'EmployerController@dashboard')->name('employer.dashboard');
@@ -64,7 +62,10 @@ Route::get('/employer', 'EmployerController@index')->name('employer.home');
 
 Route::get('/employer/employer_matches', 'EmployerController@matchingJobSeekers')->name('employer.matches');
 
+//Creating/editing job posts
+Route::post('/jobPosts/create', 'JobPostsController@store')->name('employer.createJob');
 
+Route::post('/jobPosts/update', 'JobPostsController@update')->name('employer.updateJob');
 
 // Admin routes
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -73,7 +74,9 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 Route::get('/admin/register', 'Auth\AdminRegisterController@showRegisterForm')->name('admin.register');
 Route::post('/admin/register', 'Auth\AdminRegisterController@create')->name('admin.register.submit');
 
-Route::get('/admin/logout', function (){abort(403);}) ;
+Route::get('/admin/logout', function () {
+    abort(403);
+});
 Route::post('/admin/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 
 Route::get('/admin/dashboard', 'AdminController@dashboard')->name('admin.dashboard');
@@ -104,51 +107,49 @@ Route::post('edit/employerprofiles/', 'EmployerProfileEditController@update')->n
 // Authentication Routes
 Auth::routes();
 //Search Bar in job listings
-Route::post('/searchemployer', function(){
+Route::post('/searchemployer', function () {
     $q = Input::get('q');
-    if($q != ' '){
+    if ($q != ' ') {
         $employer = Employer::where('company_name', 'LIKE', '%' . $q . '%')
             ->orWhere('contact_email', 'LIKE', '%' . $q . '%')
             ->get();
-        if(count($employer) > 0)
+        if (count($employer) > 0)
             return view('pages/searchemployerresult')->withDetails($employer)->withQuery($q);
     }
     return view('pages/searchemployerresult')->withMessage("No users were found in the database. Try again!");
 });
 
-Route::post('/searchjob', function(){
+Route::post('/searchjob', function () {
     $q = Input::get('q');
-    if($q != ' '){
+    if ($q != ' ') {
         $jobpost = JobPost::where('title', 'LIKE', '%' . $q . '%')
             ->orWhere('organisation', 'LIKE', '%' . $q . '%')
             ->get();
-        if(count($jobpost) > 0)
+        if (count($jobpost) > 0)
             return view('pages/searchjobresult')->withDetails($jobpost)->withQuery($q);
     }
     return view('pages/searchjobresult')->withMessage("No jobs were found in the database. Try again!");
 });
 
-// API Routes
-
-// API Routes (matchmaking) //
+// Matchmaking Routes //
 // Return currently authenticated user.
-    Route::get('/api/user', 'APIController@getUser')->name('getUser');
+Route::get('/api/user', 'MatchmakingController@getUser')->name('getUser');
 // Return a single user by id.
-    Route::get('/api/user/{id}/', 'APIController@getUserByID')->name('getUserByID');
+Route::get('/api/user/{id}/', 'MatchmakingController@getUserByID')->name('getUserByID');
 // Return job by ID.
-    Route::get('/api/jobPosts/{id}/', 'APIController@getJobPost')->name('getJobPost');
+Route::get('/api/jobPosts/{id}/', 'MatchmakingController@getJobPost')->name('getJobPost');
 // Return all jobs.
-    Route::get('/api/jobPosts/', 'APIController@getAllJobPosts')->name('getAllJobPosts');
+Route::get('/api/jobPosts/', 'MatchmakingController@getAllJobPosts')->name('getAllJobPosts');
 // Return jobs by state filter.
-    Route::get('/api/jobPosts/state/{state}', 'APIController@getJobPostsByFilter')->name('getJobPosts');
+Route::get('/api/jobPosts/state/{state}', 'MatchmakingController@getJobPostsByFilter')->name('getJobPosts');
 // Return all users.
-    Route::get('/api/users/', 'EmployerAPIController@getAllUsers')->name('getAllUsers');
+Route::get('/api/users/', 'EmployerMatchmakingController@getAllUsers')->name('getAllUsers');
 // Return users by state filter.
-    Route::get('/api/users/state/{state}', 'EmployerAPIController@getUsersByStateFilter')->name('getUsers');
+Route::get('/api/users/state/{state}', 'EmployerMatchmakingController@getUsersByStateFilter')->name('getUsers');
 // Return users by city filter.
-    Route::get('/api/users/city/{city}', 'EmployerAPIController@getUsersByCityFilter')->name('getUsers');
+Route::get('/api/users/city/{city}', 'EmployerMatchmakingController@getUsersByCityFilter')->name('getUsers');
 // Return users by city and state filter.
-    Route::get('/api/users/state/{state}/city/{city}', 'EmployerAPIController@getUsersByCityStateFilter')->name('getUsers');
+Route::get('/api/users/state/{state}/city/{city}', 'EmployerMatchmakingController@getUsersByCityStateFilter')->name('getUsers');
 
 
 

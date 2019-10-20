@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<!-- Matchmaking algorithm: Employer to Job Seeker -->
+<script src="{{ asset('js/employer_matchmaker.js') }}"></script>
 @section('content')
 
     <h1 align="center" class="mt-3 mb-3">Job Seeker Matchmaking</h1>
@@ -210,8 +211,7 @@
                             <label for="html" class="label.mdl-checkbox">HTML</label>
 
                             <div>
-                                <input id="html-hidden" type="hidden" class="" name="html"
-                                       value="0">
+                                <input id="html-hidden" type="hidden" class="" name="html" value="0">
                                 <input id="html" type="checkbox" class="" name="html"
                                        value="{{ old('html', 1) }}">
 
@@ -639,40 +639,26 @@
             <div class="card card-body bg-secondary p-3 mt-6 mb-6">
                 {{--Display an error if javascript isn't working, or enabled--}}
                 <div id="employer_noscript" align="center">
-                    <br><br>
                     <p><i style="font-size: 200px" class="" aria-hidden="true"></i></p>
-                    <br>
-                    <h2>JavaScript Error</h2>
-                    <p>An issue with javascript was found. Either JavaScript is not enabled, or the Matchmaker has
-                        issues..</p>
-                    <br><br>
+                    <p>Error! An issue with javascript was found!</p>
                 </div>
-                {{--Loading div. Used to display loading animation until first match is loaded to page. --}}
+                {{--Loading div. Used to display loading animation until matchmaking is complete --}}
                 <div id="employer_loading" style="display: none" align="center">
-                    <br><br>
                     <p><i style="font-size: 150px" class=""></i></p>
-                    <br>
                     <h2>Loading...</h2>
-                    <br><br>
                 </div>
                 {{--No matches found div--}}
                 <div id="employer_nomatch" style="display: none" align="center">
-                    <br><br>
                     <p><i style="font-size: 150px" class="" aria-hidden="true"></i></p>
-                    <br>
                     <h2>No Matches Found..</h2>
-                    <br><br>
                 </div>
                 {{--Undefined error div--}}
                 <div id="employer_error" style="display: none" align="center">
-                    <br><br>
                     <p><i style="font-size: 150px" class="" aria-hidden="true"></i></p>
-                    <br>
                     <h2>Error.</h2>
                     <p>An error occurred.</p>
-                    <br><br>
                 </div>
-                {{-- Match Div; div that holds a matched job seeker --}}
+                {{-- Match Div; div that holds each matched job seeker --}}
                 <div id="jobseeker"></div>
             </div>
         </div>
