@@ -46,4 +46,6 @@ php artisan migrate:fresh
 11. (OPTIONAL) Seeding the database
 Run php artisan db:seed command in project folder. This will create some users, job postings and employers in the recently created database.
 
+please refer to development guide if you need picture assistance with setup
+
 You are now ready to begin development with the system. We recommend and personally used phpstorm (https://www.jetbrains.com/phpstorm/) for development, but it is not a requirement.	
