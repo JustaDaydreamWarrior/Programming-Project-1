@@ -12,10 +12,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Matchmaking algorithim: JobSeeker to JobListing -->
-    <script src="{{ asset('js/matchmaker.js') }}"></script>
-    <!-- Matchmaking algorithim: Employer to Job Seeker -->
-    <script src="{{ asset('js/employer_matchmaker.js') }}"></script>
 
 
     <style type="text/css">

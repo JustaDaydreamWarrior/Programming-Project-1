@@ -40,6 +40,9 @@
                             <li class="nav-item">
                                 <a id="support" class="nav-link" href="{{ route('support') }}">Support</a>
                             </li>
+                            <li class="nav-item">
+                                <a id="employers" class="nav-link" href="{{ route('home') }}">JobSeeker Site</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- Login & registration Authentication Links -->

@@ -1,4 +1,238 @@
-// Group 54 employer_matchmaking .js for matching Job Seekers to Job Postings/Listings
+// Initialise HTML elements and call matchmaker
+function emp_init() {
+    //Parameters should be taken from employer_matches page, to be utilized in the matchmaker
+    document.getElementById("matchNow").addEventListener('click', start);
+    document.getElementById("employer_noscript").style.display = "none";
+    document.getElementById("employer_nomatch").style.display = "block";
+}
+
+function start() {
+    document.getElementById("jobseeker").innerHTML = "";
+    document.getElementById("employer_noscript").style.display = "none";
+    document.getElementById("employer_nomatch").style.display = "none";
+    document.getElementById("employer_error").style.display = "none";
+    document.getElementById("employer_loading").style.display = "block";
+    matchJobSeeker();
+}
+
+// Function to perform matchmaking
+function matchJobSeeker() {
+    var users;
+    var eduPref = 0;
+    var expPref = 0;
+    var eduWeight = 0.1;
+    var expWeight = 0.2;
+
+    // Check state and city filter on employer_matches page
+    if (document.getElementById("state").value !== "" && document.getElementById("city").value !== "") {
+        users = "/api/users/state/" + document.getElementById("state").value + "/city/" + document.getElementById("city").value;
+    } else if (document.getElementById("state").value !== "") {
+        users = "/api/users/state/" + document.getElementById("state").value;
+    } else if (document.getElementById("city").value !== "") {
+        users = "/api/users/city/" + document.getElementById("city").value;
+    }
+    //If there are no filters, get all users for matchmaking
+    else {
+        users = "/api/users/";
+    }
+
+    // Check experience/education preferences on matches page
+    if (document.getElementById("education").value !== "") {
+        eduPref = parseInt(document.getElementById("education").value);
+    }
+    if (document.getElementById("experience").value !== "") {
+        expPref = parseInt(document.getElementById("experience").value);
+    }
+
+    // Parameters entered as a binary string
+    let parameterBinaryString;
+
+    //Parameter binary string converted to int
+    let parameterInt;
+
+    //User indices
+    let user = [];
+
+    //Integers to compare
+    let userMatch = [];
+
+    //Percentage matches
+    let percentageMatch = [];
+
+    //No. matched skills
+    let totalMatchedSkills = [];
+
+    //No. total skills required
+    let totalSkills;
+
+    // Retrieve the employers skillset preference
+    // convert binary sequence of the employer preferenced skillset to integer ex. ( 01010010101110 )
+    parameterBinaryString =
+        +parseInt(document.getElementById("java").checked + 0) + "" +
+        +parseInt(document.getElementById("c").checked + 0) + "" +
+        +parseInt(document.getElementById("csharp").checked + 0) + "" +
+        +parseInt(document.getElementById("cplus").checked + 0) + "" +
+        +parseInt(document.getElementById("php").checked + 0) + "" +
+        +parseInt(document.getElementById("html").checked + 0) + "" +
+        +parseInt(document.getElementById("css").checked + 0) + "" +
+        +parseInt(document.getElementById("python").checked + 0) + "" +
+        +parseInt(document.getElementById("javascript").checked + 0) + "" +
+        +parseInt(document.getElementById("sql").checked + 0) + "" +
+        +parseInt(document.getElementById("unix").checked + 0) + "" +
+        +parseInt(document.getElementById("windows10").checked + 0) + "" +
+        +parseInt(document.getElementById("windows7").checked + 0) + "" +
+        +parseInt(document.getElementById("windowsOld").checked + 0) + "" +
+        +parseInt(document.getElementById("windowsServer").checked + 0) + "" +
+        +parseInt(document.getElementById("macOS").checked + 0) + "" +
+        +parseInt(document.getElementById("linux").checked + 0) + "" +
+        +parseInt(document.getElementById("android").checked + 0) + "" +
+        +parseInt(document.getElementById("iOS").checked + 0) + "" +
+        +parseInt(document.getElementById("bash").checked + 0) + "" +
+        +parseInt(document.getElementById("ciscoSystems").checked + 0) + "" +
+        +parseInt(document.getElementById("microsoftOffice").checked + 0) + "" +
+        +parseInt(document.getElementById("ruby").checked + 0) + "" +
+        +parseInt(document.getElementById("powershell").checked + 0) + "" +
+        +parseInt(document.getElementById("rust").checked + 0) + "" +
+        +parseInt(document.getElementById("adobe").checked + 0) + "" +
+        +parseInt(document.getElementById("cloud").checked + 0);
+
+    parameterInt = parseInt("" + parameterBinaryString, 2);
+
+    //Get the users from the url specified
+    $.getJSON(users, function (data) {
+
+        for (let i = 0; i < data.length; i++) {
+            user[i] = i;
+            // convert binary sequence of a Job Postings required skillset to integer ex. ( 01010010101110 )
+            userMatch[i] = parseInt("" +
+                data[i].java +
+                data[i].c +
+                data[i].csharp +
+                data[i].cplus +
+                data[i].php +
+                data[i].html +
+                data[i].css +
+                data[i].python +
+                data[i].javascript +
+                data[i].sql +
+                data[i].unix +
+                data[i].windows10 +
+                data[i].windows7 +
+                data[i].windowsOld +
+                data[i].windowsServer +
+                data[i].macOS +
+                data[i].linux +
+                data[i].android +
+                data[i].iOS +
+                data[i].bash +
+                data[i].ciscoSystems +
+                data[i].microsoftOffice +
+                data[i].ruby +
+                data[i].powershell +
+                data[i].rust +
+                data[i].adobe +
+                data[i].cloud, 2);
+
+            let matchCalc = parameterInt & userMatch[i];
+
+            let toBinary = (matchCalc).toString(2);
+
+            //Final no. of matched skills (remove all zeros and count string length)
+            let matchedSkills = toBinary.replace(/[^1]/g, "").length;
+            totalMatchedSkills[i] = matchedSkills;
+
+            // Calculate percentage match ( matched skills/amount of skills x 100 )
+            let countEmployer = parameterBinaryString.replace(/[^1]/g, "").length;
+            totalSkills = countEmployer;
+            percentageMatch[i] = (matchedSkills / countEmployer) * 100;
+
+            //Check length of the binary string with 0s removed. If they are both the same length, all skills match.
+            if (matchedSkills === countEmployer) {
+                percentageMatch[i] = 100;
+            }
+
+            //Calculate weighted percentage value, if required
+            var weighting = 1;
+            if (eduPref !== 0) {
+                if (data[i].education >= eduPref) {
+                    weighting += eduWeight
+                } else if (data[i].education < eduPref) {
+                    weighting -= eduWeight
+                }
+            }
+
+            if (expPref !== 0) {
+                if (data[i].experience >= expPref) {
+                    weighting += expWeight
+                } else if (data[i].education < expPref) {
+                    weighting -= expWeight
+                }
+            }
+            percentageMatch[i] = percentageMatch[i] * weighting;
+
+            //When percentage matches are over 100 for whatever reason, set those matches to 100
+            if (percentageMatch[i] > 100) {
+                percentageMatch[i] = 100;
+            }
+        }
+
+        //Bubble sort results; 100% matches at the top of the page.
+        //https://medium.com/javascript-algorithms/javascript-algorithms-bubble-sort-3d27f285c3b2
+        let swap;
+
+        do {
+            swap = false;
+
+            for (let i = 0; i < user.length - 1; i++) {
+                if (percentageMatch[i] < percentageMatch[i + 1]) {
+
+                    let tmpPercent = percentageMatch[i];
+                    percentageMatch[i] = percentageMatch[i + 1];
+                    percentageMatch[i + 1] = tmpPercent;
+
+                    let tmpUserId = user[i];
+                    user[i] = user[i + 1];
+                    user[i + 1] = tmpUserId;
+
+                    let tmpJobPost = userMatch[i];
+                    userMatch[i] = userMatch[i + 1];
+                    userMatch[i + 1] = tmpJobPost;
+
+                    swap = true;
+                }
+            }
+        }
+        while (swap);
+    })
+        .then(function () {
+
+            $.getJSON(users, function (data) {
+                if (data.length > 0) {
+
+                    for (let i = 0; i < data.length; i++) {
+                        printJobSeeker(
+                            data[user[i]].id,
+                            data[user[i]].name,
+                            data[user[i]].email,
+                            data[user[i]].state,
+                            data[user[i]].city,
+                            Math.round(percentageMatch[i]),
+                            totalMatchedSkills[user[i]],
+                            totalSkills);
+                    }
+                } else {
+                    document.getElementById("employer_loading").style.display = "none";
+                    document.getElementById("employer_nomatch").style.display = "block";
+                }
+            })
+            //Display any relevant errors on failure
+                .fail(function () {
+                    document.getElementById("employer_loading").style.display = "none";
+                    document.getElementById("employer_error").style.display = "block";
+
+                });
+        });
+}
 
 // Function to print a matched Job Seeker to panel in employer_matches view
 function printJobSeeker(id, name, email, state, city, percentageMatch, totalMatchedSkills, totalSkills) {
@@ -87,214 +321,6 @@ function printJobSeeker(id, name, email, state, city, percentageMatch, totalMatc
     display.appendChild(panel);
 
     document.getElementById("employer_loading").style.display = "none";
-}
-
-// Function to perform matchmaking
-function matchJobSeeker() {
-    var users;
-    var eduPref = 0;
-    var expPref = 0;
-    var eduWeight = 0.1;
-    var expWeight = 0.2;
-
-
-    // Check state and city filter on employer_matches page
-    if (document.getElementById("state").value !== "" && document.getElementById("city").value !== "") {
-        users = "/api/users/state/" + document.getElementById("state").value + "/city/" + document.getElementById("city").value;
-    } else if (document.getElementById("state").value !== "") {
-        users = "/api/users/state/" + document.getElementById("state").value;
-    } else if (document.getElementById("city").value !== "") {
-        users = "/api/users/city/" + document.getElementById("city").value;
-    }
-    //If there are no filters, get all users for matchmaking
-    else {
-        users = "/api/users/";
-    }
-
-
-    // Check experience/education preferences on matches page
-    if (document.getElementById("education").value !== "") {
-        eduPref = parseInt(document.getElementById("education").value);
-    }
-    if (document.getElementById("experience").value !== "") {
-        expPref = parseInt(document.getElementById("experience").value);
-    }
-
-
-    // Parameters entered as a binary string
-    var parameterBinaryString;
-
-    //Parameter binary string converted to int
-    var parameterInt;
-
-    // Array of user indices.
-    var user = [];
-
-    // integers to compare.
-    var userMatch = [];
-
-    // Percentage matches.
-    var percentageMatch = [];
-
-    //No. matched skills
-    var totalMatchedSkills = [];
-
-    //No. total skills required
-    var totalSkills;
-
-    // Retrieve the current user's data
-    // Retrieve the employer_match preferred skillset
-    // convert binary sequence of the employer preferenced skillset to integer ex. ( 01010010101110 )
-    parameterBinaryString =
-        +parseInt(document.getElementById("java").checked + 0) + "" +
-        +parseInt(document.getElementById("c").checked + 0) + "" +
-        +parseInt(document.getElementById("csharp").checked + 0) + "" +
-        +parseInt(document.getElementById("cplus").checked + 0) + "" +
-        +parseInt(document.getElementById("php").checked + 0) + "" +
-        +parseInt(document.getElementById("html").checked + 0) + "" +
-        +parseInt(document.getElementById("css").checked + 0) + "" +
-        +parseInt(document.getElementById("python").checked + 0) + "" +
-        +parseInt(document.getElementById("javascript").checked + 0) + "" +
-        +parseInt(document.getElementById("sql").checked + 0) + "" +
-        +parseInt(document.getElementById("unix").checked + 0) + "" +
-        +parseInt(document.getElementById("windows10").checked + 0) + "" +
-        +parseInt(document.getElementById("windows7").checked + 0) + "" +
-        +parseInt(document.getElementById("windowsOld").checked + 0) + "" +
-        +parseInt(document.getElementById("windowsServer").checked + 0) + "" +
-        +parseInt(document.getElementById("macOS").checked + 0) + "" +
-        +parseInt(document.getElementById("linux").checked + 0) + "" +
-        +parseInt(document.getElementById("android").checked + 0) + "" +
-        +parseInt(document.getElementById("iOS").checked + 0) + "" +
-        +parseInt(document.getElementById("bash").checked + 0) + "" +
-        +parseInt(document.getElementById("ciscoSystems").checked + 0) + "" +
-        +parseInt(document.getElementById("microsoftOffice").checked + 0) + "" +
-        +parseInt(document.getElementById("ruby").checked + 0) + "" +
-        +parseInt(document.getElementById("powershell").checked + 0) + "" +
-        +parseInt(document.getElementById("rust").checked + 0) + "" +
-        +parseInt(document.getElementById("adobe").checked + 0) + "" +
-        +parseInt(document.getElementById("cloud").checked + 0);
-
-    parameterInt = parseInt("" + parameterBinaryString, 2);
-
-    // Populate values into jobPostIndex, jobPostMatch and percentageMatch arrays.
-    $.getJSON(users, function (data) {
-
-        for (let i = 0; i < data.length; i++) {
-            user[i] = i;
-            // convert binary sequence of a Job Postings required skillset to integer ex. ( 01010010101110 )
-            userMatch[i] = parseInt("" + data[i].java + data[i].c + data[i].csharp + data[i].cplus + data[i].php + data[i].html + data[i].css + data[i].python + data[i].javascript + data[i].sql + data[i].unix + data[i].windows10 + data[i].windows7 + data[i].windowsOld + data[i].windowsServer + data[i].macOS + data[i].linux + data[i].android + data[i].iOS + data[i].bash + data[i].ciscoSystems + data[i].microsoftOffice + data[i].ruby + data[i].powershell + data[i].rust + data[i].adobe + data[i].cloud, 2);
-
-            let matchCalc = parameterInt & userMatch[i];
-
-            let toBinary = (matchCalc).toString(2);
-
-            //Final no. of matched skills (remove all zeros and count string length)
-            let matchedSkills = toBinary.replace(/[^1]/g, "").length;
-            totalMatchedSkills[i] = matchedSkills;
-
-            // Calculate percentage match ( matched skills/amount of skills x 100 )
-            let countEmployer = parameterBinaryString.replace(/[^1]/g, "").length;
-            totalSkills = countEmployer;
-            percentageMatch[i] = (matchedSkills / countEmployer) * 100;
-
-            //Check length of the binary string with 0s removed. If they are both the same length, all skills match.
-            if (matchedSkills === countEmployer) {
-                percentageMatch[i] = 100;
-            }
-
-            //Calculate weighted percentage value, if required
-            var weighting = 1;
-            if (eduPref !== 0) {
-                if (data[i].education >= eduPref) {
-                    weighting += eduWeight
-                } else if (data[i].education < eduPref) {
-                    weighting -= eduWeight
-                }
-            }
-
-            if (expPref !== 0) {
-                if (data[i].experience >= expPref) {
-                    weighting += expWeight
-                } else if (data[i].education < expPref) {
-                    weighting -= expWeight
-                }
-            }
-            percentageMatch[i] = percentageMatch[i] * weighting;
-
-            //When percentage matches are over 100 for whatever reason, set those matches to 100
-            if (percentageMatch[i] > 100) {
-                percentageMatch[i] = 100;
-            }
-        }
-
-        // Perform a bubble sort on the results; 100% matches at the top of the page.
-        // https://www.geeksforgeeks.org/bubble-sort/
-        let swap;
-
-        do {
-            swap = false;
-
-            for (let i = 0; i < user.length - 1; i++) {
-                if (percentageMatch[i] < percentageMatch[i + 1]) {
-
-                    let tmpPercent = percentageMatch[i];
-                    percentageMatch[i] = percentageMatch[i + 1];
-                    percentageMatch[i + 1] = tmpPercent;
-
-                    let tmpUserId = user[i];
-                    user[i] = user[i + 1];
-                    user[i + 1] = tmpUserId;
-
-                    let tmpJobPost = userMatch[i];
-                    userMatch[i] = userMatch[i + 1];
-                    userMatch[i + 1] = tmpJobPost;
-
-                    swap = true;
-                }
-            }
-        }
-        while (swap);
-    })
-        .then(function () {
-
-            $.getJSON(users, function (data) {
-                if (data.length > 0) {
-
-                    for (let i = 0; i < data.length; i++) {
-                        let order = user[i];
-                        printJobSeeker(data[order].id, data[order].name, data[order].email, data[order].state, data[order].city, Math.round(percentageMatch[i]), totalMatchedSkills[order], totalSkills);
-                    }
-                } else {
-                    document.getElementById("employer_loading").style.display = "none";
-                    document.getElementById("employer_nomatch").style.display = "block";
-                }
-            })
-            //Display any relevant errors on failure
-                .fail(function () {
-                    document.getElementById("employer_loading").style.display = "none";
-                    document.getElementById("employer_error").style.display = "block";
-
-                });
-        });
-}
-
-// Initialise HTML elements and call matchmaker
-function emp_init() {
-    //Parameters should be taken from employer_matches page, to be utilized in the matchmaker
-
-    document.getElementById("matchNow").addEventListener('click', start);
-    document.getElementById("employer_noscript").style.display = "none";
-    document.getElementById("employer_nomatch").style.display = "block";
-
-}
-
-function start() {
-    document.getElementById("jobseeker").innerHTML = "";
-    document.getElementById("employer_noscript").style.display = "none";
-    document.getElementById("employer_nomatch").style.display = "none";
-    document.getElementById("employer_error").style.display = "none";
-    document.getElementById("employer_loading").style.display = "block";
-    matchJobSeeker();
 }
 
 document.addEventListener('DOMContentLoaded', emp_init);

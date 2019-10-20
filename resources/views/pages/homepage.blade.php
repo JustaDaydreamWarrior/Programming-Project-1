@@ -3,11 +3,26 @@
 @section('title')
     {{$title}}
 @endsection
-
 @section('content')
+    <div class="container">
+        <div class="col-md-12 col-md-offset-10">
+            <div class="panel panel-default" align="center">
 
-
-
+                {{--Search Bar for Employer search --}}
+                <form action="/searchemployer" method="POST" role="search">
+                    {{ csrf_field() }}
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q"
+                               placeholder="Search for employer organisation or email">
+                        <span class="input-group-btn">
+                                <button type="submit" class="btn btn-secondary" style="align: center">
+                                    {{ __('Search') }}</button>
+                              </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-md-offset-10">
@@ -19,6 +34,23 @@
                         <p> Handshake is a web application dedicated to assisting employers and job seekers to connect
                             with one another with the click of a button!</p><br>
                     </div>
+                </div>.
+
+                    <div class="col-md-12" style="float: left;">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><strong>How to get started?</strong></div>
+                            <div class="panel-body" align="left">
+                                <strong>Employers:</strong>
+                                <p>&bull; Navigate to the Employer Site at the top of this page
+                                <p>&bull; Register an Employer account and log in
+                                <p>&bull; Get started finding relevant Job seekers or creating job listings!
+                                <p>&bull; Get Ready for those applications!
+                                    <br>
+                                    <br>
+                                    <strong>Job Seekers:</strong>
+                                <p>&bull; Register or Login to your account (up the top of the page)
+                                <p>&bull; Once logged in, navigate to the matching page and find the best jobs for you!
+                            </div>
                 </div>
                 <div class="col-md-6" style="float: right;">
                     <div class="panel panel-default">
@@ -63,27 +95,6 @@
         </div>
     </div>
 
-    <footer>
-
-        <div class="container">
-            <div class="col-md-12 col-md-offset-10">
-                <div class="panel panel-default" align="center">
-
-                    {{--Search Bar for Employer search --}}
-                        <form action="/searchemployer" method="POST" role="search">
-                            {{ csrf_field() }}
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="q"
-                                       placeholder="Search for employer organisation or email">
-                                <span class="input-group-btn">
-                                <button type="submit" class="btn btn-secondary" style="align: center">
-                                    {{ __('Search') }}</button>
-                              </span>
-                            </div>
-                        </form>
-                    </div>
-
-    </footer>
 
 @endsection
 

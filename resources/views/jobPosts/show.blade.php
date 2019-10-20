@@ -2,20 +2,22 @@
 
 @section('content')
     <div class="container">
-        <div class="col-md-12 col-md-offset-10">
+
             <div class="panel panel-default" align="center">
                 <h1>{{$jobPosts->title}}</h1>
                 <br>
+
                 <div>
-                    {!!$jobPosts->organisation!!}
+                    <b> Organisation: </b><br> {!!$jobPosts->organisation!!}<br>
                 </div>
                 <div>
-                    {!!$jobPosts->estSalary!!}
+                   <b> Estimated Salary: </b> <br>${!!$jobPosts->estSalary!!}<br>
+
                 </div>
-                <div>
-                    {!!$jobPosts->description!!}
+                <div class="col-md-6">
+                <b> Description: </b> <br>{!!$jobPosts->description!!}<br><br>
                 </div>
-                 <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->company_name}}</small>
+                <small>Written on {{$jobPosts->created_at}} by {{$jobPosts->company_name}}</small>
                 <br>
                 <small>Updated on {{$jobPosts->updated_at}}</small>
                 <hr>
@@ -23,21 +25,6 @@
                     <div class="col">
                         <a href="/jobPosts" class="btn btn-outline-dark mt-3 mb-3">Back</a>
                     </div>
-{{--                    @if(!Auth::guest())--}}
-{{--                        --}}{{-- @if(Auth::user()->id == $jobPosts->user_id) --}}
-{{--                        @if(Auth::guard('employer')->user()->id == $jobPosts->employer_id)--}}
-{{--                            <div class="col">--}}
-{{--                                <a href="/jobPosts/{{$jobPosts->id}}/edit" class="btn btn-outline-dark mt-3 mb-3">Edit</a>--}}
-{{--                            </div>--}}
-{{--                            <div class="col mt-3 mb-3">--}}
-
-{{--                                {!!Form::open(['action' => ['EmployerJobPostsController@destroy', $jobPosts->id], 'method' => 'POST'])!!}--}}
-{{--                                {{Form::hidden('_method', 'DELETE')}}--}}
-{{--                                {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}--}}
-{{--                                {!!Form::close()!!}--}}
-{{--                            </div>--}}
-{{--                        @endif--}}
-{{--                    @endif--}}
                 </div>
             </div>
         </div>
