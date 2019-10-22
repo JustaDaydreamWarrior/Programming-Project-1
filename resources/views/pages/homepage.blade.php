@@ -8,6 +8,7 @@
         <div class="col-md-12 col-md-offset-10">
             <div class="panel panel-default" align="center">
 
+
                 {{--Search Bar for Employer search --}}
                 <form action="/searchemployer" method="POST" role="search">
                     {{ csrf_field() }}
