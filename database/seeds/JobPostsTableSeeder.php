@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class JobPostsTableSeeder extends Seeder
+class jobpostsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class JobPostsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('jobPosts')->insert([
+        DB::table('jobposts')->insert([
             'id' => '1',
             'title' => 'IT Consultant',
             'organisation' => 'IBM',
@@ -56,7 +56,7 @@ class JobPostsTableSeeder extends Seeder
             'company_name' => "SilentRunner",
         ]);
 
-        DB::table('jobPosts')->insert([
+        DB::table('jobposts')->insert([
             'id' => '2',
             'title' => 'Java API Developer',
             'organisation' => 'Techadon',
@@ -103,7 +103,7 @@ class JobPostsTableSeeder extends Seeder
             'company_name' => "Group54",
         ]);
 
-        DB::table('jobPosts')->insert([
+        DB::table('jobposts')->insert([
             'id' => '3',
             'title' => 'Data Center Administrator',
             'organisation' => 'Atlassian',
@@ -147,7 +147,7 @@ class JobPostsTableSeeder extends Seeder
             'company_name' => "Group54",
         ]);
 
-        DB::table('jobPosts')->insert([
+        DB::table('jobposts')->insert([
             'id' => '4',
             'title' => 'IT Systems Administrator',
             'organisation' => 'HOBAN Recruitment',
@@ -192,7 +192,7 @@ class JobPostsTableSeeder extends Seeder
             'company_name' => "SilentRunner",
         ]);
 
-        DB::table('jobPosts')->insert([
+        DB::table('jobposts')->insert([
             'id' => '5',
             'title' => 'Junior IT Support Admin',
             'organisation' => 'Atlassian',

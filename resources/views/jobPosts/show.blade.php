@@ -23,7 +23,7 @@
                 <hr>
                 <div class="row">
                     <div class="col">
-                        <a href={{ URL::previous() }} class="btn btn-outline-dark mt-3 mb-3">Back</a>
+                        <a href={{ route('jobPosts') }} class="btn btn-outline-dark mt-3 mb-3">Back</a>
                     </div>
                 </div>
             </div>
