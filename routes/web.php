@@ -38,7 +38,6 @@ Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 Route::post('/email/send', 'EmailController@send');
 
 Route::resource('/jobPosts', 'JobPostsController')->names([
-    'index' => 'employer.indexJobPost',
     'create' => 'employer.createJobPost',
     'edit' => 'employer.editJobPost'
 ]);
