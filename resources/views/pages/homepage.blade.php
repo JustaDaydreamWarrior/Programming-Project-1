@@ -4,26 +4,7 @@
     {{$title}}
 @endsection
 @section('content')
-    <div class="container">
-        <div class="col-md-12 col-md-offset-10">
-            <div class="panel panel-default" align="center">
 
-
-                {{--Search Bar for Employer search --}}
-                <form action="/searchemployer" method="POST" role="search">
-                    {{ csrf_field() }}
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="q"
-                               placeholder="Search for employer organisation or email">
-                        <span class="input-group-btn">
-                                <button type="submit" class="btn btn-secondary" style="align: center">
-                                    {{ __('Search') }}</button>
-                              </span>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-md-offset-10">
@@ -92,6 +73,18 @@
                         </div>
                     </div>
                 </div>
+                        {{--Search Bar for Employer search --}}
+                        <form action="/searchemployer" method="POST" role="search">
+                            {{ csrf_field() }}
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="q"
+                                       placeholder="Search for employer organisation or email">
+                                <span class="input-group-btn">
+                                <button type="submit" class="btn btn-secondary" style="align: center">
+                                    {{ __('Search') }}</button>
+                              </span>
+                            </div>
+                        </form>
             </div>
         </div>
     </div>
