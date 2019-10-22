@@ -9,13 +9,13 @@
             <div class="panel panel-default" align="center">
                 <div class="panel-heading"><strong>Jobs</strong></div>
 
-                {{--Search Bar --}}
+                {{--Search Bar for searching a job --}}
                 <div class="searchBar">
-                    <form action="/search" method="POST" role="search">
+                    <form action="/searchjob" method="POST" role="search">
                         {{ csrf_field() }}
                         <div class="input-group">
                             <input type="text" class="form-control" name="q"
-                                   placeholder="Search for employer organisation or email">
+                                   placeholder="Search for a job">
                             <span class="input-group-btn">
                                 <button type="submit" class="btn btn-secondary" style="align: center">
                                     {{ __('Search') }}</button>
