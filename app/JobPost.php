@@ -44,7 +44,7 @@ class JobPost extends Model
     ];
 
     //Table name
-    protected $table = 'jobPosts';
+    protected $table = 'jobposts';
     //primary key
     public $primaryKey = 'id';
     //timestamps
