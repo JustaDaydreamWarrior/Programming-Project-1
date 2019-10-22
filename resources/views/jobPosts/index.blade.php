@@ -9,7 +9,7 @@
             <div class="panel panel-default" align="center">
                 <div class="panel-heading"><strong>Jobs</strong></div>
 
-                {{--Search Bar for Job search --}}
+                {{--Search Bar for searching a job --}}
                 <div class="searchBar">
                     <form action="/searchjob" method="POST" role="search">
                         {{ csrf_field() }}
